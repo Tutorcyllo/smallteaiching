@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bridging Medical Schools – UVa × ZJU Summer Course 2026</title>
+<style>
+  :root{
+    --uva-blue:#1A4A8A;
+    --uva-purple:#B5006E;
+    --zju-blue:#003F88;
+    --zju-red:#B01F24;
+    --gold:#C9A84C;
+    --white:#fff;
+    --dark:#1a1a2e;
+    --text:#2d2d2d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.7;font-size:16px}
+
+  /* ── HERO ── */
+  .hero{
+    background:linear-gradient(135deg,var(--zju-blue) 0%,var(--uva-blue) 55%,var(--uva-purple) 100%);
+    color:#fff;padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-logos{display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:28px;flex-wrap:wrap;position:relative}
+  .hero-logo{
+    border:1.5px solid rgba(255,255,255,0.35);border-radius:12px;
+    padding:14px 18px;font-weight:700;color:#fff;
+    width:clamp(150px,40vw,210px);min-height:90px;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  }
+  .hero-logo .acro{font-size:clamp(1.3rem,5vw,1.7rem);font-weight:900;letter-spacing:2px;display:block;margin-bottom:4px}
+  .hero-logo .name{font-size:clamp(.72rem,2.2vw,.85rem);font-weight:600;opacity:.92;line-height:1.4}
+  .hero h1{font-size:clamp(1.25rem,4vw,2.5rem);font-weight:800;line-height:1.25;max-width:820px;margin:0 auto 10px;position:relative}
+  .hero h1.zh{font-size:clamp(1rem,3vw,1.75rem);font-weight:700;opacity:.88;margin-bottom:18px}
+  .hero .subtitle{font-size:clamp(.85rem,2.5vw,1rem);opacity:.9;margin:4px auto;max-width:600px;position:relative}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative}
+  .badge{background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.4);border-radius:30px;padding:5px 14px;font-size:clamp(.78rem,2vw,.9rem);font-weight:600}
+
+  /* ── INTRO ── */
+  .intro{padding:40px 20px;border-bottom:3px solid var(--gold);max-width:1100px;margin:0 auto}
+  .bi{display:flex;gap:24px}
+  .bi .en-col{flex:1;padding-right:12px;border-right:2px solid #e0e0e0}
+  .bi .zh-col{flex:1;padding-left:12px}
+  .bi p{font-size:clamp(.85rem,2vw,.98rem);color:#444}
+
+  /* ── SECTION TITLE ── */
+  .section-title{text-align:center;padding:44px 20px 8px;font-size:clamp(1.1rem,3vw,1.8rem);font-weight:800;color:#B5006E}
+  .section-title .zh-sub{display:block;font-size:.7em;color:#888;font-weight:500;margin-top:4px}
+  .section-title::after{content:'';display:block;width:60px;height:4px;background:var(--gold);margin:10px auto 0;border-radius:2px}
+
+  /* ── BLOCKS ── */
+  .blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:30px auto;padding:0 20px 20px}
+  .block-card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;border:1px solid #e8eaf0;transition:transform .25s,box-shadow .25s}
+  .block-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.13)}
+  .block-header{padding:20px 22px 14px;color:#fff}
+  .block-card:nth-child(1) .block-header{background:linear-gradient(135deg,#B5006E,#c4257f)}
+  .block-card:nth-child(2) .block-header{background:linear-gradient(135deg,#9a0060,#b5186f)}
+  .block-card:nth-child(3) .block-header{background:linear-gradient(135deg,#7d0050,#9a1262)}
+  .block-card:nth-child(4) .block-header{background:linear-gradient(135deg,#5e0040,#7a0a50)}
+  .block-num{font-size:.75rem;font-weight:700;letter-spacing:1.5px;opacity:.8;text-transform:uppercase;margin-bottom:4px}
+  .block-title{font-size:clamp(1.1rem,2.8vw,1.35rem);font-weight:800;line-height:1.3;transition:transform .3s ease;display:inline-block}
+  .block-card:nth-child(1):hover .block-title{transform:translateX(8px)}
+  .block-card:nth-child(2):hover .block-title{transform:translateX(14px)}
+  .block-card:nth-child(3):hover .block-title{transform:translateX(20px)}
+  .block-card:nth-child(4):hover .block-title{transform:translateX(26px)}
+  .block-title-zh{font-size:.88rem;font-weight:600;opacity:.85;margin-top:3px}
+  .block-week{font-size:.78rem;opacity:.75;margin-top:5px}
+  .block-body{padding:18px 22px;flex:1;display:flex;flex-direction:column}
+  .block-desc{font-size:.88rem;color:#555;margin-bottom:6px}
+  .block-desc-zh{font-size:.82rem;color:#777;margin-bottom:12px;font-style:italic}
+  .block-items{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .block-items li{display:flex;align-items:flex-start;gap:7px;font-size:.85rem;color:#333}
+  .block-items li::before{content:'›';font-weight:700;font-size:1rem;flex-shrink:0}
+  .block-card:nth-child(1) .block-items li::before{color:#B5006E}
+  .block-card:nth-child(2) .block-items li::before{color:#9a0060}
+  .block-card:nth-child(3) .block-items li::before{color:#7d0050}
+  .block-card:nth-child(4) .block-items li::before{color:#5e0040}
+  .item-zh{display:block;font-size:.76rem;color:#999;margin-top:1px}
+
+  /* ── SCHEDULE ── */
+  .schedule-wrap{max-width:1100px;margin:0 auto 60px;padding:0 20px}
+  .week-title{font-size:clamp(.88rem,2.5vw,1rem);font-weight:700;margin:28px 0 10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .week-title .zh{font-size:.85em;color:#888;font-weight:500}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,.12);border:2px solid #B5006E}
+  table{width:100%;border-collapse:collapse;font-size:clamp(.72rem,1.8vw,.84rem);min-width:480px}
+  th{background:#B5006E;color:#fff;padding:10px 8px;text-align:center;font-weight:700;border:1px solid rgba(255,255,255,0.2)}
+  td{padding:9px 8px;border:1.5px solid #f0d0e4;text-align:center;vertical-align:top;line-height:1.45}
+  tr:nth-child(even) td{background:#fdf5fa}
+  td:first-child{font-weight:700;color:#B5006E;background:#fce8f3 !important;border-right:2px solid #B5006E;white-space:nowrap;min-width:80px}
+  .tag{display:inline-block;border-radius:5px;padding:2px 6px;font-size:.73rem;font-weight:600;margin:2px 1px}
+  .tag-blue{background:#dbeafe;color:#1d4ed8}
+  .tag-purple{background:#f3e8ff;color:#7c3aed}
+  .tag-red{background:#fee2e2;color:#b91c1c}
+  .tag-green{background:#dcfce7;color:#15803d}
+  .zh-small{display:block;font-size:.7rem;color:#888;margin-top:2px}
+
+  /* ── FOOTER ── */
+  footer{background:var(--dark);color:#aaa;text-align:center;padding:32px 20px;font-size:clamp(.8rem,2vw,.9rem)}
+  .foot-logos{display:flex;justify-content:center;gap:24px;margin-bottom:14px;flex-wrap:wrap}
+  .foot-logo{color:#ccc;font-weight:700;font-size:.92rem}
+  .foot-logo span{display:block;font-size:.75rem;font-weight:400;color:#888;margin-top:2px}
+
+  /* ── RESPONSIVE BREAKPOINTS ── */
+  @media(max-width:768px){
+    .bi{flex-direction:column}
+    .bi .en-col{border-right:none;border-bottom:2px solid #e0e0e0;padding:0 0 14px}
+    .bi .zh-col{padding:14px 0 0}
+    .blocks{grid-template-columns:1fr}
+    .foot-logos{flex-direction:column;align-items:center;gap:16px}
+  }
+  @media(max-width:480px){
+    .hero{padding:44px 16px 36px}
+    .hero-logo{width:clamp(130px,44vw,180px);min-height:80px;padding:10px 12px}
+    .badges .badge{font-size:.74rem;padding:4px 10px}
+    .intro{padding:28px 16px}
+    .blocks{padding:0 14px 14px}
+    .schedule-wrap{padding:0 12px}
+    .section-title{padding:32px 16px 6px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-logos">
+    <div class="hero-logo" style="background:#B5006E;border-color:#B5006E">
+      <span class="acro">UVa</span>
+      <span class="name">University of Valladolid<br>School of Medicine</span>
+    </div>
+    <div class="hero-logo" style="background:#fff;border:2px solid var(--zju-blue);color:var(--zju-blue);">
+      <span class="acro" style="color:var(--zju-blue)">ZJU</span>
+      <span class="name" style="color:var(--zju-blue)">Zhejiang University<br>School of Medicine</span>
+    </div>
+  </div>
+
+  <h1>Bridging Medical Schools:<br>Western Clinical Immersion in Spain<br>for Traditional Chinese Medicine Students</h1>
+  <h1 class="zh">医学院交流项目：中医学生西班牙西方临床沉浸课程</h1>
+
+  <p class="subtitle">A four-week intensive summer programme — July 2026 · Valladolid, Spain</p>
+  <p class="subtitle">四周强化暑期课程 — 2026年7月 · 西班牙巴利亚多利德</p>
+
+  <div class="badges">
+    <span class="badge">🗓 July 2026 · 2026年7月</span>
+    <span class="badge">📍 Valladolid, Spain · 西班牙巴利亚多利德</span>
+    <span class="badge">⏱ 4 Weeks · 4周</span>
+    <span class="badge">🎓 Medicine & TCM · 医学与中医</span>
+  </div>
+</section>
+
+<!-- ═══ INTRO ═══ -->
+<div class="intro">
+  <div class="bi">
+    <div class="en-col">
+      <p>This programme offers TCM students from Zhejiang University School of Medicine an immersive encounter with Western biomedical education and clinical practice, hosted by the Faculty of Medicine of the University of Valladolid. Over four structured weeks, participants will explore anatomy, physiology, and pharmacology; learn the Western clinical method enriched by AI tools; shadow hospital teams in real clinical settings; and engage in a meaningful dialogue between Traditional Chinese Medicine and Western Medicine.</p>
+    </div>
+    <div class="zh-col">
+      <p>本项目由巴利亚多利德大学医学院承办，为浙江大学医学院中医专业学生提供与西方生物医学教育及临床实践深度融合的沉浸式体验。在四周结构化课程中，学员将探索解剖学、生理学与药理学，学习融合人工智能工具的西方临床方法，在真实临床环境中跟随医院团队实习，并开展传统中医与西方医学之间富有意义的对话。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BLOCKS ═══ -->
+<h2 class="section-title">Programme Structure <span class="zh-sub">课程结构</span></h2>
+<div class="blocks">
+
+  <div class="block-card">
+    <div class="block-header">
+      <div class="block-num">Block I · Week 1 · 第一模块·第一周</div>
+      <div class="block-title">Biomedical Foundations Bootcamp</div>
+      <div class="block-title-zh">生物医学基础强化营</div>
+      <div class="block-week">Morning theory + morning lab practicals · 上午理论课 + 上午实验实践</div>
+    </div>
+    <div class="block-body">
+      <p class="block-desc">Morning theory sessions provide a "big-picture" overview of each discipline — its core concepts, current role in modern medicine, and major evolutionary directions — followed by morning lab-style practicals connecting mechanisms with real clinical examples.</p>
+      <p class="block-desc-zh">上午理论课以宏观视角介绍每门学科的核心概念、在现代医学中的地位及主要发展方向，随后进行实验式实践课，将理论机制与真实临床案例相结合。</p>
+      <ul class="block-items">
+        <li><strong>Day 1:</strong> Anatomy — structure & clinical relevance<span class="item-zh"><strong>第一天：</strong>解剖学 — 结构与临床意义</span></li>
+        <li><strong>Day 2:</strong> Physiology — core regulatory systems<span class="item-zh"><strong>第二天：</strong>生理学 — 核心调节系统</span></li>
+        <li><strong>Day 3:</strong> Cell Biology & Immunology<span class="item-zh"><strong>第三天：</strong>细胞生物学与免疫学</span></li>
+        <li><strong>Day 4:</strong> Microbiology — pathogens & host defence<span class="item-zh"><strong>第四天：</strong>微生物学 — 病原体与宿主防御</span></li>
+        <li><strong>Day 5:</strong> Pharmacology — drug mechanisms & safety<span class="item-zh"><strong>第五天：</strong>药理学 — 药物机制与安全性</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block-card">
+    <div class="block-header">
+      <div class="block-num">Block II · Week 2 · 第二模块·第二周</div>
+      <div class="block-title">Clinical Medicine Toolbox</div>
+      <div class="block-title-zh">临床医学工具箱</div>
+      <div class="block-week">Five focused workshops & interactive days · 五个专题工作坊与互动日</div>
+    </div>
+    <div class="block-body">
+      <p class="block-desc">A deep dive into how Western clinical care is practised: the Osler clinical method augmented by AI, surgery pathways and hands-on skills, simulation-based acute care, and problem-based learning through evolving clinical scenarios.</p>
+      <p class="block-desc-zh">深入了解西方临床医疗实践：融合人工智能的奥斯勒临床方法、外科诊疗路径与动手操作技能、基于模拟的急症救护，以及通过动态临床场景开展的问题导向学习。</p>
+      <ul class="block-items">
+        <li><strong>Day 6:</strong> Osler clinical method & AI-assisted diagnosis<span class="item-zh"><strong>第六天：</strong>奥斯勒临床方法与人工智能辅助诊断</span></li>
+        <li><strong>Day 7:</strong> Surgery overview + suturing skills workshop<span class="item-zh"><strong>第七天：</strong>外科概述 + 缝合技能工作坊</span></li>
+        <li><strong>Day 8:</strong> Medical simulation — acute care & teamwork<span class="item-zh"><strong>第八天：</strong>医学模拟 — 急症救护与团队协作</span></li>
+        <li><strong>Day 9:</strong> Problem Based Learning (PBL) session 1 — evolving clinical case<span class="item-zh"><strong>第九天：</strong>问题导向学习（PBL）第一节 — 动态临床案例</span></li>
+        <li><strong>Day 10:</strong> Problem Based Learning (PBL) session 2 — differential & management<span class="item-zh"><strong>第十天：</strong>问题导向学习（PBL）第二节 — 鉴别诊断与处理</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block-card">
+    <div class="block-header">
+      <div class="block-num">Block III · Week 3 · 第三模块·第三周</div>
+      <div class="block-title">Hospital Observership</div>
+      <div class="block-title-zh">医院见习</div>
+      <div class="block-week">09:00–13:00 daily · paired shadowing · 每日09:00–13:00·双人跟随见习</div>
+    </div>
+    <div class="block-body">
+      <p class="block-desc">Students work in pairs, each assigned to a clinical team for the full week. They observe ward rounds, outpatient clinics, documentation, interprofessional communication, patient safety routines, and real-time clinical decision-making, followed by a daily debrief.</p>
+      <p class="block-desc-zh">学员两人一组，每组全周跟随一个临床团队。观察查房、门诊、病历记录、跨专业沟通、患者安全规程及实时临床决策过程，每日进行小组汇报。</p>
+      <ul class="block-items">
+        <li><strong>Days 11–15:</strong> Daily ward rounds & outpatient observation<span class="item-zh"><strong>第11–15天：</strong>每日查房与门诊观察</span></li>
+        <li>Clinical documentation & EMR workflow<span class="item-zh">临床病历记录与电子病历流程</span></li>
+        <li>Interprofessional team communication<span class="item-zh">跨专业团队沟通</span></li>
+        <li>Patient safety culture & practices<span class="item-zh">患者安全文化与实践</span></li>
+        <li>Daily group debrief (reflective learning)<span class="item-zh">每日小组汇报（反思性学习）</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block-card">
+    <div class="block-header">
+      <div class="block-num">Block IV · Week 4 · 第四模块·第四周</div>
+      <div class="block-title">TCM–Western Exchange & Madrid</div>
+      <div class="block-title-zh">中西医交流与马德里文化体验</div>
+      <div class="block-week">Academic exchange + cultural activities · 学术交流 + 文化活动</div>
+    </div>
+    <div class="block-body">
+      <p class="block-desc">Two mornings of student-led presentations and moderated debate comparing TCM with Western medicine through shared clinical scenarios. The week closes with three mornings of leisure and cultural activities in Madrid.</p>
+      <p class="block-desc-zh">两个上午由学生主导演讲，围绕共同临床场景开展中西医对比讨论。课程以三个上午在马德里的休闲文化活动圆满收尾。</p>
+      <ul class="block-items">
+        <li><strong>Day 16:</strong> TCM Foundations — student presentations<span class="item-zh"><strong>第16天：</strong>中医基础 — 学生演讲</span></li>
+        <li><strong>Day 17:</strong> TCM in Modern China + Real clinical cases: TCM meets Western Medicine<span class="item-zh"><strong>第17天：</strong>中医在现代中国 + 真实案例：中西医结合</span></li>
+        <li><strong>Days 18–20:</strong> Madrid cultural immersion<span class="item-zh"><strong>第18–20天：</strong>马德里文化体验</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ SCHEDULE ═══ -->
+<h2 class="section-title">Weekly Schedule <span class="zh-sub">每周课程一览</span></h2>
+<div class="schedule-wrap">
+
+  <div class="week-title" style="color:#B5006E">📅 Week 1 — Biomedical Foundations Bootcamp <span class="zh">第一周 — 生物医学基础强化营</span></div>
+  <div class="table-scroll">
+  <table>
+    <thead><tr>
+      <th></th>
+      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
+      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
+      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
+      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
+      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>09:00–10:40</td>
+        <td><span class="tag tag-blue">Anatomy Theory</span><span class="zh-small">解剖学理论</span></td>
+        <td><span class="tag tag-blue">Physiology Theory</span><span class="zh-small">生理学理论</span></td>
+        <td><span class="tag tag-blue">Cell Biology & Immunity</span><span class="zh-small">细胞生物学与免疫学</span></td>
+        <td><span class="tag tag-blue">Microbiology Theory</span><span class="zh-small">微生物学理论</span></td>
+        <td><span class="tag tag-blue">Pharmacology Theory</span><span class="zh-small">药理学理论</span></td>
+      </tr>
+      <tr>
+        <td>10:40–11:20</td>
+        <td colspan="5" style="text-align:center"><span class="tag tag-green">Clinical Link Bridge Session</span><span class="zh-small">临床衔接讨论</span></td>
+      </tr>
+      <tr>
+        <td>11:20–13:00</td>
+        <td><span class="tag tag-purple">Anatomy Lab</span><span class="zh-small">解剖学实验</span></td>
+        <td><span class="tag tag-purple">Physiology Lab</span><span class="zh-small">生理学实验</span></td>
+        <td><span class="tag tag-purple">Immunology Lab</span><span class="zh-small">免疫学实验</span></td>
+        <td><span class="tag tag-purple">Microbiology Lab</span><span class="zh-small">微生物学实验</span></td>
+        <td><span class="tag tag-purple">Pharmacology Lab</span><span class="zh-small">药理学实验</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="week-title" style="color:#9a0060">📅 Week 2 — Clinical Medicine Toolbox <span class="zh">第二周 — 临床医学工具箱</span></div>
+  <div class="table-scroll">
+  <table>
+    <thead><tr>
+      <th></th>
+      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
+      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
+      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
+      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
+      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>Morning<br><span style="font-size:.78em;color:#888">上午</span></td>
+        <td><span class="tag tag-blue">Clinical Method</span><span class="zh-small">临床方法</span><span class="tag tag-green">AI in Medicine</span><span class="zh-small">人工智能辅助诊断</span></td>
+        <td><span class="tag tag-blue">Surgery Overview</span><span class="zh-small">外科概述</span><span class="tag tag-purple">Suturing Workshop</span><span class="zh-small">缝合技能工作坊</span></td>
+        <td><span class="tag tag-red">Simulation — Acute Care</span><span class="zh-small">模拟急症救护</span><span class="tag tag-green">Teamwork Skills</span><span class="zh-small">团队协作技能</span></td>
+        <td><span class="tag tag-blue">Problem Based Learning (PBL) Session 1</span><span class="zh-small">问题导向学习（PBL）第一节</span></td>
+        <td><span class="tag tag-blue">Problem Based Learning (PBL) Session 2</span><span class="zh-small">问题导向学习（PBL）第二节</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="week-title" style="color:#7d0050">📅 Week 3 — Hospital Observership <span class="zh">第三周 — 医院见习</span></div>
+  <div class="table-scroll">
+  <table>
+    <thead><tr>
+      <th></th>
+      <th>Monday – Friday<br><span style="font-size:.75em;opacity:.8">周一至周五</span></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>09:00–13:00</td>
+        <td><span class="tag tag-purple">Hospital Shadowing in pairs — ward rounds, clinics, documentation, patient safety</span><span class="zh-small">双人医院跟随见习 — 查房、门诊、病历记录、患者安全</span></td>
+      </tr>
+      <tr>
+        <td>13:00–13:30</td>
+        <td><span class="tag tag-green">Daily Group Debrief</span><span class="zh-small">每日小组汇报</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="week-title" style="color:#5e0040">📅 Week 4 — TCM–Western Exchange & Madrid <span class="zh">第四周 — 中西医交流与马德里文化体验</span></div>
+  <div class="table-scroll">
+  <table>
+    <thead><tr>
+      <th></th>
+      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
+      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
+      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
+      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
+      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>Morning<br><span style="font-size:.78em;color:#888">上午</span></td>
+        <td><span class="tag tag-red">TCM Foundations</span><span class="zh-small">中医基础</span><span class="tag tag-blue">Student Talks</span><span class="zh-small">学生演讲</span></td>
+        <td><span class="tag tag-red">TCM in Modern China</span><span class="zh-small">中医在现代中国</span><span class="tag tag-purple">Real Cases: TCM & Western Medicine</span><span class="zh-small">真实案例：中西医结合</span></td>
+        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
+        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
+        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="foot-logos">
+    <div class="foot-logo">
+      University of Valladolid · 巴利亚多利德大学
+      <span>School of Medicine · Valladolid, Spain · 西班牙巴利亚多利德</span>
+      <span>e-mail: <a href="mailto:decanato.med@uva.es" style="color:#aaa;text-decoration:underline">decanato.med@uva.es</a></span>
+    </div>
+    <div style="color:#555;align-self:center;font-size:1.4rem">×</div>
+    <div class="foot-logo">
+      Zhejiang University · 浙江大学
+      <span>School of Medicine · Hangzhou, China · 中国杭州</span>
+    </div>
+  </div>
+  <p>Summer Course · July 2026 · Valladolid, Spain &nbsp;|&nbsp; 暑期课程 · 2026年7月 · 西班牙巴利亚多利德</p>
+  <p style="margin-top:6px;font-size:.78rem;color:#666">Informational page — no registration available at this time · 本页面为信息展示页，暂不提供报名功能</p>
+</footer>
+
+</body>
+</html>
