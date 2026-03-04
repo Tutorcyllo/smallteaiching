@@ -1,382 +1,1089 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Bridging Medical Schools – UVa × ZJU Summer Course 2026</title>
-<style>
-  :root{
-    --uva-blue:#1A4A8A;
-    --uva-purple:#B5006E;
-    --zju-blue:#003F88;
-    --zju-red:#B01F24;
-    --gold:#C9A84C;
-    --white:#fff;
-    --dark:#1a1a2e;
-    --text:#2d2d2d;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.7;font-size:16px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small TeAIching — Menú</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── HERO ── */
-  .hero{
-    background:linear-gradient(135deg,var(--zju-blue) 0%,var(--uva-blue) 55%,var(--uva-purple) 100%);
-    color:#fff;padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden;
-  }
-  .hero::before{
-    content:'';position:absolute;inset:0;
-    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero-logos{display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:28px;flex-wrap:wrap;position:relative}
-  .hero-logo{
-    border:1.5px solid rgba(255,255,255,0.35);border-radius:12px;
-    padding:14px 18px;font-weight:700;color:#fff;
-    width:clamp(150px,40vw,210px);min-height:90px;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-  }
-  .hero-logo .acro{font-size:clamp(1.3rem,5vw,1.7rem);font-weight:900;letter-spacing:2px;display:block;margin-bottom:4px}
-  .hero-logo .name{font-size:clamp(.72rem,2.2vw,.85rem);font-weight:600;opacity:.92;line-height:1.4}
-  .hero h1{font-size:clamp(1.25rem,4vw,2.5rem);font-weight:800;line-height:1.25;max-width:820px;margin:0 auto 10px;position:relative}
-  .hero h1.zh{font-size:clamp(1rem,3vw,1.75rem);font-weight:700;opacity:.88;margin-bottom:18px}
-  .hero .subtitle{font-size:clamp(.85rem,2.5vw,1rem);opacity:.9;margin:4px auto;max-width:600px;position:relative}
-  .badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative}
-  .badge{background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.4);border-radius:30px;padding:5px 14px;font-size:clamp(.78rem,2vw,.9rem);font-weight:600}
+    :root {
+      --white:    #FFFFFF;
+      --gray-lt:  #CCCCCC;
+      --gray-mid: #777777;
+      --gray-bg:  #F5F5F5;
+      --red:      #c60046;
+      --blue:     #003973;
+      --divider:  #CCCCCC;
+      --hover-bg: #EEF3FA;
+    }
 
-  /* ── INTRO ── */
-  .intro{padding:40px 20px;border-bottom:3px solid var(--gold);max-width:1100px;margin:0 auto}
-  .bi{display:flex;gap:24px}
-  .bi .en-col{flex:1;padding-right:12px;border-right:2px solid #e0e0e0}
-  .bi .zh-col{flex:1;padding-left:12px}
-  .bi p{font-size:clamp(.85rem,2vw,.98rem);color:#444}
+    html { scroll-behavior: smooth; }
 
-  /* ── SECTION TITLE ── */
-  .section-title{text-align:center;padding:44px 20px 8px;font-size:clamp(1.1rem,3vw,1.8rem);font-weight:800;color:#B5006E}
-  .section-title .zh-sub{display:block;font-size:.7em;color:#888;font-weight:500;margin-top:4px}
-  .section-title::after{content:'';display:block;width:60px;height:4px;background:var(--gold);margin:10px auto 0;border-radius:2px}
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      background: var(--white);
+      color: var(--blue);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  /* ── BLOCKS ── */
-  .blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:30px auto;padding:0 20px 20px}
-  .block-card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;border:1px solid #e8eaf0;transition:transform .25s,box-shadow .25s}
-  .block-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.13)}
-  .block-header{padding:20px 22px 14px;color:#fff}
-  .block-card:nth-child(1) .block-header{background:linear-gradient(135deg,#B5006E,#c4257f)}
-  .block-card:nth-child(2) .block-header{background:linear-gradient(135deg,#9a0060,#b5186f)}
-  .block-card:nth-child(3) .block-header{background:linear-gradient(135deg,#7d0050,#9a1262)}
-  .block-card:nth-child(4) .block-header{background:linear-gradient(135deg,#5e0040,#7a0a50)}
-  .block-num{font-size:.75rem;font-weight:700;letter-spacing:1.5px;opacity:.8;text-transform:uppercase;margin-bottom:4px}
-  .block-title{font-size:clamp(1.1rem,2.8vw,1.35rem);font-weight:800;line-height:1.3;transition:transform .3s ease;display:inline-block}
-  .block-card:nth-child(1):hover .block-title{transform:translateX(8px)}
-  .block-card:nth-child(2):hover .block-title{transform:translateX(14px)}
-  .block-card:nth-child(3):hover .block-title{transform:translateX(20px)}
-  .block-card:nth-child(4):hover .block-title{transform:translateX(26px)}
-  .block-title-zh{font-size:.88rem;font-weight:600;opacity:.85;margin-top:3px}
-  .block-week{font-size:.78rem;opacity:.75;margin-top:5px}
-  .block-body{padding:18px 22px;flex:1;display:flex;flex-direction:column}
-  .block-desc{font-size:.88rem;color:#555;margin-bottom:6px}
-  .block-desc-zh{font-size:.82rem;color:#777;margin-bottom:12px;font-style:italic}
-  .block-items{list-style:none;display:flex;flex-direction:column;gap:6px}
-  .block-items li{display:flex;align-items:flex-start;gap:7px;font-size:.85rem;color:#333}
-  .block-items li::before{content:'›';font-weight:700;font-size:1rem;flex-shrink:0}
-  .block-card:nth-child(1) .block-items li::before{color:#B5006E}
-  .block-card:nth-child(2) .block-items li::before{color:#9a0060}
-  .block-card:nth-child(3) .block-items li::before{color:#7d0050}
-  .block-card:nth-child(4) .block-items li::before{color:#5e0040}
-  .item-zh{display:block;font-size:.76rem;color:#999;margin-top:1px}
+    /* ── TOP BAR ── */
+    .top-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--red);
+    }
 
-  /* ── SCHEDULE ── */
-  .schedule-wrap{max-width:1100px;margin:0 auto 60px;padding:0 20px}
-  .week-title{font-size:clamp(.88rem,2.5vw,1rem);font-weight:700;margin:28px 0 10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-  .week-title .zh{font-size:.85em;color:#888;font-weight:500}
-  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,.12);border:2px solid #B5006E}
-  table{width:100%;border-collapse:collapse;font-size:clamp(.72rem,1.8vw,.84rem);min-width:480px}
-  th{background:#B5006E;color:#fff;padding:10px 8px;text-align:center;font-weight:700;border:1px solid rgba(255,255,255,0.2)}
-  td{padding:9px 8px;border:1.5px solid #f0d0e4;text-align:center;vertical-align:top;line-height:1.45}
-  tr:nth-child(even) td{background:#fdf5fa}
-  td:first-child{font-weight:700;color:#B5006E;background:#fce8f3 !important;border-right:2px solid #B5006E;white-space:nowrap;min-width:80px}
-  .tag{display:inline-block;border-radius:5px;padding:2px 6px;font-size:.73rem;font-weight:600;margin:2px 1px}
-  .tag-blue{background:#dbeafe;color:#1d4ed8}
-  .tag-purple{background:#f3e8ff;color:#7c3aed}
-  .tag-red{background:#fee2e2;color:#b91c1c}
-  .tag-green{background:#dcfce7;color:#15803d}
-  .zh-small{display:block;font-size:.7rem;color:#888;margin-top:2px}
+    /* ── NAVBAR sobre fondo azul ── */
+    .navbar {
+      width: 100%;
+      background: var(--blue);
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-inner {
+      width: 100%;
+      max-width: 820px;
+      padding: 14px 24px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+    }
+    .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    .nav-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+    .nav-faculty {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .uva-pill {
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      width: 36px;
+      height: 36px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  /* ── FOOTER ── */
-  footer{background:var(--dark);color:#aaa;text-align:center;padding:32px 20px;font-size:clamp(.8rem,2vw,.9rem)}
-  .foot-logos{display:flex;justify-content:center;gap:24px;margin-bottom:14px;flex-wrap:wrap}
-  .foot-logo{color:#ccc;font-weight:700;font-size:.92rem}
-  .foot-logo span{display:block;font-size:.75rem;font-weight:400;color:#888;margin-top:2px}
+    /* Escudo de la facultad bajo el badge */
+    .hero-escudo {
+      width: 160px;
+      height: auto;
+      display: block;
+      border-radius: 3px;
+      opacity: 0.92;
+      margin: 0 auto;
+    }
 
-  /* ── RESPONSIVE BREAKPOINTS ── */
-  @media(max-width:768px){
-    .bi{flex-direction:column}
-    .bi .en-col{border-right:none;border-bottom:2px solid #e0e0e0;padding:0 0 14px}
-    .bi .zh-col{padding:14px 0 0}
-    .blocks{grid-template-columns:1fr}
-    .foot-logos{flex-direction:column;align-items:center;gap:16px}
-  }
-  @media(max-width:480px){
-    .hero{padding:44px 16px 36px}
-    .hero-logo{width:clamp(130px,44vw,180px);min-height:80px;padding:10px 12px}
-    .badges .badge{font-size:.74rem;padding:4px 10px}
-    .intro{padding:28px 16px}
-    .blocks{padding:0 14px 14px}
-    .schedule-wrap{padding:0 12px}
-    .section-title{padding:32px 16px 6px}
-  }
-</style>
+    /* ════════════════════════════════════════
+       HERO — cabecera azul, dos columnas de texto
+    ════════════════════════════════════════ */
+    .hero-wrap {
+      width: 100%;
+      background: var(--blue);
+      display: flex;
+      justify-content: center;
+      padding-bottom: 48px;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 820px;
+      padding: 44px 24px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Columna izquierda: título */
+    .hero-title-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(30px, 5.5vw, 50px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    h1 em { font-style: italic; font-weight: 500; }
+    .hero-tagline {
+      font-family: 'Roboto Slab', serif;
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+      padding: 6px 13px;
+      align-self: flex-start;
+    }
+    .hero-badge span {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+    .dot-w { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+
+    /* Columna derecha: gancho docente */
+    .hero-hook {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 4px;
+    }
+    .hook-kicker {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .hook-headline {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(22px, 3.2vw, 32px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--white);
+    }
+    .hook-headline em { font-style: italic; opacity: 0.8; }
+
+    /* Resaltados en la pregunta gancho */
+    .hl-green {
+      background: none;
+      color: #6EE7B7;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .hl-red {
+      background: none;
+      color: #FCA5A5;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* Escudo sobre cuadrado azul claro */
+    .escudo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 16px;
+      align-self: center;
+    }
+    .hook-body {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+    }
+    .hook-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hook-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.5;
+    }
+    .hook-bullets li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .hook-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--white);
+      padding: 10px 18px;
+      border-radius: 2px;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 0.18s, color 0.18s;
+    }
+    .hook-cta:hover { background: var(--red); color: var(--white); }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN: REGLAS DE LA SLOW AI
+    ══════════════════════════════════════════ */
+    .rules-section {
+      width: 100%;
+      max-width: 820px;
+      padding: 52px 24px 0;
+    }
+
+    .rules-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .rules-header-line {
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+    .rules-header-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      white-space: nowrap;
+    }
+
+    /* Layout: acordeón ancho completo, sin imagen */
+    .rules-body {
+      width: 100%;
+    }
+
+    /* Acordeón de reglas */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .rule-item {
+      border-top: 1px solid var(--divider);
+    }
+    .rule-item:last-child { border-bottom: 1px solid var(--divider); }
+
+    .rule-toggle {
+      display: grid;
+      grid-template-columns: 32px 1fr 20px;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 6px;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .rule-toggle::-webkit-details-marker { display: none; }
+    .rule-toggle::marker { display: none; }
+
+    details[open] .rule-toggle { padding-bottom: 8px; }
+    details[open] .rule-num { background: var(--red); color: var(--white); }
+    details[open] .rule-chevron { transform: rotate(90deg); color: var(--red); }
+
+    .rule-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Roboto Slab', serif;
+      font-size: 13px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.18s;
+    }
+    .rule-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--blue);
+      line-height: 1.3;
+    }
+    .rule-chevron {
+      font-size: 14px;
+      color: var(--gray-mid);
+      transition: transform 0.2s, color 0.18s;
+      justify-self: end;
+    }
+
+    .rule-body {
+      padding: 0 6px 16px 46px;
+    }
+    .rule-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .rule-body ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+    .rule-body ul li::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .rule-body strong {
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════
+       CARTA
+    ══════════════════════════════════════════ */
+    .section-divider {
+      width: 100%;
+      max-width: 820px;
+      padding: 0 24px;
+      margin-top: 48px;
+    }
+    .section-divider hr { border: none; border-top: 1px solid var(--divider); }
+
+    .menu-section {
+      width: 100%;
+      max-width: 820px;
+      padding: 36px 24px 72px;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .menu-list { list-style: none; }
+    .menu-item { border-top: 1px solid var(--divider); }
+    .menu-item:last-child { border-bottom: 1px solid var(--divider); }
+
+    .menu-link {
+      display: grid;
+      grid-template-columns: 86px 1fr 24px;
+      gap: 22px;
+      align-items: center;
+      padding: 18px 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.18s;
+      border-radius: 2px;
+    }
+    .menu-link:hover { background: var(--hover-bg); }
+    .menu-link:hover .item-title { color: var(--red); }
+    .menu-link:hover .item-arrow { opacity: 1; transform: translateX(4px); }
+
+    .item-thumb-wrap {
+      width: 86px; height: 86px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--gray-bg);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .item-thumb {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute; top: 0; left: 0;
+    }
+    .item-icon { width: 54px; height: 54px; display: none; flex-shrink: 0; }
+    .item-icon.visible { display: block; }
+
+    .item-body { display: flex; flex-direction: column; gap: 5px; }
+    .item-course {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.20em; text-transform: uppercase;
+      color: var(--red);
+    }
+    .item-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(17px, 2.8vw, 23px);
+      font-weight: 400; line-height: 1.2;
+      color: var(--blue);
+      transition: color 0.18s;
+    }
+    .item-desc {
+      font-size: 13px; font-weight: 300;
+      color: var(--gray-mid);
+      line-height: 1.6; max-width: 500px;
+    }
+    .item-bloom {
+      font-family: 'Roboto Slab', serif;
+      font-size: 11px; font-weight: 300;
+      font-style: italic;
+      color: var(--blue); opacity: 0.65;
+    }
+    .item-arrow {
+      font-size: 18px; color: var(--red);
+      opacity: 0;
+      transition: opacity 0.18s, transform 0.18s;
+      justify-self: end;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      width: 100%;
+      max-width: 820px;
+      padding: 22px 24px 36px;
+      text-align: center;
+      border-top: 1px solid var(--divider);
+    }
+    .footer-logos {
+      display: flex; align-items: center;
+      justify-content: center;
+      gap: 14px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .footer-uva-pill {
+      background: var(--red); color: var(--white);
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px; font-weight: 700;
+      width: 36px; height: 36px;
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
+    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .footer-inst span { font-size: 11px; font-weight: 400; color: var(--gray-mid); line-height: 1.45; }
+    .footer-inst strong { font-weight: 600; color: var(--blue); }
+    .footer-project {
+      font-family: 'Roboto Slab', serif;
+      font-size: 14px; font-weight: 300; color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .footer-project em { font-style: italic; color: var(--red); }
+    .footer-credit {
+      font-size: 11px; color: var(--gray-mid);
+      font-weight: 300; line-height: 1.6;
+    }
+    .footer-credit a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--gray-lt); }
+    .footer-credit a:hover { border-color: var(--red); color: var(--red); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .navbar        { animation: fadeUp 0.5s ease both; }
+    .hero-wrap     { animation: fadeUp 0.6s 0.07s ease both; }
+    .rules-section { animation: fadeUp 0.6s 0.13s ease both; }
+    .menu-section  { animation: fadeUp 0.6s 0.18s ease both; }
+    .menu-item { opacity: 0; animation: fadeUp 0.45s ease both; }
+    .menu-item:nth-child(1) { animation-delay: 0.22s; }
+    .menu-item:nth-child(2) { animation-delay: 0.30s; }
+    .menu-item:nth-child(3) { animation-delay: 0.38s; }
+    .menu-item:nth-child(4) { animation-delay: 0.46s; }
+    .menu-item:nth-child(5) { animation-delay: 0.54s; }
+    .menu-item:nth-child(6) { animation-delay: 0.62s; }
+
+    .rule-intro {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-mid);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* Lista de ejemplos con 3 líneas por item */
+    .rule-examples {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .rule-examples li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      grid-template-rows: auto auto;
+      gap: 2px 12px;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--divider);
+      background: var(--white);
+    }
+    .rule-examples li:last-child { border-bottom: none; }
+    .rule-examples li:nth-child(odd) { background: var(--gray-bg); }
+    .re-label {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      align-self: start;
+      padding-top: 1px;
+    }
+    .re-desc {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--blue);
+      line-height: 1.5;
+    }
+    .re-ex {
+      grid-column: 2;
+      grid-row: 2;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--gray-mid);
+      line-height: 1.55;
+    }
+    .re-ex em { font-style: italic; color: var(--blue); opacity: 0.75; }
+
+    .rule-tip {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--blue);
+      line-height: 1.65;
+      background: #EEF3FA;
+      border-left: 3px solid var(--blue);
+      padding: 10px 14px;
+      border-radius: 0 3px 3px 0;
+      margin-bottom: 14px;
+    }
+
+    /* ── RESPONSIVE — todos los dispositivos ── */
+    @media (max-width: 900px) {
+      .hero-inner { gap: 32px; }
+    }
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-title-col { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 28px; }
+      .hero-escudo { width: 60px; }
+      h1 { font-size: clamp(26px, 7vw, 36px); }
+    }
+    @media (max-width: 500px) {
+      .navbar-inner { padding: 12px 16px 10px; }
+      .hero-inner { padding: 28px 16px 0; }
+      .menu-section { padding: 24px 16px 48px; }
+      .rules-section { padding: 36px 16px 0; }
+      .menu-link { grid-template-columns: 60px 1fr 16px; gap: 12px; padding: 14px 4px; }
+      .item-thumb-wrap { width: 60px; height: 60px; }
+      .item-title { font-size: 16px; }
+      .rule-examples li { grid-template-columns: 1fr; }
+      .re-label { grid-column: 1; grid-row: auto; }
+      .re-desc { grid-column: 1; grid-row: auto; }
+      .re-ex   { grid-column: 1; grid-row: auto; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-logos">
-    <div class="hero-logo" style="background:#B5006E;border-color:#B5006E">
-      <span class="acro">UVa</span>
-      <span class="name">University of Valladolid<br>School of Medicine</span>
-    </div>
-    <div class="hero-logo" style="background:#fff;border:2px solid var(--zju-blue);color:var(--zju-blue);">
-      <span class="acro" style="color:var(--zju-blue)">ZJU</span>
-      <span class="name" style="color:var(--zju-blue)">Zhejiang University<br>School of Medicine</span>
+<div class="top-bar"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <span class="nav-title">Small Te<em>AI</em>ching</span>
+    <div class="nav-right">
+      <span class="nav-faculty">Educación Superior · UVa</span>
+      <span class="uva-pill">UVa</span>
     </div>
   </div>
+</nav>
 
-  <h1>Bridging Medical Schools:<br>Western Clinical Immersion in Spain<br>for Traditional Chinese Medicine Students</h1>
-  <h1 class="zh">医学院交流项目：中医学生西班牙西方临床沉浸课程</h1>
+<!-- ════════════════════════
+     HERO — cabecera roja
+════════════════════════ -->
+<section class="hero-wrap">
+  <div class="hero-inner">
 
-  <p class="subtitle">A four-week intensive summer programme — July 2026 · Valladolid, Spain</p>
-  <p class="subtitle">四周强化暑期课程 — 2026年7月 · 西班牙巴利亚多利德</p>
+    <!-- Columna izquierda: título y tagline -->
+    <div class="hero-title-col">
+      <span class="hero-eyebrow">Herramientas docentes con IA · Educación Superior</span>
+      <h1>Menú Small Te<em>AI</em>ching</h1>
+      <p class="hero-tagline">
+        Un uso de la IA basado en la fricción cognitiva, evitando los atajos.<br>
+        Para que aprender sea más difícil que aprobar — no al revés.
+      </p>
+      <div class="hero-badge">
+        <div class="dot-w"></div>
+        <span>Slow AI &nbsp;·&nbsp; Fricción cognitiva &nbsp;·&nbsp; Taxonomía de Bloom</span>
+        <div class="dot-w"></div>
+      </div>
+      <div class="escudo-box">
+        <img
+          class="hero-escudo"
+          src="https://raw.githubusercontent.com/Tutorcyllo/Innovacion.EduMed.CNDFM/main/images/inndesde1404.avif"
+          alt="Escudo Facultad de Medicina UVa"
+          onerror="this.style.display='none'"
+        />
+      </div>
+    </div>
 
-  <div class="badges">
-    <span class="badge">🗓 July 2026 · 2026年7月</span>
-    <span class="badge">📍 Valladolid, Spain · 西班牙巴利亚多利德</span>
-    <span class="badge">⏱ 4 Weeks · 4周</span>
-    <span class="badge">🎓 Medicine & TCM · 医学与中医</span>
+    <!-- Columna derecha: gancho docente -->
+    <div class="hero-hook">
+      <span class="hook-kicker">Para docentes universitarios</span>
+      <p class="hook-headline">
+        ¿Tu alumnado usa la IA<br>para <mark class="hl-green">aprender</mark>…<br>o solo para <mark class="hl-red">aprobar</mark>?
+      </p>
+      <p class="hook-body">
+        Este menú reúne herramientas pequeñas, concretas y listas para usar
+        que devuelven la fricción cognitiva al centro del aprendizaje.
+        Sin rediseñar tu asignatura. Sin ser experto en tecnología.
+      </p>
+      <ul class="hook-bullets">
+        <li>Actividades para antes, durante y después de clase</li>
+        <li>Prompts listos para copiar y adaptar</li>
+        <li>Taxonomía de Bloom como guía de selección</li>
+        <li>Guardarraíles para un uso responsable de la IA</li>
+      </ul>
+      <a class="hook-cta" href="#reglas">Conoce nuestras reglas &nbsp;↓</a>
+    </div>
+
   </div>
 </section>
 
-<!-- ═══ INTRO ═══ -->
-<div class="intro">
-  <div class="bi">
-    <div class="en-col">
-      <p>This programme offers TCM students from Zhejiang University School of Medicine an immersive encounter with Western biomedical education and clinical practice, hosted by the Faculty of Medicine of the University of Valladolid. Over four structured weeks, participants will explore anatomy, physiology, and pharmacology; learn the Western clinical method enriched by AI tools; shadow hospital teams in real clinical settings; and engage in a meaningful dialogue between Traditional Chinese Medicine and Western Medicine.</p>
-    </div>
-    <div class="zh-col">
-      <p>本项目由巴利亚多利德大学医学院承办，为浙江大学医学院中医专业学生提供与西方生物医学教育及临床实践深度融合的沉浸式体验。在四周结构化课程中，学员将探索解剖学、生理学与药理学，学习融合人工智能工具的西方临床方法，在真实临床环境中跟随医院团队实习，并开展传统中医与西方医学之间富有意义的对话。</p>
-    </div>
-  </div>
-</div>
+<!-- ════════════════════════
+     CARTA
+════════════════════════ -->
+<main class="menu-section" id="carta">
+  <p class="section-label">La carta completa</p>
+  <ul class="menu-list" role="list">
 
-<!-- ═══ BLOCKS ═══ -->
-<h2 class="section-title">Programme Structure <span class="zh-sub">课程结构</span></h2>
-<div class="blocks">
+    <li class="menu-item">
+      <a class="menu-link" href="leyenda.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/bibliotecaria.avif" alt="La bibliotecarIA" />
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <rect x="12" y="13" width="22" height="28" rx="2" fill="#003973"/>
+            <rect x="13" y="14" width="4" height="26" fill="#C1003B"/>
+            <rect x="19" y="19" width="12" height="2" rx="1" fill="white"/>
+            <rect x="19" y="23" width="10" height="2" rx="1" fill="white" opacity="0.6"/>
+            <rect x="19" y="27" width="11" height="2" rx="1" fill="white" opacity="0.6"/>
+            <circle cx="37" cy="17" r="7" fill="#F5C518"/>
+            <text x="37" y="21" font-size="9" text-anchor="middle" fill="#003973" font-weight="bold" font-family="sans-serif">AI</text>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Antes de empezar</span>
+          <span class="item-title">La leyenda de la bibliotecarIA</span>
+          <span class="item-desc">El origen y la filosofía del menú. Por qué Slow AI y no Fast AI. Las reglas de la casa.</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-  <div class="block-card">
-    <div class="block-header">
-      <div class="block-num">Block I · Week 1 · 第一模块·第一周</div>
-      <div class="block-title">Biomedical Foundations Bootcamp</div>
-      <div class="block-title-zh">生物医学基础强化营</div>
-      <div class="block-week">Morning theory + morning lab practicals · 上午理论课 + 上午实验实践</div>
-    </div>
-    <div class="block-body">
-      <p class="block-desc">Morning theory sessions provide a "big-picture" overview of each discipline — its core concepts, current role in modern medicine, and major evolutionary directions — followed by morning lab-style practicals connecting mechanisms with real clinical examples.</p>
-      <p class="block-desc-zh">上午理论课以宏观视角介绍每门学科的核心概念、在现代医学中的地位及主要发展方向，随后进行实验式实践课，将理论机制与真实临床案例相结合。</p>
-      <ul class="block-items">
-        <li><strong>Day 1:</strong> Anatomy — structure & clinical relevance<span class="item-zh"><strong>第一天：</strong>解剖学 — 结构与临床意义</span></li>
-        <li><strong>Day 2:</strong> Physiology — core regulatory systems<span class="item-zh"><strong>第二天：</strong>生理学 — 核心调节系统</span></li>
-        <li><strong>Day 3:</strong> Cell Biology & Immunology<span class="item-zh"><strong>第三天：</strong>细胞生物学与免疫学</span></li>
-        <li><strong>Day 4:</strong> Microbiology — pathogens & host defence<span class="item-zh"><strong>第四天：</strong>微生物学 — 病原体与宿主防御</span></li>
-        <li><strong>Day 5:</strong> Pharmacology — drug mechanisms & safety<span class="item-zh"><strong>第五天：</strong>药理学 — 药物机制与安全性</span></li>
-      </ul>
-    </div>
-  </div>
+    <li class="menu-item">
+      <a class="menu-link" href="entrantes.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/entrantes.avif" alt="Entrantes"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <ellipse cx="26" cy="32" rx="16" ry="9" fill="#003973"/>
+            <ellipse cx="26" cy="30" rx="14" ry="7" fill="#C1003B" opacity="0.85"/>
+            <path d="M20 30 Q22 22 26 18 Q30 22 32 30" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="26" cy="17" r="3" fill="#F5C518"/>
+            <path d="M14 33 Q26 44 38 33" stroke="#003973" stroke-width="2.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Entrantes · Pre-clase</span>
+          <span class="item-title">Entrantes</span>
+          <span class="item-desc">Herramientas para facilitar el estudio personal antes de la clase. Cada estudiante prepara su paladar a su ritmo, construyendo la base común necesaria.</span>
+          <span class="item-bloom">Recordar · Comprender</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-  <div class="block-card">
-    <div class="block-header">
-      <div class="block-num">Block II · Week 2 · 第二模块·第二周</div>
-      <div class="block-title">Clinical Medicine Toolbox</div>
-      <div class="block-title-zh">临床医学工具箱</div>
-      <div class="block-week">Five focused workshops & interactive days · 五个专题工作坊与互动日</div>
-    </div>
-    <div class="block-body">
-      <p class="block-desc">A deep dive into how Western clinical care is practised: the Osler clinical method augmented by AI, surgery pathways and hands-on skills, simulation-based acute care, and problem-based learning through evolving clinical scenarios.</p>
-      <p class="block-desc-zh">深入了解西方临床医疗实践：融合人工智能的奥斯勒临床方法、外科诊疗路径与动手操作技能、基于模拟的急症救护，以及通过动态临床场景开展的问题导向学习。</p>
-      <ul class="block-items">
-        <li><strong>Day 6:</strong> Osler clinical method & AI-assisted diagnosis<span class="item-zh"><strong>第六天：</strong>奥斯勒临床方法与人工智能辅助诊断</span></li>
-        <li><strong>Day 7:</strong> Surgery overview + suturing skills workshop<span class="item-zh"><strong>第七天：</strong>外科概述 + 缝合技能工作坊</span></li>
-        <li><strong>Day 8:</strong> Medical simulation — acute care & teamwork<span class="item-zh"><strong>第八天：</strong>医学模拟 — 急症救护与团队协作</span></li>
-        <li><strong>Day 9:</strong> Problem Based Learning (PBL) session 1 — evolving clinical case<span class="item-zh"><strong>第九天：</strong>问题导向学习（PBL）第一节 — 动态临床案例</span></li>
-        <li><strong>Day 10:</strong> Problem Based Learning (PBL) session 2 — differential & management<span class="item-zh"><strong>第十天：</strong>问题导向学习（PBL）第二节 — 鉴别诊断与处理</span></li>
-      </ul>
-    </div>
-  </div>
+    <li class="menu-item">
+      <a class="menu-link" href="primer_plato.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/primer_plato.avif" alt="Primer plato"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <ellipse cx="26" cy="34" rx="17" ry="5" fill="#003973"/>
+            <path d="M9 34 Q9 22 26 22 Q43 22 43 34Z" fill="#C1003B"/>
+            <ellipse cx="26" cy="22" rx="17" ry="4" fill="#003973" opacity="0.7"/>
+            <line x1="26" y1="8" x2="26" y2="22" stroke="#003973" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="26" cy="8" r="3" fill="#F5C518"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Primer plato · En clase</span>
+          <span class="item-title">Primer plato</span>
+          <span class="item-desc">Herramientas para las interacciones compartidas entre alumnado y docentes en el aula. Debatimos y construimos conocimiento colectivamente.</span>
+          <span class="item-bloom">Comprender · Aplicar</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-  <div class="block-card">
-    <div class="block-header">
-      <div class="block-num">Block III · Week 3 · 第三模块·第三周</div>
-      <div class="block-title">Hospital Observership</div>
-      <div class="block-title-zh">医院见习</div>
-      <div class="block-week">09:00–13:00 daily · paired shadowing · 每日09:00–13:00·双人跟随见习</div>
-    </div>
-    <div class="block-body">
-      <p class="block-desc">Students work in pairs, each assigned to a clinical team for the full week. They observe ward rounds, outpatient clinics, documentation, interprofessional communication, patient safety routines, and real-time clinical decision-making, followed by a daily debrief.</p>
-      <p class="block-desc-zh">学员两人一组，每组全周跟随一个临床团队。观察查房、门诊、病历记录、跨专业沟通、患者安全规程及实时临床决策过程，每日进行小组汇报。</p>
-      <ul class="block-items">
-        <li><strong>Days 11–15:</strong> Daily ward rounds & outpatient observation<span class="item-zh"><strong>第11–15天：</strong>每日查房与门诊观察</span></li>
-        <li>Clinical documentation & EMR workflow<span class="item-zh">临床病历记录与电子病历流程</span></li>
-        <li>Interprofessional team communication<span class="item-zh">跨专业团队沟通</span></li>
-        <li>Patient safety culture & practices<span class="item-zh">患者安全文化与实践</span></li>
-        <li>Daily group debrief (reflective learning)<span class="item-zh">每日小组汇报（反思性学习）</span></li>
-      </ul>
-    </div>
-  </div>
+    <li class="menu-item">
+      <a class="menu-link" href="segundo_plato.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/segundo_plato.avif" alt="Segundo plato"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <rect x="11" y="27" width="30" height="15" rx="3" fill="#003973"/>
+            <rect x="8"  y="24" width="36" height="5"  rx="2" fill="#C1003B"/>
+            <rect x="6"  y="26" width="5"  height="8"  rx="2" fill="#003973"/>
+            <rect x="41" y="26" width="5"  height="8"  rx="2" fill="#003973"/>
+            <path d="M19 24 Q19 16 23 14" stroke="#C1003B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M26 24 Q26 14 26 12" stroke="#003973" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M33 24 Q33 16 29 14" stroke="#C1003B" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Segundo plato · Trabajo del estudiante</span>
+          <span class="item-title">Segundo plato</span>
+          <span class="item-desc">Creaciones y aplicaciones propias del alumnado, a su medida y a su ritmo. La IA como colaborador con el andamiaje justo que cada comensal necesita.</span>
+          <span class="item-bloom">Aplicar · Analizar · Evaluar · Crear</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-  <div class="block-card">
-    <div class="block-header">
-      <div class="block-num">Block IV · Week 4 · 第四模块·第四周</div>
-      <div class="block-title">TCM–Western Exchange & Madrid</div>
-      <div class="block-title-zh">中西医交流与马德里文化体验</div>
-      <div class="block-week">Academic exchange + cultural activities · 学术交流 + 文化活动</div>
-    </div>
-    <div class="block-body">
-      <p class="block-desc">Two mornings of student-led presentations and moderated debate comparing TCM with Western medicine through shared clinical scenarios. The week closes with three mornings of leisure and cultural activities in Madrid.</p>
-      <p class="block-desc-zh">两个上午由学生主导演讲，围绕共同临床场景开展中西医对比讨论。课程以三个上午在马德里的休闲文化活动圆满收尾。</p>
-      <ul class="block-items">
-        <li><strong>Day 16:</strong> TCM Foundations — student presentations<span class="item-zh"><strong>第16天：</strong>中医基础 — 学生演讲</span></li>
-        <li><strong>Day 17:</strong> TCM in Modern China + Real clinical cases: TCM meets Western Medicine<span class="item-zh"><strong>第17天：</strong>中医在现代中国 + 真实案例：中西医结合</span></li>
-        <li><strong>Days 18–20:</strong> Madrid cultural immersion<span class="item-zh"><strong>第18–20天：</strong>马德里文化体验</span></li>
-      </ul>
-    </div>
-  </div>
+    <li class="menu-item">
+      <a class="menu-link" href="postre.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/postre.avif" alt="Postre"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <rect x="10" y="30" width="32" height="13" rx="3" fill="#003973"/>
+            <rect x="10" y="26" width="32" height="6"  rx="2" fill="#C1003B"/>
+            <path d="M10 29 Q18 23 26 29 Q34 35 42 29" stroke="white" stroke-width="1.5" fill="none"/>
+            <line x1="20" y1="26" x2="20" y2="18" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="16" r="3" fill="#F5C518"/>
+            <line x1="32" y1="26" x2="32" y2="20" stroke="#C1003B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="32" cy="18" r="3" fill="#C1003B"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Postre · Post-clase</span>
+          <span class="item-title">Postre</span>
+          <span class="item-desc">Evaluación y reflexión sobre el propio aprendizaje. Feedback accionable, consolidación y pensamiento sobre el propio proceso.</span>
+          <span class="item-bloom">Evaluación formativa · Metacognición</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-</div>
+    <li class="menu-item">
+      <a class="menu-link" href="sobremesa.html">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/sobremesa.avif" alt="Sobremesa"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <rect x="12" y="24" width="22" height="18" rx="3" fill="#003973"/>
+            <path d="M34 28 Q42 28 42 34 Q42 40 34 40" stroke="#C1003B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <rect x="10" y="42" width="26" height="3" rx="1.5" fill="#003973" opacity="0.4"/>
+            <path d="M18 24 Q18 18 20 16" stroke="#C1003B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M23 24 Q23 16 25 14" stroke="#003973" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M28 24 Q28 18 30 16" stroke="#C1003B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Sobremesa · Después</span>
+          <span class="item-title">Sobremesa</span>
+          <span class="item-desc">¿Y ahora qué? Transferencia a la vida real. Un camino hacia la aplicación profesional y las comunidades de práctica.</span>
+          <span class="item-bloom">Transferencia · Práctica profesional</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
 
-<!-- ═══ SCHEDULE ═══ -->
-<h2 class="section-title">Weekly Schedule <span class="zh-sub">每周课程一览</span></h2>
-<div class="schedule-wrap">
+  </ul>
+</main>
 
-  <div class="week-title" style="color:#B5006E">📅 Week 1 — Biomedical Foundations Bootcamp <span class="zh">第一周 — 生物医学基础强化营</span></div>
-  <div class="table-scroll">
-  <table>
-    <thead><tr>
-      <th></th>
-      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
-      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
-      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
-      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
-      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td>09:00–10:40</td>
-        <td><span class="tag tag-blue">Anatomy Theory</span><span class="zh-small">解剖学理论</span></td>
-        <td><span class="tag tag-blue">Physiology Theory</span><span class="zh-small">生理学理论</span></td>
-        <td><span class="tag tag-blue">Cell Biology & Immunity</span><span class="zh-small">细胞生物学与免疫学</span></td>
-        <td><span class="tag tag-blue">Microbiology Theory</span><span class="zh-small">微生物学理论</span></td>
-        <td><span class="tag tag-blue">Pharmacology Theory</span><span class="zh-small">药理学理论</span></td>
-      </tr>
-      <tr>
-        <td>10:40–11:20</td>
-        <td colspan="5" style="text-align:center"><span class="tag tag-green">Clinical Link Bridge Session</span><span class="zh-small">临床衔接讨论</span></td>
-      </tr>
-      <tr>
-        <td>11:20–13:00</td>
-        <td><span class="tag tag-purple">Anatomy Lab</span><span class="zh-small">解剖学实验</span></td>
-        <td><span class="tag tag-purple">Physiology Lab</span><span class="zh-small">生理学实验</span></td>
-        <td><span class="tag tag-purple">Immunology Lab</span><span class="zh-small">免疫学实验</span></td>
-        <td><span class="tag tag-purple">Microbiology Lab</span><span class="zh-small">微生物学实验</span></td>
-        <td><span class="tag tag-purple">Pharmacology Lab</span><span class="zh-small">药理学实验</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<div class="section-divider"><hr /></div>
 
-  <div class="week-title" style="color:#9a0060">📅 Week 2 — Clinical Medicine Toolbox <span class="zh">第二周 — 临床医学工具箱</span></div>
-  <div class="table-scroll">
-  <table>
-    <thead><tr>
-      <th></th>
-      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
-      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
-      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
-      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
-      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td>Morning<br><span style="font-size:.78em;color:#888">上午</span></td>
-        <td><span class="tag tag-blue">Clinical Method</span><span class="zh-small">临床方法</span><span class="tag tag-green">AI in Medicine</span><span class="zh-small">人工智能辅助诊断</span></td>
-        <td><span class="tag tag-blue">Surgery Overview</span><span class="zh-small">外科概述</span><span class="tag tag-purple">Suturing Workshop</span><span class="zh-small">缝合技能工作坊</span></td>
-        <td><span class="tag tag-red">Simulation — Acute Care</span><span class="zh-small">模拟急症救护</span><span class="tag tag-green">Teamwork Skills</span><span class="zh-small">团队协作技能</span></td>
-        <td><span class="tag tag-blue">Problem Based Learning (PBL) Session 1</span><span class="zh-small">问题导向学习（PBL）第一节</span></td>
-        <td><span class="tag tag-blue">Problem Based Learning (PBL) Session 2</span><span class="zh-small">问题导向学习（PBL）第二节</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<!-- ════════════════════════
+     REGLAS DE LA SLOW AI
+════════════════════════ -->
+<section class="rules-section" id="reglas">
 
-  <div class="week-title" style="color:#7d0050">📅 Week 3 — Hospital Observership <span class="zh">第三周 — 医院见习</span></div>
-  <div class="table-scroll">
-  <table>
-    <thead><tr>
-      <th></th>
-      <th>Monday – Friday<br><span style="font-size:.75em;opacity:.8">周一至周五</span></th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td>09:00–13:00</td>
-        <td><span class="tag tag-purple">Hospital Shadowing in pairs — ward rounds, clinics, documentation, patient safety</span><span class="zh-small">双人医院跟随见习 — 查房、门诊、病历记录、患者安全</span></td>
-      </tr>
-      <tr>
-        <td>13:00–13:30</td>
-        <td><span class="tag tag-green">Daily Group Debrief</span><span class="zh-small">每日小组汇报</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="rules-header">
+    <div class="rules-header-line"></div>
+    <span class="rules-header-label">Las reglas de la Slow AI</span>
+    <div class="rules-header-line"></div>
   </div>
 
-  <div class="week-title" style="color:#5e0040">📅 Week 4 — TCM–Western Exchange & Madrid <span class="zh">第四周 — 中西医交流与马德里文化体验</span></div>
-  <div class="table-scroll">
-  <table>
-    <thead><tr>
-      <th></th>
-      <th>Monday<br><span style="font-size:.75em;opacity:.8">周一</span></th>
-      <th>Tuesday<br><span style="font-size:.75em;opacity:.8">周二</span></th>
-      <th>Wednesday<br><span style="font-size:.75em;opacity:.8">周三</span></th>
-      <th>Thursday<br><span style="font-size:.75em;opacity:.8">周四</span></th>
-      <th>Friday<br><span style="font-size:.75em;opacity:.8">周五</span></th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td>Morning<br><span style="font-size:.78em;color:#888">上午</span></td>
-        <td><span class="tag tag-red">TCM Foundations</span><span class="zh-small">中医基础</span><span class="tag tag-blue">Student Talks</span><span class="zh-small">学生演讲</span></td>
-        <td><span class="tag tag-red">TCM in Modern China</span><span class="zh-small">中医在现代中国</span><span class="tag tag-purple">Real Cases: TCM & Western Medicine</span><span class="zh-small">真实案例：中西医结合</span></td>
-        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
-        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
-        <td><span class="tag tag-green">🏛 Madrid</span><span class="zh-small">马德里文化体验</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+  <div class="rules-body">
 
-</div>
+    <!-- Acordeón de las 5 reglas — ancho completo, sin imagen -->
+    <div class="rules-list">
 
-<!-- ═══ FOOTER ═══ -->
+      <details class="rule-item">
+        <summary class="rule-toggle">
+          <span class="rule-num">1</span>
+          <span class="rule-title">Protocolo de trabajo con la IA: cómo darle instrucciones claras</span>
+          <span class="rule-chevron">›</span>
+        </summary>
+        <div class="rule-body">
+          <p class="rule-intro">Cuando le pides algo a la IA, lo que escribes se llama <strong>prompt</strong>. Cuanto más claro sea, mejor será el resultado. Piénsalo como si le encargases una tarea a un becario muy capaz pero que no conoce tu asignatura. Un buen prompt tiene 6 ingredientes:</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">Rol</span>
+              <span class="re-desc">Dile cómo debe comportarse.</span>
+              <span class="re-ex">Ej: <em>"Actúa como un experto en didáctica universitaria"</em> o <em>"Eres un estudiante de 3.º de Medicina que estudia para el examen"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Contexto</span>
+              <span class="re-desc">Explícale para quién es y qué asignatura.</span>
+              <span class="re-ex">Ej: <em>"Es para alumnos de 2.º de Fisioterapia, tema de neuroanatomía, nivel introductorio"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Objetivo</span>
+              <span class="re-desc">Di qué quieres conseguir.</span>
+              <span class="re-ex">Ej: <em>"Quiero que los alumnos identifiquen los errores más frecuentes antes del examen"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Formato de salida</span>
+              <span class="re-desc">Indica cómo quieres que te responda.</span>
+              <span class="re-ex">Ej: <em>"En forma de tabla con 3 columnas"</em>, <em>"Como 5 preguntas tipo test con las 4 opciones"</em> o <em>"En un texto de máximo 200 palabras"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Restricciones</span>
+              <span class="re-desc">Dile lo que NO debe hacer.</span>
+              <span class="re-ex">Ej: <em>"No inventes datos ni cites artículos que no existan"</em>, <em>"No des la respuesta correcta, solo haz preguntas"</em>, <em>"No uses lenguaje técnico avanzado"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Criterios de calidad</span>
+              <span class="re-desc">Describe qué sería una buena respuesta para ti.</span>
+              <span class="re-ex">Ej: <em>"Las preguntas deben ser claras, con una sola respuesta correcta y un razonamiento de por qué las otras son incorrectas"</em></span>
+            </li>
+          </ul>
+          <p class="rule-tip">💡 <strong>Consejo:</strong> No tienes que usar los 6 siempre. Empieza con 3 (qué quieres, para quién y en qué formato) y ya es mucho mejor que escribir solo "hazme un examen de anatomía".</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">Itera</span>
+              <span class="re-desc">Trata la respuesta como un borrador. Revísala y pide ajustes concretos.</span>
+              <span class="re-ex">Ej: <em>"más breve"</em>, <em>"sin inventar datos"</em>, <em>"solo preguntas"</em>, <em>"más ejemplos clínicos"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Mejora el prompt</span>
+              <span class="re-desc">Antes de lanzar tu instrucción, pídele a la propia IA que la mejore.</span>
+              <span class="re-ex">Ej: <em>"¿Cómo mejorarías esta instrucción para que el resultado sea más útil?"</em></span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary class="rule-toggle">
+          <span class="rule-num">2</span>
+          <span class="rule-title">Salvaguardas éticas y legales: privacidad y datos</span>
+          <span class="rule-chevron">›</span>
+        </summary>
+        <div class="rule-body">
+          <p class="rule-intro">La IA procesa todo lo que le escribes. Antes de usarla con materiales de clase, ten en cuenta estas reglas básicas:</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">Datos personales</span>
+              <span class="re-desc">No incluyas nombres, notas ni información identificable de alumnos.</span>
+              <span class="re-ex">❌ <em>"Aquí tienes el examen de Ana García, con nota 4,2…"</em><br>✅ <em>"Aquí tienes una respuesta de examen anónima…"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Anonimizar</span>
+              <span class="re-desc">Si subes trabajos o respuestas del alumnado, quita los nombres primero.</span>
+              <span class="re-ex">Ej: Usa "Alumno A" o simplemente borra el nombre antes de pegar el texto en la IA.</span>
+            </li>
+            <li>
+              <span class="re-label">Herramientas</span>
+              <span class="re-desc">Prioriza siempre las herramientas que ofrece tu universidad.</span>
+              <span class="re-ex">Ej: El Copilot institucional de tu universidad tiene garantías de privacidad que los servicios gratuitos pueden no tener.</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary class="rule-toggle">
+          <span class="rule-num">3</span>
+          <span class="rule-title">Integridad académica y transparencia</span>
+          <span class="rule-chevron">›</span>
+        </summary>
+        <div class="rule-body">
+          <p class="rule-intro">Usar la IA no es hacer trampa — pero hay un límite. Define las reglas antes de que empiece el trabajo, no después.</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">Define las reglas</span>
+              <span class="re-desc">Deja claro cuándo, para qué y cómo pueden usar la IA tus alumnos.</span>
+              <span class="re-ex">Ej: <em>"Podéis usar la IA para hacer un primer esquema o buscar errores en vuestro texto, pero el texto final debe ser vuestro"</em></span>
+            </li>
+            <li>
+              <span class="re-label">Qué SÍ se acepta</span>
+              <span class="re-desc">Usar la IA para planificar, revisar o mejorar la claridad de un texto ya escrito.</span>
+              <span class="re-ex">Ej: "Revisa este párrafo que he escrito yo y dime si hay errores de argumentación"</span>
+            </li>
+            <li>
+              <span class="re-label">Qué NO se acepta</span>
+              <span class="re-desc">Entregar directamente lo que genera la IA sin revisión ni aportación propia.</span>
+              <span class="re-ex">Ej: Copiar y pegar la respuesta de ChatGPT como si fuera el trabajo propio del alumno.</span>
+            </li>
+            <li>
+              <span class="re-label">Declaración de uso</span>
+              <span class="re-desc">Pide que los trabajos incluyan una nota explicando cómo se usó la IA.</span>
+              <span class="re-ex">Ej: <em>"He usado la IA para generar un borrador del esquema. El texto final lo he escrito yo. Prompts usados: [...]"</em></span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary class="rule-toggle">
+          <span class="rule-num">4</span>
+          <span class="rule-title">Objetivos docentes y diseño de aprendizaje</span>
+          <span class="rule-chevron">›</span>
+        </summary>
+        <div class="rule-body">
+          <p class="rule-intro">Antes de usar la IA en una actividad, hazte una pregunta clave: ¿qué quiero que aprendan mis alumnos con esto?</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">Empieza por el fin</span>
+              <span class="re-desc">Define primero qué habilidad o conocimiento quieres trabajar.</span>
+              <span class="re-ex">Ej: <em>"Quiero que aprendan a detectar errores de razonamiento clínico"</em> → entonces la IA puede generar casos con errores para que los alumnos los identifiquen.</span>
+            </li>
+            <li>
+              <span class="re-label">Proceso visible</span>
+              <span class="re-desc">Diseña la actividad para que se vea el razonamiento, no solo el resultado final.</span>
+              <span class="re-ex">Ej: Pide que el alumno entregue su borrador inicial + los cambios que hizo + por qué los hizo.</span>
+            </li>
+            <li>
+              <span class="re-label">Evita el atajo</span>
+              <span class="re-desc">Si la tarea se puede resolver en 10 segundos con IA, hay que rediseñarla.</span>
+              <span class="re-ex">Ej: En vez de "resume este artículo" → "lee el artículo, escribe tu propio resumen y luego pide a la IA que lo critique".</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary class="rule-toggle">
+          <span class="rule-num">5</span>
+          <span class="rule-title">Control de calidad antes de usar en clase</span>
+          <span class="rule-chevron">›</span>
+        </summary>
+        <div class="rule-body">
+          <p class="rule-intro">Antes de llevar a clase cualquier material generado con IA, comprueba estos 5 puntos. Si alguno falla, ajusta antes de usarlo:</p>
+          <ul class="rule-examples">
+            <li>
+              <span class="re-label">¿Reglas claras?</span>
+              <span class="re-desc">¿Saben tus alumnos cómo y para qué pueden usar la IA en esta actividad?</span>
+              <span class="re-ex">Si no lo has explicado en clase o por escrito, hazlo antes de empezar.</span>
+            </li>
+            <li>
+              <span class="re-label">¿Objetivo docente?</span>
+              <span class="re-desc">¿Esta actividad trabaja realmente la competencia que quieres desarrollar?</span>
+              <span class="re-ex">Si la IA puede resolver la tarea sin que el alumno piense, el objetivo no está cubierto.</span>
+            </li>
+            <li>
+              <span class="re-label">¿Es correcto?</span>
+              <span class="re-desc">¿Has revisado que el contenido generado por la IA es verídico y sin errores?</span>
+              <span class="re-ex">La IA puede inventar datos, citas o nombres. Siempre verifica antes de distribuir.</span>
+            </li>
+            <li>
+              <span class="re-label">¿Aprendizaje activo?</span>
+              <span class="re-desc">¿El alumno tiene que pensar, decidir o justificar algo, o solo leer y copiar?</span>
+              <span class="re-ex">Una actividad activa exige que el alumno tome decisiones propias y las explique.</span>
+            </li>
+            <li>
+              <span class="re-label">¿Privacidad OK?</span>
+              <span class="re-desc">¿Has evitado incluir datos personales o materiales protegidos?</span>
+              <span class="re-ex">Revisa que no hay nombres de alumnos, casos reales identificables ni textos con copyright en los prompts.</span>
+            </li>
+          </ul>
+          <p class="rule-tip">✅ <strong>Si los 5 son SÍ</strong>, tu actividad está lista. Si alguno es NO, es una señal para ajustar — no para descartar la idea.</p>
+        </div>
+      </details>
+
+    </div><!-- /rules-list -->
+  </div><!-- /rules-body -->
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="foot-logos">
-    <div class="foot-logo">
-      University of Valladolid · 巴利亚多利德大学
-      <span>School of Medicine · Valladolid, Spain · 西班牙巴利亚多利德</span>
-      <span>e-mail: <a href="mailto:decanato.med@uva.es" style="color:#aaa;text-decoration:underline">decanato.med@uva.es</a></span>
-    </div>
-    <div style="color:#555;align-self:center;font-size:1.4rem">×</div>
-    <div class="foot-logo">
-      Zhejiang University · 浙江大学
-      <span>School of Medicine · Hangzhou, China · 中国杭州</span>
+  <div class="footer-logos">
+    <span class="footer-uva-pill">UVa</span>
+    <div class="footer-vline"></div>
+    <div class="footer-inst">
+      <span><strong>EduMed</strong> · Facultad de Medicina</span>
+      <span>Universidad de Valladolid</span>
     </div>
   </div>
-  <p>Summer Course · July 2026 · Valladolid, Spain &nbsp;|&nbsp; 暑期课程 · 2026年7月 · 西班牙巴利亚多利德</p>
-  <p style="margin-top:6px;font-size:.78rem;color:#666">Informational page — no registration available at this time · 本页面为信息展示页，暂不提供报名功能</p>
+  <p class="footer-project">Small Te<em>AI</em>ching &nbsp;·&nbsp; Slow AI</p>
+  <p class="footer-credit">
+    Webapp desarrollada por <a href="https://github.com/Tutorcyllo" target="_blank">TutorCyLlo</a>
+    con el soporte de <strong>Claude Sonnet 4.6</strong> &nbsp;·&nbsp; Marzo 2026
+  </p>
 </footer>
+
+<script>
+  // Cargar imágenes .avif; si fallan → icono SVG de respaldo
+  document.querySelectorAll('.item-thumb[data-src]').forEach(img => {
+    const icon = img.nextElementSibling;
+    img.src = img.dataset.src;
+    img.onload  = () => { img.style.display = 'block'; if (icon) icon.classList.remove('visible'); };
+    img.onerror = () => { img.style.display = 'none';  if (icon) icon.classList.add('visible'); };
+  });
+</script>
 
 </body>
 </html>
