@@ -159,7 +159,7 @@
 
   <nav class="navbar">
     <div class="navbar-inner">
-      <a href="index.html" class="nav-back">
+      <a href="https://tutorcyllo.github.io/smallteaiching/" class="nav-back">
         <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
         Menú principal
       </a>
@@ -333,7 +333,7 @@
         <p class="next-title">¿<em>Fast AI</em> o <em>Slow AI</em>?</p>
         <p class="next-desc">Por qué la fricción cognitiva construye conocimiento real, y cómo la IA puede liberarte tiempo para lo que ninguna máquina puede hacer.</p>
       </div>
-      <a href="slowai.html" class="next-btn">
+      <a href="https://tutorcyllo.github.io/smallteaiching/slowai/" class="next-btn">
         Siguiente
         <svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
       </a>
@@ -353,7 +353,7 @@
     <p class="footer-project">Small <em>TeAIching</em> · Slow AI</p>
     <p class="footer-credit">Una dieta a base de fricción cognitiva para que aprender sea más difícil que aprobar — no al revés.</p>
     <br />
-    <a href="index.html" class="back-link">
+    <a href="https://tutorcyllo.github.io/smallteaiching/" class="back-link">
       <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
       Volver al menú
     </a>
