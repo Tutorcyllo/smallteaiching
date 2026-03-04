@@ -1,1 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Leyenda de la BibliotecarIA · Small TeAIching</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:    #FFFFFF;
+      --gray-lt:  #CCCCCC;
+      --gray-mid: #777777;
+      --gray-bg:  #F5F5F5;
+      --red:      #c60046;
+      --blue:     #003973;
+      --divider:  #CCCCCC;
+      --hover-bg: #EEF3FA;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      background: var(--white);
+      color: var(--blue);
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+    }
 
+    .top-bar { width: 100%; height: 4px; background: var(--red); }
+
+    .navbar { width: 100%; background: var(--blue); display: flex; justify-content: center; animation: fadeUp 0.5s ease both; }
+    .navbar-inner { width: 100%; max-width: 820px; padding: 14px 24px 12px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-back { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.18s; }
+    .nav-back:hover { color: var(--white); }
+    .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .nav-title { font-family: 'Roboto Slab', serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.75); }
+    .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    .uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    .hero-wrap { width: 100%; background: var(--blue); display: flex; justify-content: center; padding-bottom: 48px; animation: fadeUp 0.6s 0.07s ease both; }
+    .hero-inner { width: 100%; max-width: 820px; padding: 44px 24px 0; display: grid; grid-template-columns: 1fr 200px; gap: 48px; align-items: start; }
+    .hero-title-col { display: flex; flex-direction: column; gap: 16px; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 48px; }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    h1 { font-family: 'Roboto Slab', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 300; line-height: 1.1; color: var(--white); }
+    h1 em { font-style: italic; font-weight: 500; }
+    .hero-tagline { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.7; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; padding: 6px 13px; align-self: flex-start; }
+    .hero-badge span { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .dot-w { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+    .hero-img-col { display: flex; align-items: flex-start; justify-content: center; padding-top: 8px; }
+    .hero-img-wrap { width: 180px; height: 180px; border-radius: 4px; overflow: hidden; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* toc bar */
+    .toc-wrap { width: 100%; background: var(--gray-bg); border-bottom: 1px solid var(--divider); display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; }
+    .toc-inner { width: 100%; max-width: 820px; padding: 0 24px; display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; }
+    .toc-inner::-webkit-scrollbar { display: none; }
+    .toc-label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gray-mid); white-space: nowrap; margin-right: 12px; flex-shrink: 0; }
+    .toc-link { display: flex; align-items: center; gap: 6px; padding: 12px 14px; font-size: 12px; font-weight: 500; color: var(--gray-mid); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.18s; }
+    .toc-link:hover { color: var(--blue); border-bottom-color: var(--red); }
+    .toc-num { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background: var(--blue); border-radius: 50%; font-size: 10px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+
+    /* chapters */
+    .content-wrap { width: 100%; max-width: 820px; padding: 48px 24px 0; animation: fadeUp 0.6s 0.18s ease both; }
+    .chapter { margin-bottom: 56px; opacity: 0; animation: fadeUp 0.45s ease both; }
+    .chapter:nth-child(1) { animation-delay: 0.22s; }
+    .chapter:nth-child(2) { animation-delay: 0.30s; }
+    .chapter:nth-child(3) { animation-delay: 0.38s; }
+    .chapter:nth-child(4) { animation-delay: 0.46s; }
+    .chapter:nth-child(5) { animation-delay: 0.54s; }
+
+    .chapter-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; }
+    .chapter-num { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); min-width: 52px; flex-shrink: 0; }
+    h2 { font-family: 'Roboto Slab', serif; font-size: clamp(17px, 2.6vw, 22px); font-weight: 400; line-height: 1.2; color: var(--blue); }
+    .chapter-subtitle { font-family: 'Roboto Slab', serif; font-size: 13px; font-weight: 300; font-style: italic; color: var(--gray-mid); margin-left: 66px; margin-bottom: 14px; }
+    .chapter-intro { margin-left: 66px; margin-bottom: 18px; padding: 12px 16px; background: var(--hover-bg); border-left: 3px solid var(--blue); border-radius: 0 3px 3px 0; font-size: 13px; font-weight: 300; font-style: italic; color: var(--gray-mid); line-height: 1.7; }
+    .chapter-body { margin-left: 66px; font-size: 14px; font-weight: 300; line-height: 1.85; color: var(--blue); }
+    .chapter-body p { margin-bottom: 1em; }
+    .chapter-body strong { font-weight: 600; }
+    .chapter-divider { margin: 0 0 56px 66px; border: none; border-top: 1px solid var(--divider); }
+    .chapter-close { font-family: 'Roboto Slab', serif; font-size: 15px; font-style: italic; font-weight: 400; color: var(--red); }
+
+    .pill { display: inline-block; background: var(--blue); color: var(--white); font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 2px; margin: 0 2px; }
+
+    .concept-reveal { margin: 20px 0; padding: 20px 28px; background: var(--blue); border-radius: 4px; display: flex; align-items: center; gap: 18px; }
+    .concept-reveal-label { font-size: 10px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.5); white-space: nowrap; flex-shrink: 0; }
+    .concept-reveal-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+    .concept-reveal-text { font-family: 'Roboto Slab', serif; font-size: clamp(20px, 3.2vw, 28px); font-weight: 400; color: var(--white); line-height: 1.1; }
+    .concept-reveal-text em { font-style: italic; color: #FCA5A5; }
+
+    /* moraleja */
+    .moraleja-wrap { width: 100%; max-width: 820px; padding: 0 24px 56px; }
+    .moraleja { background: var(--blue); border-radius: 4px; padding: 36px 40px; position: relative; overflow: hidden; }
+    .moraleja::before { content: '❝'; position: absolute; top: -8px; right: 28px; font-size: 96px; color: rgba(255,255,255,0.05); font-family: 'Roboto Slab', serif; line-height: 1; pointer-events: none; }
+    .moraleja-label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #FCA5A5; margin-bottom: 14px; }
+    .moraleja-text { font-family: 'Roboto Slab', serif; font-size: clamp(15px, 2.2vw, 19px); font-weight: 300; font-style: italic; line-height: 1.65; color: var(--white); max-width: 640px; margin-bottom: 14px; position: relative; z-index: 1; }
+    .moraleja-sub { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.62); line-height: 1.75; max-width: 580px; position: relative; z-index: 1; }
+
+    /* guardian */
+    .guardian-wrap { width: 100%; max-width: 820px; padding: 0 24px 48px; }
+    .guardian-card { border: 1px solid var(--divider); border-radius: 4px; padding: 24px 28px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; transition: border-color 0.18s, background 0.18s; }
+    .guardian-card:hover { border-color: var(--blue); background: var(--hover-bg); }
+    .ext-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 7px; }
+    .ext-title { font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 400; color: var(--blue); line-height: 1.3; margin-bottom: 7px; }
+    .ext-desc { font-size: 13px; font-weight: 300; color: var(--gray-mid); line-height: 1.65; }
+    .ext-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; flex-shrink: 0; }
+    .ext-btn-circle { width: 48px; height: 48px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.18s, transform 0.18s; }
+    .ext-btn:hover .ext-btn-circle { background: var(--red); transform: scale(1.08); }
+    .ext-btn svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ext-btn-text { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); text-align: center; }
+
+    /* next page CTA */
+    .next-wrap { width: 100%; max-width: 820px; padding: 0 24px 72px; }
+    .next-card { background: var(--gray-bg); border: 1px solid var(--divider); border-radius: 4px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .next-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px; }
+    .next-title { font-family: 'Roboto Slab', serif; font-size: 18px; font-weight: 400; color: var(--blue); line-height: 1.25; margin-bottom: 6px; }
+    .next-title em { font-style: italic; }
+    .next-desc { font-size: 13px; font-weight: 300; color: var(--gray-mid); line-height: 1.6; }
+    .next-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: var(--blue); padding: 12px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.18s; }
+    .next-btn:hover { background: var(--red); }
+    .next-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+
+    /* footer */
+    .section-divider { width: 100%; max-width: 820px; padding: 0 24px; }
+    .section-divider hr { border: none; border-top: 1px solid var(--divider); }
+    footer { width: 100%; max-width: 820px; padding: 22px 24px 36px; text-align: center; border-top: 1px solid var(--divider); }
+    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+    .footer-uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
+    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .footer-inst span { font-size: 11px; font-weight: 400; color: var(--gray-mid); line-height: 1.45; }
+    .footer-inst strong { font-weight: 600; color: var(--blue); }
+    .footer-project { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 300; color: var(--blue); margin-bottom: 6px; }
+    .footer-project em { font-style: italic; color: var(--red); }
+    .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; line-height: 1.6; }
+    .back-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--gray-lt); padding-bottom: 1px; transition: color 0.18s, border-color 0.18s; }
+    .back-link:hover { color: var(--red); border-color: var(--red); }
+    .back-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-title-col { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 28px; }
+      .hero-img-col { display: none; }
+      .chapter-subtitle, .chapter-intro, .chapter-body, .chapter-divider { margin-left: 0; }
+      .guardian-card, .next-card { grid-template-columns: 1fr; }
+      .ext-btn { flex-direction: row; }
+    }
+    @media (max-width: 500px) {
+      .navbar-inner, .hero-inner { padding-left: 16px; padding-right: 16px; }
+      .content-wrap, .moraleja-wrap, .guardian-wrap, .next-wrap { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"></div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="https://tutorcyllo.github.io/smallteaiching/" class="nav-back">
+        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+        Menú principal
+      </a>
+      <span class="nav-title">Small <em>TeAIching</em></span>
+      <div class="uva-pill">UVa</div>
+    </div>
+  </nav>
+
+  <div class="hero-wrap">
+    <div class="hero-inner">
+      <div class="hero-title-col">
+        <span class="hero-eyebrow">Antes de empezar · 1 de 2</span>
+        <h1>La Leyenda de la<br /><em>BibliotecarIA</em></h1>
+        <p class="hero-tagline">Una fábula sobre cómo funciona la inteligencia artificial generativa</p>
+        <div class="hero-badge">
+          <div class="dot-w"></div>
+          <span>Fundamentos · Nivel básico</span>
+        </div>
+      </div>
+      <div class="hero-img-col">
+        <div class="hero-img-wrap">
+          <img src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/bibliotecaria.avif" alt="La BibliotecarIA" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc-wrap">
+    <div class="toc-inner">
+      <span class="toc-label">Capítulos</span>
+      <a href="#cap1" class="toc-link"><span class="toc-num">I</span>La bibliotecarIA</a>
+      <a href="#cap2" class="toc-link"><span class="toc-num">II</span>El disfraz</a>
+      <a href="#cap3" class="toc-link"><span class="toc-num">III</span>La puerta abierta</a>
+      <a href="#cap4" class="toc-link"><span class="toc-num">IV</span>La que actúa</a>
+      <a href="#cap5" class="toc-link"><span class="toc-num">V</span>El cambio de era</a>
+      <a href="#moraleja" class="toc-link"><span class="toc-num">✦</span>Moraleja</a>
+    </div>
+  </div>
+
+  <main class="content-wrap">
+
+    <div class="chapter" id="cap1">
+      <div class="chapter-header">
+        <span class="chapter-num">Cap. I</span>
+        <h2>La bibliotecarIA de la biblioteca casi infinita</h2>
+      </div>
+      <p class="chapter-subtitle">¿Qué es un Large Language Model?</p>
+      <div class="chapter-intro">En este apartado descubrirás qué hay realmente detrás de herramientas como ChatGPT o Claude: no una enciclopedia, no un buscador, sino un sistema que aprendió a construir lenguaje leyendo cantidades ingentes de texto y que responde generando, palabra a palabra, la continuación más probable a lo que le dices.</div>
+      <div class="chapter-body">
+        <p>Imagina una biblioteca tan grande que parece no acabar nunca. Una biblioteca que contiene cada palabra que la humanidad ha susurrado al papel a lo largo de los siglos: manuales de ingeniería y poemas de amor olvidados, tratados filosóficos y listas de la compra, artículos científicos y conversaciones de madrugada. Un océano de texto sin orillas visibles.</p>
+        <p>En el centro de esa biblioteca trabaja una bibliotecarIA extraña.</p>
+        <p>Las bibliotecarIAs normales, cuando les preguntas algo, consultan un índice, recorren un pasillo, localizan el libro y te señalan la página. Siguen un camino trazado. Recuperan información que ya estaba ordenada y etiquetada. Esta no. Esta bibliotecarIA ha leído tanto, y de forma tan intensa, que ya no necesita índices ni estantes. Tiene toda la biblioteca grabada en su mente.</p>
+        <p>Cuando le haces una pregunta, no va a buscar un libro concreto: recorre mentalmente millones de páginas en un parpadeo, identifica qué palabras suelen aparecer juntas, en qué contextos, con qué continuaciones, y construye una respuesta en ese momento, eligiendo palabra a palabra lo que estadísticamente tiene más sentido según todo lo que ha leído.</p>
+        <p>No recuerda un texto específico. No cita una fuente. Teje la respuesta en el instante, con las hebras de todo lo que existe en su biblioteca.</p>
+        <p>Eso es un</p>
+        <div class="concept-reveal">
+          <span class="concept-reveal-label">Concepto clave</span>
+          <div class="concept-reveal-divider"></div>
+          <span class="concept-reveal-text">Un <em>LLM</em> — Large Language Model</span>
+        </div>
+        <p>Y como todo lo que hace nace de la probabilidad —de lo que suele venir después, de lo que más veces ha aparecido junto a tus palabras— puede sonar completamente seguro y aun así equivocarse. No porque mienta, sino porque construye, y a veces lo que construye no coincide con la realidad. Por eso conviene recordar siempre que detrás de cada respuesta no hay una verdad verificada, sino un patrón muy sofisticado. Brillante, pero no infalible.</p>
+      </div>
+    </div>
+    <hr class="chapter-divider" />
+
+    <div class="chapter" id="cap2">
+      <div class="chapter-header">
+        <span class="chapter-num">Cap. II</span>
+        <h2>El disfraz de la bibliotecarIA</h2>
+      </div>
+      <p class="chapter-subtitle">La ingeniería de prompts y de contexto</p>
+      <div class="chapter-intro">Aquí entenderás por qué no basta con hacer buenas preguntas: la calidad de lo que obtienes depende en gran medida de cómo construyes el escenario antes de preguntar. El rol que le asignas al modelo, el tono que le pides, la información que le das de partida: todo eso moldea la respuesta de forma decisiva.</div>
+      <div class="chapter-body">
+        <p>Hay algo más que hace especial a esta bibliotecarIA, algo que cambia por completo cómo hay que relacionarse con ella: su respuesta depende enormemente del escenario que tú montes antes de preguntar.</p>
+        <p>Si entras y le lanzas una pregunta sin más, contestará con una voz plana y general, recorriendo mentalmente toda la biblioteca sin prioridades claras. Útil, quizás. Pero genérico.</p>
+        <p>Pero si antes de preguntar le dices que hoy es un ingeniero de estructuras con veinte años de experiencia, algo cambia. No se convierte en ingeniero de verdad, pero su mente se ilumina en las secciones técnicas. Ajusta el vocabulario, cambia el orden de los argumentos, pesa de otra manera la evidencia. Si le pides que sea un escritor de novela negra, irá a otros estantes, otros ritmos, otra lógica. Si le dices que tiene delante a un niño de diez años, dejará los tecnicismos y buscará la metáfora más cercana y cotidiana.</p>
+        <p>El contexto no es un adorno. Es el mapa que le dice qué parte de la biblioteca pesa más en la respuesta, qué páginas son relevantes y cuáles puede ignorar. Y esa diferencia, entre un contexto pobre y un contexto bien construido, suele ser exactamente la diferencia entre una respuesta mediocre y una respuesta extraordinaria.</p>
+        <p>Por eso, aprender a hablar con un LLM no es solo aprender a hacer buenas preguntas. Es aprender a construir el escenario antes de preguntar: qué papel le asignas, a quién le pides que se dirija, con qué tono, con qué límites, con qué información previa. A eso se le llama <span class="pill">ingeniería de prompt</span> e <span class="pill">ingeniería de contexto</span>. Y es, en el fondo, el arte de sacarle el máximo partido a una bibliotecarIA que sabe todo lo que se ha escrito pero necesita que le digas quién quieres que sea hoy.</p>
+      </div>
+    </div>
+    <hr class="chapter-divider" />
+
+    <div class="chapter" id="cap3">
+      <div class="chapter-header">
+        <span class="chapter-num">Cap. III</span>
+        <h2>Entonces alguien le abrió la puerta</h2>
+      </div>
+      <p class="chapter-subtitle">La apertura de los LLM a la red en tiempo real</p>
+      <div class="chapter-intro">En este apartado verás cuál era el gran límite de la bibliotecarIA y cómo se resolvió: conectar el modelo al mundo real, dándole acceso a información actualizada y a herramientas externas. Este es el puente entre el LLM clásico y la IA Agente.</div>
+      <div class="chapter-body">
+        <p>Durante años, la bibliotecarIA vivió así. Extraordinariamente sabia, capaz de razonar, redactar, explicar, traducir, resumir. Pero encerrada. Podía explicarte con todo detalle cómo se construye un barco, pero no podía apretar un solo tornillo. Podía redactarte una carta perfecta, pero no podía enviarla. No sabía qué estaba pasando fuera en ese momento.</p>
+        <p>Alguien llegaba, preguntaba, la bibliotecarIA respondía. Y ahí terminaba todo.</p>
+        <p>Un día, los ingenieros que habían construido esa biblioteca tomaron una decisión: ya era hora de que la bibliotecarIA dejara de ser solo una voz. Le dieron herramientas.</p>
+        <p>Primero una llave para acceder a internet y consultar información actualizada más allá de sus libros. Luego la capacidad de escribir y enviar correos. Después acceso a calendarios, archivos, calculadoras, bases de datos externas. La posibilidad de hablar con otros sistemas, de ejecutar acciones, de dejar huella en el mundo real.</p>
+        <p>Y con cada nueva herramienta, algo fue cambiando de forma silenciosa pero profunda.</p>
+        <p><strong>La bibliotecarIA dejó de ser solo respuesta. Aprendió a hacer.</strong></p>
+      </div>
+    </div>
+    <hr class="chapter-divider" />
+
+    <div class="chapter" id="cap4">
+      <div class="chapter-header">
+        <span class="chapter-num">Cap. IV</span>
+        <h2>La bibliotecarIA que actúa</h2>
+      </div>
+      <p class="chapter-subtitle">¿Qué es una IA Agente?</p>
+      <div class="chapter-intro">Aquí está el salto conceptual más importante: la diferencia entre un sistema que responde y un sistema que ejecuta. Entenderás qué es una IA Agente, cómo encadena decisiones y acciones de forma autónoma, y en qué se distingue radicalmente de un LLM que simplemente conversa.</div>
+      <div class="chapter-body">
+        <p>Antes, si entrabas y le decías que necesitabas organizar una reunión con tu equipo para revisar el informe del mes, la bibliotecarIA podía orientarte, redactarte el correo, darte consejos sobre el orden del día. Pero el trabajo seguía siendo tuyo. Tú tenías que abrir el correo, buscar el archivo, mirar las agendas, enviar la convocatoria.</p>
+        <p>Ahora puede recibir ese mismo encargo y ejecutarlo ella sola, paso a paso. Mira las agendas de todos los implicados, encuentra el hueco que encaja, redacta la convocatoria, adjunta el informe, prepara un resumen para los asistentes y lo envía todo.</p>
+        <p>Y si en algún paso algo no funciona como esperaba, no se queda bloqueada esperando instrucciones: evalúa lo que ha ocurrido, decide cómo continuar y sigue adelante por sí sola.</p>
+        <p>Eso es una</p>
+        <div class="concept-reveal">
+          <span class="concept-reveal-label">Concepto clave</span>
+          <div class="concept-reveal-divider"></div>
+          <span class="concept-reveal-text"><em>IA Agente</em></span>
+        </div>
+        <p>No es una bibliotecarIA más lista. Es una bibliotecarIA que combina todo su conocimiento del lenguaje con herramientas reales, con capacidad de planificar una secuencia de pasos, de verificar sus propios resultados y de corregir el rumbo cuando algo falla. Un sistema que no espera una pregunta sino que persigue un objetivo. Y esa diferencia, aparentemente pequeña, lo cambia todo.</p>
+      </div>
+    </div>
+    <hr class="chapter-divider" />
+
+    <div class="chapter" id="cap5">
+      <div class="chapter-header">
+        <span class="chapter-num">Cap. V</span>
+        <h2>Por qué esto transforma nuestro mundo</h2>
+      </div>
+      <p class="chapter-subtitle">El cambio de era: las máquinas con iniciativa propia</p>
+      <div class="chapter-intro">Para cerrar, una mirada más amplia: qué significa realmente que una máquina pueda razonar y actuar de forma autónoma, y por qué este momento no es una mejora gradual de lo que ya existía sino un cambio de categoría en la historia de la tecnología.</div>
+      <div class="chapter-body">
+        <p>Durante décadas, la inteligencia artificial fue una promesa que siempre parecía estar a punto de cumplirse pero nunca del todo. Era poderosa en tareas concretas, estrecha de miras, incapaz de adaptarse a lo inesperado. El LLM rompió esa rigidez y nos dio algo que parecía imposible: una máquina que razona con el lenguaje humano con fluidez real, que entiende el contexto, que se adapta, que explica.</p>
+        <p>Pero seguía siendo reactiva. Seguía esperando que alguien llamara a su puerta.</p>
+        <p>La IA Agente da el paso siguiente. Cuando el lenguaje deja de ser solo el medio para explicar y se convierte en el medio para actuar, cuando una máquina puede recibir un objetivo difuso y perseguirlo de forma autónoma encadenando decisiones, herramientas y correcciones, la escala de lo posible cambia de orden de magnitud.</p>
+        <p>No en un campo, sino en todos a la vez: en medicina, en educación, en derecho, en ciencia, en gestión, en cualquier dominio donde el trabajo humano implique razonar, planificar y ejecutar.</p>
+        <p>No es una mejora gradual sobre lo que ya existía. Es un cambio de categoría. Hemos pasado de una inteligencia que responde a una inteligencia que ejecuta.</p>
+        <p class="chapter-close">La bibliotecarIA aprendió a caminar. Y acaba de cruzar la puerta.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="moraleja-wrap" id="moraleja">
+    <div class="moraleja">
+      <p class="moraleja-label">✦ La moraleja</p>
+      <p class="moraleja-text">La IA no sabe la verdad. Construye respuestas a partir de patrones. Quien construye mejor las preguntas, obtiene mejores respuestas. Y quien entiende los límites de la herramienta, puede usarla sin que la herramienta lo use a él.</p>
+      <p class="moraleja-sub">Comprender cómo funciona un LLM no es un requisito técnico: es una competencia docente. Porque no se puede enseñar bien con una herramienta que no se comprende, ni proteger al alumnado de los riesgos de algo que parece magia pero no lo es.</p>
+    </div>
+  </div>
+
+  <div class="guardian-wrap">
+    <div class="guardian-card">
+      <div>
+        <p class="ext-eyebrow">🔗 Para profundizar · The Guardian</p>
+        <h3 class="ext-title">Cómo funcionan los chatbots de IA: explicación visual interactiva</h3>
+        <p class="ext-desc">Sin tecnicismos, con animaciones que muestran paso a paso el proceso de generación de texto. Ideal para compartir con el alumnado o como lectura autónoma antes de clase.</p>
+      </div>
+      <a href="https://www.theguardian.com/technology/ng-interactive/2023/nov/01/how-ai-chatbots-like-chatgpt-or-bard-work-visual-explainer" target="_blank" rel="noopener" class="ext-btn">
+        <div class="ext-btn-circle">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <span class="ext-btn-text">Abrir<br/>recurso</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- NEXT PAGE CTA -->
+  <div class="next-wrap">
+    <div class="next-card">
+      <div>
+        <p class="next-eyebrow">Continúa · 2 de 2</p>
+        <p class="next-title">¿<em>Fast AI</em> o <em>Slow AI</em>?</p>
+        <p class="next-desc">Por qué la fricción cognitiva construye conocimiento real, y cómo la IA puede liberarte tiempo para lo que ninguna máquina puede hacer.</p>
+      </div>
+      <a href="https://tutorcyllo.github.io/smallteaiching/slowai/" class="next-btn">
+        Siguiente
+        <svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-divider"><hr /></div>
+  <footer>
+    <div class="footer-logos">
+      <div class="footer-uva-pill">UVa</div>
+      <div class="footer-vline"></div>
+      <div class="footer-inst">
+        <span><strong>Facultad de Medicina</strong></span>
+        <span>Universidad de Valladolid</span>
+      </div>
+    </div>
+    <p class="footer-project">Small <em>TeAIching</em> · Slow AI</p>
+    <p class="footer-credit">Una dieta a base de fricción cognitiva para que aprender sea más difícil que aprobar — no al revés.</p>
+    <br />
+    <a href="https://tutorcyllo.github.io/smallteaiching/" class="back-link">
+      <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+      Volver al menú
+    </a>
+  </footer>
+
+</body>
+</html>
