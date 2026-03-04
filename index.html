@@ -84,8 +84,17 @@
       border-radius: 2px;
       padding: 5px 12px;
       transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
     }
     .nav-slowai:hover { background: var(--red); color: var(--white); border-color: var(--red); }
+    @media (max-width: 480px) {
+      .nav-slowai {
+        font-size: 9px;
+        padding: 4px 8px;
+        letter-spacing: 0.06em;
+      }
+      .nav-faculty { display: none; }
+    }
     .uva-pill {
       background: var(--red);
       color: var(--white);
@@ -693,14 +702,6 @@
         <span>Slow AI &nbsp;·&nbsp; Fricción cognitiva &nbsp;·&nbsp; Taxonomía de Bloom</span>
         <div class="dot-w"></div>
       </div>
-      <div class="escudo-box">
-        <img
-          class="hero-escudo"
-          src="https://raw.githubusercontent.com/Tutorcyllo/Innovacion.EduMed.CNDFM/main/images/inndesde1404.avif"
-          alt="Escudo Facultad de Medicina UVa"
-          onerror="this.style.display='none'"
-        />
-      </div>
     </div>
 
     <!-- Columna derecha: gancho docente -->
@@ -720,7 +721,7 @@
         <li>Taxonomía de Bloom como guía de selección</li>
         <li>Guardarraíles para un uso responsable de la IA</li>
       </ul>
-      <a class="hook-cta" href="https://tutorcyllo.github.io/smallteaiching/slowai/">Conoce nuestras reglas &nbsp;↓</a>
+      <a class="hook-cta" href="#reglas">Conoce nuestras reglas &nbsp;↓</a>
     </div>
 
   </div>
