@@ -63,6 +63,17 @@
       color: rgba(255,255,255,0.75);
     }
     .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    .nav-subtitle {
+      display: block;
+      font-size: 9px;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.45);
+      margin-top: 2px;
+      text-transform: none;
+    }
+    @media (max-width: 600px) { .nav-subtitle { display: none; } }
     .nav-right {
       display: flex;
       flex-direction: column;
@@ -166,6 +177,14 @@
       color: var(--white);
     }
     h1 em { font-style: italic; font-weight: 500; }
+    .hero-subtitle {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
     .hero-tagline {
       font-family: 'Roboto Slab', serif;
       font-size: 14px;
@@ -602,6 +621,7 @@
       border-bottom: 1px solid var(--divider);
       background: var(--white);
     }
+    .rule-examples li::before { display: none; }
     .rule-examples li:last-child { border-bottom: none; }
     .rule-examples li:nth-child(odd) { background: var(--gray-bg); }
     .re-label {
@@ -696,6 +716,7 @@
     <div class="hero-title-col">
       <span class="hero-eyebrow">Herramientas docentes con IA · Educación Superior</span>
       <h1>Menú Small Te<em>AI</em>ching</h1>
+      <p class="hero-subtitle">[una adaptación para la IA del Small Teaching de James M. Lang]</p>
       <p class="hero-tagline">
         Un uso de la IA basado en la fricción cognitiva, evitando los atajos.<br>
         Para que aprobar no sea más fácil que aprender.
@@ -776,7 +797,7 @@
         <div class="item-body">
           <span class="item-course">Antes de empezar</span>
           <span class="item-title">La leyenda de la bibliotecarIA</span>
-          <span class="item-desc">El origen y la filosofía del menú. Por qué Slow AI y no Fast AI. Las reglas de la casa.</span>
+          <span class="item-desc">¿En qué consisten los modelos grandes de lenguaje y la IA? ¿Por qué puede darnos respuestas que no sean ciertas? Entiende con este relato las bases de la inteligencia artificial generativa.</span>
         </div>
         <span class="item-arrow">→</span>
       </a>
