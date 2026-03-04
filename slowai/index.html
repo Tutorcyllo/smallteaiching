@@ -29,11 +29,10 @@
     .top-bar { width: 100%; height: 4px; background: var(--red); }
 
     /* ── NAVBAR ── */
-    .navbar { width: 100%; background: var(--blue); display: flex; justify-content: center; animation: fadeUp 0.5s ease both; }
+    .navbar { width: 100%; background: var(--blue); display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; animation: fadeUp 0.5s ease both; }
     .navbar-inner { width: 100%; max-width: 820px; padding: 14px 24px 12px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-back { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.18s; }
-    .nav-back:hover { color: var(--white); }
-    .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .nav-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+    .nav-faculty { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
     .nav-title { font-family: 'Roboto Slab', serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.75); }
     .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
     .uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -158,12 +157,11 @@
 
   <nav class="navbar">
     <div class="navbar-inner">
-      <a href="https://tutorcyllo.github.io/smallteaiching/" class="nav-back">
-        <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
-        Menú principal
-      </a>
       <span class="nav-title">Small <em>TeAIching</em></span>
-      <div class="uva-pill">UVa</div>
+      <div class="nav-right">
+        <span class="nav-faculty">Facultad de Medicina · UVa</span>
+        <div class="uva-pill">UVa</div>
+      </div>
     </div>
   </nav>
 
