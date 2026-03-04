@@ -1,0 +1,607 @@
+/* ============================================================
+   Small TeAIching — style.css
+   Sistema de diseño: UVa Educación Superior
+   Colores: Pantone 654C (#003973) · Pantone 207C (#c60046)
+   Tipografía: Libre Franklin · Roboto Slab (Google Fonts)
+   Última actualización: Marzo 2026
+   ============================================================ */
+
+/* Google Fonts — incluir en el <head> de cada página:
+   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet" />
+*/
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── TOKENS DE COLOR ── */
+:root {
+  --white:    #FFFFFF;
+  --gray-lt:  #CCCCCC;
+  --gray-mid: #777777;
+  --gray-bg:  #F5F5F5;
+  --red:      #c60046;   /* Pantone 207C */
+  --blue:     #003973;   /* Pantone 654C */
+  --divider:  #CCCCCC;
+  --hover-bg: #EEF3FA;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  background: var(--white);
+  color: var(--blue);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ════════════════════════════════════════
+   TOP BAR
+════════════════════════════════════════ */
+.top-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--red);
+}
+
+/* ════════════════════════════════════════
+   NAVBAR
+════════════════════════════════════════ */
+.navbar {
+  width: 100%;
+  background: var(--blue);
+  display: flex;
+  justify-content: center;
+}
+.navbar-inner {
+  width: 100%;
+  max-width: 820px;
+  padding: 14px 24px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+}
+.nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+.nav-faculty {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Logo UVa — cuadrado */
+.uva-pill {
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   HERO — cabecera azul, dos columnas
+════════════════════════════════════════ */
+.hero-wrap {
+  width: 100%;
+  background: var(--blue);
+  display: flex;
+  justify-content: center;
+  padding-bottom: 48px;
+}
+.hero-inner {
+  width: 100%;
+  max-width: 820px;
+  padding: 44px 24px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Columna izquierda: título */
+.hero-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  padding-right: 48px;
+}
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: clamp(30px, 5.5vw, 50px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+}
+h1 em { font-style: italic; font-weight: 500; }
+
+.hero-tagline {
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.7;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 2px;
+  padding: 6px 13px;
+  align-self: flex-start;
+}
+.hero-badge span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+.dot-w { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+
+/* Escudo sobre cuadrado azul claro */
+.escudo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 16px;
+  align-self: center;
+}
+.hero-escudo {
+  width: 160px;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  opacity: 0.92;
+  margin: 0 auto;
+}
+
+/* Columna derecha: gancho docente */
+.hero-hook {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+.hook-kicker {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.hook-headline {
+  font-family: 'Roboto Slab', serif;
+  font-size: clamp(22px, 3.2vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--white);
+}
+.hook-headline em { font-style: italic; opacity: 0.8; }
+
+/* Resaltados verbos aprender / aprobar */
+.hl-green {
+  background: none;
+  color: #6EE7B7;
+  font-weight: 600;
+  font-style: italic;
+}
+.hl-red {
+  background: none;
+  color: #FCA5A5;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.hook-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.72);
+}
+.hook-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hook-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.5;
+}
+.hook-bullets li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.55);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.hook-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--white);
+  padding: 10px 18px;
+  border-radius: 2px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background 0.18s, color 0.18s;
+}
+.hook-cta:hover { background: var(--red); color: var(--white); }
+
+/* ════════════════════════════════════════
+   CARTA — menú de secciones
+════════════════════════════════════════ */
+.section-divider {
+  width: 100%;
+  max-width: 820px;
+  padding: 0 24px;
+  margin-top: 48px;
+}
+.section-divider hr { border: none; border-top: 1px solid var(--divider); }
+
+.menu-section {
+  width: 100%;
+  max-width: 820px;
+  padding: 36px 24px 72px;
+}
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu-list { list-style: none; }
+.menu-item { border-top: 1px solid var(--divider); }
+.menu-item:last-child { border-bottom: 1px solid var(--divider); }
+
+.menu-link {
+  display: grid;
+  grid-template-columns: 86px 1fr 24px;
+  gap: 22px;
+  align-items: center;
+  padding: 18px 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.18s;
+  border-radius: 2px;
+}
+.menu-link:hover { background: var(--hover-bg); }
+.menu-link:hover .item-title { color: var(--red); }
+.menu-link:hover .item-arrow { opacity: 1; transform: translateX(4px); }
+
+.item-thumb-wrap {
+  width: 86px; height: 86px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--gray-bg);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.item-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute; top: 0; left: 0;
+}
+.item-icon { width: 54px; height: 54px; display: none; flex-shrink: 0; }
+.item-icon.visible { display: block; }
+
+.item-body { display: flex; flex-direction: column; gap: 5px; }
+.item-course {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--red);
+}
+.item-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: clamp(17px, 2.8vw, 23px);
+  font-weight: 400; line-height: 1.2;
+  color: var(--blue);
+  transition: color 0.18s;
+}
+.item-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--gray-mid);
+  line-height: 1.6; max-width: 500px;
+}
+.item-bloom {
+  font-family: 'Roboto Slab', serif;
+  font-size: 11px; font-weight: 300;
+  font-style: italic;
+  color: var(--blue); opacity: 0.65;
+}
+.item-arrow {
+  font-size: 18px; color: var(--red);
+  opacity: 0;
+  transition: opacity 0.18s, transform 0.18s;
+  justify-self: end;
+}
+
+/* ════════════════════════════════════════
+   REGLAS DE LA SLOW AI — acordeón
+════════════════════════════════════════ */
+.rules-section {
+  width: 100%;
+  max-width: 820px;
+  padding: 52px 24px 0;
+}
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.rules-header-line { flex: 1; height: 1px; background: var(--divider); }
+.rules-header-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  white-space: nowrap;
+}
+.rules-body { width: 100%; }
+.rules-list { display: flex; flex-direction: column; gap: 0; }
+
+.rule-item { border-top: 1px solid var(--divider); }
+.rule-item:last-child { border-bottom: 1px solid var(--divider); }
+
+.rule-toggle {
+  display: grid;
+  grid-template-columns: 32px 1fr 20px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 6px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.rule-toggle::-webkit-details-marker { display: none; }
+.rule-toggle::marker { display: none; }
+
+details[open] .rule-toggle { padding-bottom: 8px; }
+details[open] .rule-num { background: var(--red); color: var(--white); }
+details[open] .rule-chevron { transform: rotate(90deg); color: var(--red); }
+
+.rule-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px; font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.rule-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px; font-weight: 400;
+  color: var(--blue); line-height: 1.3;
+}
+.rule-chevron {
+  font-size: 14px; color: var(--gray-mid);
+  transition: transform 0.2s, color 0.18s;
+  justify-self: end;
+}
+.rule-body { padding: 0 6px 16px 46px; }
+.rule-body ul {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.rule-body ul li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 13px; font-weight: 300;
+  color: var(--gray-mid); line-height: 1.6;
+}
+.rule-body ul li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0; margin-top: 7px;
+}
+.rule-body strong { color: var(--blue); font-weight: 500; }
+
+/* Párrafo introductorio de cada regla */
+.rule-intro {
+  font-size: 13px; font-weight: 300;
+  color: var(--gray-mid); line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+/* Tabla de ejemplos dentro de las reglas */
+.rule-examples {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--divider);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.rule-examples li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px 12px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--divider);
+  background: var(--white);
+}
+.rule-examples li:last-child { border-bottom: none; }
+.rule-examples li:nth-child(odd) { background: var(--gray-bg); }
+
+.re-label {
+  grid-column: 1; grid-row: 1;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blue); align-self: start; padding-top: 1px;
+}
+.re-desc {
+  grid-column: 2; grid-row: 1;
+  font-size: 13px; font-weight: 400;
+  color: var(--blue); line-height: 1.5;
+}
+.re-ex {
+  grid-column: 2; grid-row: 2;
+  font-size: 12px; font-weight: 300;
+  color: var(--gray-mid); line-height: 1.55;
+}
+.re-ex em { font-style: italic; color: var(--blue); opacity: 0.75; }
+
+/* Caja de consejo / tip */
+.rule-tip {
+  font-size: 13px; font-weight: 300;
+  color: var(--blue); line-height: 1.65;
+  background: #EEF3FA;
+  border-left: 3px solid var(--blue);
+  padding: 10px 14px;
+  border-radius: 0 3px 3px 0;
+  margin-bottom: 14px;
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer {
+  width: 100%;
+  max-width: 820px;
+  padding: 22px 24px 36px;
+  text-align: center;
+  border-top: 1px solid var(--divider);
+}
+.footer-logos {
+  display: flex; align-items: center;
+  justify-content: center;
+  gap: 14px; margin-bottom: 14px; flex-wrap: wrap;
+}
+/* Logo UVa footer — cuadrado */
+.footer-uva-pill {
+  background: var(--red); color: var(--white);
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 13px; font-weight: 700;
+  width: 36px; height: 36px;
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
+.footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.footer-inst span { font-size: 11px; font-weight: 400; color: var(--gray-mid); line-height: 1.45; }
+.footer-inst strong { font-weight: 600; color: var(--blue); }
+.footer-project {
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px; font-weight: 300; color: var(--blue);
+  margin-bottom: 6px;
+}
+.footer-project em { font-style: italic; color: var(--red); }
+.footer-credit {
+  font-size: 11px; color: var(--gray-mid);
+  font-weight: 300; line-height: 1.6;
+}
+.footer-credit a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--gray-lt); }
+.footer-credit a:hover { border-color: var(--red); color: var(--red); }
+
+/* ════════════════════════════════════════
+   ANIMACIONES
+════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.navbar        { animation: fadeUp 0.5s ease both; }
+.hero-wrap     { animation: fadeUp 0.6s 0.07s ease both; }
+.rules-section { animation: fadeUp 0.6s 0.13s ease both; }
+.menu-section  { animation: fadeUp 0.6s 0.18s ease both; }
+.menu-item { opacity: 0; animation: fadeUp 0.45s ease both; }
+.menu-item:nth-child(1) { animation-delay: 0.22s; }
+.menu-item:nth-child(2) { animation-delay: 0.30s; }
+.menu-item:nth-child(3) { animation-delay: 0.38s; }
+.menu-item:nth-child(4) { animation-delay: 0.46s; }
+.menu-item:nth-child(5) { animation-delay: 0.54s; }
+.menu-item:nth-child(6) { animation-delay: 0.62s; }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-inner { gap: 32px; }
+}
+@media (max-width: 700px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  .hero-title-col {
+    border-right: none; padding-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 28px;
+  }
+  .hero-escudo { width: 60px; }
+  h1 { font-size: clamp(26px, 7vw, 36px); }
+}
+@media (max-width: 500px) {
+  .navbar-inner { padding: 12px 16px 10px; }
+  .hero-inner { padding: 28px 16px 0; }
+  .menu-section { padding: 24px 16px 48px; }
+  .rules-section { padding: 36px 16px 0; }
+  .menu-link { grid-template-columns: 60px 1fr 16px; gap: 12px; padding: 14px 4px; }
+  .item-thumb-wrap { width: 60px; height: 60px; }
+  .item-title { font-size: 16px; }
+  .rule-examples li { grid-template-columns: 1fr; }
+  .re-label { grid-column: 1; grid-row: auto; }
+  .re-desc  { grid-column: 1; grid-row: auto; }
+  .re-ex    { grid-column: 1; grid-row: auto; }
+}
