@@ -73,6 +73,19 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.6);
     }
+    .nav-slowai {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+      padding: 5px 12px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-slowai:hover { background: var(--red); color: var(--white); border-color: var(--red); }
     .uva-pill {
       background: var(--red);
       color: var(--white);
@@ -204,12 +217,12 @@
       font-style: italic;
     }
 
-    /* Escudo sobre cuadrado azul claro */
+    /* Escudo sobre fondo blanco */
     .escudo-box {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.12);
+      background: var(--white);
       border-radius: 6px;
       padding: 16px;
       align-self: center;
@@ -479,6 +492,20 @@
       justify-self: end;
     }
 
+    /* Ítems pendientes de construir */
+    .menu-link--soon {
+      cursor: default;
+      opacity: 0.5;
+    }
+    .menu-link--soon:hover { background: transparent; }
+    .menu-link--soon:hover .item-title { color: var(--blue); }
+    .menu-link--soon:hover .item-arrow { opacity: 0; transform: none; }
+    .menu-link--soon .item-course::after {
+      content: ' · Próximamente';
+      font-style: italic;
+      opacity: 0.7;
+    }
+
     /* ── FOOTER ── */
     footer {
       width: 100%;
@@ -639,6 +666,7 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a class="nav-title" href="https://tutorcyllo.github.io/smallteaiching/" style="text-decoration:none;">Small Te<em>AI</em>ching</a>
+    <a class="nav-slowai" href="https://tutorcyllo.github.io/smallteaiching/slowai/">Filosofía Slow AI</a>
     <div class="nav-right">
       <span class="nav-faculty">Educación Superior · UVa</span>
       <span class="uva-pill">UVa</span>
@@ -706,6 +734,27 @@
   <ul class="menu-list" role="list">
 
     <li class="menu-item">
+      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/slowai/">
+        <div class="item-thumb-wrap">
+          <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/slowai.avif" alt="Filosofía Slow AI"/>
+          <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="6" fill="#EEF3FA"/>
+            <circle cx="26" cy="24" r="12" stroke="#003973" stroke-width="2.5" fill="none"/>
+            <line x1="26" y1="16" x2="26" y2="25" stroke="#c60046" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="26" cy="29" r="2" fill="#c60046"/>
+            <path d="M14 40 Q20 36 26 38 Q32 36 38 40" stroke="#003973" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="item-body">
+          <span class="item-course">Filosofía · Fundamentos</span>
+          <span class="item-title">Slow AI — Las reglas de la casa</span>
+          <span class="item-desc">Qué es la Slow AI, por qué evitar los atajos y cómo aplicar sus 5 principios en tu docencia antes de usar cualquier herramienta.</span>
+        </div>
+        <span class="item-arrow">→</span>
+      </a>
+    </li>
+
+    <li class="menu-item">
       <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/bibliotecaria/">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/bibliotecaria.avif" alt="La bibliotecarIA" />
@@ -730,7 +779,7 @@
     </li>
 
     <li class="menu-item">
-      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/entrantes/">
+      <a class="menu-link menu-link--soon" href="#" onclick="return false;" aria-disabled="true">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/entrantes.avif" alt="Entrantes"/>
           <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -753,7 +802,7 @@
     </li>
 
     <li class="menu-item">
-      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/primer_plato/">
+      <a class="menu-link menu-link--soon" href="#" onclick="return false;" aria-disabled="true">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/primer_plato.avif" alt="Primer plato"/>
           <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -776,7 +825,7 @@
     </li>
 
     <li class="menu-item">
-      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/segundo_plato/">
+      <a class="menu-link menu-link--soon" href="#" onclick="return false;" aria-disabled="true">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/segundo_plato.avif" alt="Segundo plato"/>
           <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -801,7 +850,7 @@
     </li>
 
     <li class="menu-item">
-      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/postre/">
+      <a class="menu-link menu-link--soon" href="#" onclick="return false;" aria-disabled="true">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/postre.avif" alt="Postre"/>
           <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -826,7 +875,7 @@
     </li>
 
     <li class="menu-item">
-      <a class="menu-link" href="https://tutorcyllo.github.io/smallteaiching/sobremesa/">
+      <a class="menu-link menu-link--soon" href="#" onclick="return false;" aria-disabled="true">
         <div class="item-thumb-wrap">
           <img class="item-thumb" data-src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/sobremesa.avif" alt="Sobremesa"/>
           <svg class="item-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
