@@ -602,19 +602,23 @@
     }
 
     /* Lista de ejemplos con 3 líneas por item */
+    .rule-examples-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 14px;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+    }
     .rule-examples {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0;
-      border: 1px solid var(--divider);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 14px;
+      min-width: 480px;
     }
     .rule-examples li {
       display: grid;
-      grid-template-columns: 110px 1fr;
+      grid-template-columns: 130px 1fr;
       grid-template-rows: auto auto;
       gap: 2px 12px;
       padding: 11px 14px;
@@ -1016,7 +1020,7 @@
         </summary>
         <div class="rule-body">
           <p class="rule-intro">Cuando le pides algo a la IA, lo que escribes se llama <strong>prompt</strong>. Cuanto más claro sea, mejor será el resultado. Piénsalo como si le encargases una tarea a un becario muy capaz pero que no conoce tu asignatura. Un buen prompt tiene 6 ingredientes:</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">Rol</span>
               <span class="re-desc">Dile cómo debe comportarse.</span>
@@ -1047,9 +1051,9 @@
               <span class="re-desc">Describe qué sería una buena respuesta para ti.</span>
               <span class="re-ex">Ej: <em>"Las preguntas deben ser claras, con una sola respuesta correcta y un razonamiento de por qué las otras son incorrectas"</em></span>
             </li>
-          </ul>
+          </ul></div>
           <p class="rule-tip">💡 <strong>Consejo:</strong> No tienes que usar los 6 siempre. Empieza con 3 (qué quieres, para quién y en qué formato) y ya es mucho mejor que escribir solo "hazme un examen de anatomía".</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">Itera</span>
               <span class="re-desc">Trata la respuesta como un borrador. Revísala y pide ajustes concretos.</span>
@@ -1060,8 +1064,8 @@
               <span class="re-desc">Antes de lanzar tu instrucción, pídele a la propia IA que la mejore.</span>
               <span class="re-ex">Ej: <em>"¿Cómo mejorarías esta instrucción para que el resultado sea más útil?"</em></span>
             </li>
-          </ul>
-          <a class="rule-note-link" href="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/ClaudevsChatGPT.pdf" target="_blank">
+          </ul></div>
+          <a class="rule-note-link" href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/ClaudevsChatGPT.pdf" target="_blank">
             <span class="rule-note-icon">📄</span>
             <span class="rule-note-text">
               <span class="rule-note-label">Nota experta</span>
@@ -1080,7 +1084,7 @@
         </summary>
         <div class="rule-body">
           <p class="rule-intro">La IA procesa todo lo que le escribes. Antes de usarla con materiales de clase, ten en cuenta estas reglas básicas:</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">Datos personales</span>
               <span class="re-desc">No incluyas nombres, notas ni información identificable de alumnos.</span>
@@ -1096,7 +1100,7 @@
               <span class="re-desc">Prioriza siempre las herramientas que ofrece tu universidad.</span>
               <span class="re-ex">Ej: El Copilot institucional de tu universidad tiene garantías de privacidad que los servicios gratuitos pueden no tener.</span>
             </li>
-          </ul>
+          </ul></div>
         </div>
       </details>
 
@@ -1108,7 +1112,7 @@
         </summary>
         <div class="rule-body">
           <p class="rule-intro">Usar la IA no es hacer trampa — pero hay un límite. Define las reglas antes de que empiece el trabajo, no después.</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">Define las reglas</span>
               <span class="re-desc">Deja claro cuándo, para qué y cómo pueden usar la IA tus alumnos.</span>
@@ -1129,7 +1133,7 @@
               <span class="re-desc">Pide que los trabajos incluyan una nota explicando cómo se usó la IA.</span>
               <span class="re-ex">Ej: <em>"He usado la IA para generar un borrador del esquema. El texto final lo he escrito yo. Prompts usados: [...]"</em></span>
             </li>
-          </ul>
+          </ul></div>
         </div>
       </details>
 
@@ -1141,7 +1145,7 @@
         </summary>
         <div class="rule-body">
           <p class="rule-intro">Antes de usar la IA en una actividad, hazte una pregunta clave: ¿qué quiero que aprendan mis alumnos con esto?</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">Empieza por el fin</span>
               <span class="re-desc">Define primero qué habilidad o conocimiento quieres trabajar.</span>
@@ -1157,7 +1161,7 @@
               <span class="re-desc">Si la tarea se puede resolver en 10 segundos con IA, hay que rediseñarla.</span>
               <span class="re-ex">Ej: En vez de "resume este artículo" → "lee el artículo, escribe tu propio resumen y luego pide a la IA que lo critique".</span>
             </li>
-          </ul>
+          </ul></div>
         </div>
       </details>
 
@@ -1169,7 +1173,7 @@
         </summary>
         <div class="rule-body">
           <p class="rule-intro">Antes de llevar a clase cualquier material generado con IA, comprueba estos 5 puntos. Si alguno falla, ajusta antes de usarlo:</p>
-          <ul class="rule-examples">
+          <div class="rule-examples-wrap"><ul class="rule-examples">
             <li>
               <span class="re-label">¿Reglas claras?</span>
               <span class="re-desc">¿Saben tus alumnos cómo y para qué pueden usar la IA en esta actividad?</span>
@@ -1195,7 +1199,7 @@
               <span class="re-desc">¿Has evitado incluir datos personales o materiales protegidos?</span>
               <span class="re-ex">Revisa que no hay nombres de alumnos, casos reales identificables ni textos con copyright en los prompts.</span>
             </li>
-          </ul>
+          </ul></div>
           <p class="rule-tip">✅ <strong>Si los 5 son SÍ</strong>, tu actividad está lista. Si alguno es NO, es una señal para ajustar — no para descartar la idea.</p>
         </div>
       </details>
