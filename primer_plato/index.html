@@ -275,7 +275,8 @@ function renderGuia(d) {
   }
 
   if (items.length) {
-    html += `<table class="guia-table">
+    html += `<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px">
+    <table class="guia-table">
       <tr>
         <th>Actividad</th>
         <th>Tiempo</th>
@@ -289,7 +290,7 @@ function renderGuia(d) {
         <td class="disp">${esc(a.dispositivos || '')}</td>
         <td class="min">${esc(a.minimo || a.descripcion || '')}</td>
       </tr>`).join('')}
-    </table>`;
+    </table></div>`;
   }
 
   c.innerHTML = html;
