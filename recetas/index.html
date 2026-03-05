@@ -347,6 +347,88 @@
     .btn-download:hover { background: var(--red); }
     .btn-download svg { width: 14px; height: 14px; fill: currentColor; }
 
+    /* ── ACORDEÓN DE ENLACES ── */
+    .item-accordion {
+      border-top: 1px solid var(--divider);
+      background: var(--gray-bg);
+    }
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 13px 8px 13px 16px;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .accordion-toggle:hover { background: var(--hover-bg); }
+    .accordion-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      flex: 1;
+    }
+    .accordion-chevron {
+      font-size: 14px;
+      color: var(--gray-mid);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .accordion-toggle[aria-expanded="true"] .accordion-chevron { transform: rotate(90deg); color: var(--red); }
+    .accordion-toggle[aria-expanded="true"] .accordion-label { color: var(--red); }
+
+    .accordion-body {
+      display: none;
+      padding: 4px 16px 18px;
+    }
+    .accordion-body.open { display: block; }
+
+    .acc-group { margin-bottom: 16px; }
+    .acc-group:last-child { margin-bottom: 0; }
+    .acc-group-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--divider);
+    }
+    .acc-group:first-child .acc-group-title { border-top: none; padding-top: 0; }
+    .acc-links { display: flex; flex-direction: column; gap: 6px; }
+    .acc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--blue);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .acc-link:hover { color: var(--red); }
+    .acc-link svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; opacity: 0.6; }
+    .acc-link:hover svg { opacity: 1; }
+    .acc-link-type {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 2px;
+      padding: 1px 5px;
+      flex-shrink: 0;
+    }
+    .acc-link:hover .acc-link-type { background: var(--red); }
+
     /* ── FOOTER ── */
     footer { width:100%; max-width:820px; padding:22px 24px 36px; text-align:center; border-top:1px solid #ccc; }
     .footer-logos { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
@@ -442,7 +524,7 @@
       </li>
 
       <!-- Receta 2: Asistente de IA -->
-      <li class="menu-item">
+      <li class="menu-item" style="display:flex;flex-direction:column;">
         <a class="menu-link"
            href="https://github.com/Tutorcyllo/smallteaiching/blob/main/assests/pdfs/asistenteIA.slowai.pdf"
            target="_blank" rel="noopener"
@@ -461,6 +543,65 @@
           </div>
           <span class="item-arrow" aria-hidden="true">›</span>
         </a>
+
+        <!-- Acordeón de enlaces -->
+        <div class="item-accordion">
+          <button class="accordion-toggle" aria-expanded="false" onclick="toggleAcc(this)">
+            <span class="accordion-label">Enlaces para construir tus primeros Agentes, Gems o GPTs</span>
+            <span class="accordion-chevron">›</span>
+          </button>
+          <div class="accordion-body">
+
+            <div class="acc-group">
+              <p class="acc-group-title">Agentes en Copilot (Microsoft)</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://www.youtube.com/watch?v=v9v_I6PwsxA" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 4 7 4V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  <span class="acc-link-type">Video</span>
+                  Cómo crear un agente en Copilot
+                </a>
+                <a class="acc-link" href="https://adoption.microsoft.com/es-es/ai-agents/templates-and-examples/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Web</span>
+                  Plantillas y ejemplos de Microsoft
+                </a>
+              </div>
+            </div>
+
+            <div class="acc-group">
+              <p class="acc-group-title">Gems en Gemini (Google)</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://www.youtube.com/watch?v=8lcjYJ-QePI" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 4 7 4V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  <span class="acc-link-type">Video</span>
+                  Cómo crear un Gem en Gemini
+                </a>
+                <a class="acc-link" href="https://support.google.com/gemini/answer/15235603?hl=es" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Web</span>
+                  Soporte oficial de Google
+                </a>
+              </div>
+            </div>
+
+            <div class="acc-group">
+              <p class="acc-group-title">GPTs en ChatGPT (OpenAI)</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://www.youtube.com/watch?v=0Q1AQAxpdGg" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 4 7 4V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  <span class="acc-link-type">Video</span>
+                  Cómo crear un GPT personalizado
+                </a>
+                <a class="acc-link" href="https://hbsp.harvard.edu/inspiring-minds/create-custom-gpts-for-your-course" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Web</span>
+                  Harvard: GPTs para tu asignatura
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </li>
 
       <!-- Receta 3: Vibe Coding -->
@@ -505,6 +646,13 @@
     </p>
   </footer>
 
+  <script>
+    function toggleAcc(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.nextElementSibling.classList.toggle('open', !expanded);
+    }
+  </script>
 
 </body>
 </html>
