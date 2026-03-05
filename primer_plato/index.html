@@ -78,10 +78,17 @@
     .mitig { background: #e8f5e9; border-radius: 8px; padding: 11px; font-size: 12px; line-height: 1.6; color: #1b5e20; }
     .cuando-box { background: var(--hover-bg); border-radius: 8px; padding: 12px 14px; margin: 10px 0; }
     .cuando-box ul { padding-left: 16px; color: #444; font-size: 13px; line-height: 1.75; }
-    .guia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin: 16px 0; }
-    .guia-card { background: var(--white); border: 1px solid #ece8e0; border-radius: 8px; padding: 14px 16px; }
-    .guia-tit { font-weight: 600; font-size: 13px; color: var(--blue); margin-bottom: 6px; }
-    .guia-desc { font-size: 12px; color: var(--gray-mid); line-height: 1.6; }
+    /* Guía de inicio rápido */
+    .consejo-box { background: #fff8e1; border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 24px; }
+    .consejo-tit { font-weight: 600; font-size: 14px; color: #5d4037; margin-bottom: 6px; }
+    .consejo-txt { font-size: 13px; color: #5d4037; line-height: 1.75; }
+    .guia-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: .87em; }
+    .guia-table th { background: var(--blue); color: var(--gold); padding: 9px 12px; text-align: left; font-weight: 600; }
+    .guia-table td { padding: 10px 12px; border-bottom: 1px solid #f0ece0; color: #444; vertical-align: top; line-height: 1.6; }
+    .guia-table tr:nth-child(even) td { background: #faf9f7; }
+    .guia-table td strong { color: var(--blue); }
+    .guia-table .disp { font-size: .85em; color: var(--gray-mid); }
+    .guia-table .min { font-size: .85em; color: #444; }
     .page-nav { max-width: 960px; margin: 0 auto; padding: 24px 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
     .page-nav-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--blue); border: 1px solid var(--divider); border-radius: 3px; padding: 8px 14px; text-decoration: none; transition: all 0.18s; background: var(--white); }
     .page-nav-btn:hover { background: var(--hover-bg); border-color: var(--blue); }
@@ -100,7 +107,7 @@
     .footer-inst strong { font-weight: 600; color: var(--blue); }
     .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } }
+    @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } .guia-table { font-size: .78em; } }
   </style>
 </head>
 <body>
@@ -191,10 +198,22 @@ function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function showPanel(id,btn){ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('visible')); document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active')); document.getElementById('panel-'+id).classList.add('visible'); btn.classList.add('active'); }
 function friccionClass(f){ if(!f) return 'b-fric-baja'; if(f.includes('Alta')) return 'b-fric-alta'; if(f.includes('Media')) return 'b-fric-media'; return 'b-fric-baja'; }
 function toggleFicha(el){ el.closest('.ficha').classList.toggle('open'); }
-function copyPrompt(btn, text){ navigator.clipboard.writeText(text).then(()=>{ btn.textContent='✓ Prompt copiado'; btn.classList.add('ok'); setTimeout(()=>{btn.textContent='📋 Copiar prompt'; btn.classList.remove('ok');},2000); }); }
+
+const _prompts = {};
+function copyPrompt(id){
+  const txt = _prompts[id]||'';
+  navigator.clipboard.writeText(txt).then(()=>{
+    const btn = document.getElementById('copybtn-'+id);
+    btn.textContent='✓ Prompt copiado'; btn.classList.add('ok');
+    setTimeout(()=>{ btn.textContent='📋 Copiar prompt'; btn.classList.remove('ok'); }, 2000);
+  });
+}
 
 function renderFichas(fichas){
-  document.getElementById('fichas-container').innerHTML = fichas.map(f=>`
+  document.getElementById('fichas-container').innerHTML = fichas.map(f => {
+    const pid = 'p-' + f.id;
+    _prompts[pid] = f.prompt || '';
+    return `
     <div class="ficha">
       <div class="ficha-top" onclick="toggleFicha(this)">
         <span class="ficha-id">${esc(f.id)}</span>
@@ -209,30 +228,71 @@ function renderFichas(fichas){
       </div>
       <div class="ficha-body">
         <p class="fdesc">${esc(f.descripcion||'')}</p>
-        ${f.cuando_usarlo?`<div class="sec-in"><h3>Cuándo usarlo</h3><div class="cuando-box"><ul>${f.cuando_usarlo.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></div></div>`:''}
-        ${f.necesitas?`<div class="sec-in"><h3>Qué necesitas</h3><ul class="lista">${f.necesitas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`:''}
-        ${f.pasos?`<div class="sec-in"><h3>Pasos</h3><ol class="pasos">${f.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>`:''}
-        ${f.prompt?`<div class="sec-in"><h3>Prompt listo para usar</h3>
+        ${f.cuando_usarlo ? `<div class="sec-in"><h3>Cuándo usarlo</h3><div class="cuando-box"><ul>${f.cuando_usarlo.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></div></div>` : ''}
+        ${f.necesitas ? `<div class="sec-in"><h3>Qué necesitas</h3><ul class="lista">${f.necesitas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>` : ''}
+        ${f.pasos ? `<div class="sec-in"><h3>Pasos</h3><ol class="pasos">${f.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>` : ''}
+        ${f.prompt ? `<div class="sec-in"><h3>Prompt listo para usar</h3>
           <div class="prompt-box"><div class="prompt-label">✦ Prompt</div><div class="prompt-txt">${esc(f.prompt)}</div></div>
-          <button class="btn-copy" onclick="copyPrompt(this,'${f.prompt.replace(/'/g,"\\'")}')">📋 Copiar prompt</button>
-        </div>`:''}
-        ${f.evidencia?`<div class="sec-in"><h3>Evidencia evaluable</h3><div class="evidencia">📎 ${esc(f.evidencia)}</div></div>`:''}
-        ${f.riesgo_fastai||f.mitigacion_slowai?`<div class="sec-in"><h3>FastAI vs SlowAI</h3>
+          <button class="btn-copy" id="copybtn-${pid}" onclick="copyPrompt('${pid}')">📋 Copiar prompt</button>
+        </div>` : ''}
+        ${f.evidencia ? `<div class="sec-in"><h3>Evidencia evaluable</h3><div class="evidencia">📎 ${esc(f.evidencia)}</div></div>` : ''}
+        ${f.riesgo_fastai||f.mitigacion_slowai ? `<div class="sec-in"><h3>FastAI vs SlowAI</h3>
           <div class="rm-grid">
             <div class="riesgo">⚠️ <strong>Riesgo FastAI:</strong><br>${esc(f.riesgo_fastai||'')}</div>
             <div class="mitig">✅ <strong>Mitigación SlowAI:</strong><br>${esc(f.mitigacion_slowai||'')}</div>
-          </div></div>`:''}
+          </div></div>` : ''}
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
-function renderGuia(d){
+function renderGuia(d) {
   const c = document.getElementById('guia-container');
-  if(!d || !d.guia_inicio_rapido){ c.innerHTML='<p style="color:#888;padding:20px">No hay guía de inicio rápido disponible en el JSON.</p>'; return; }
-  const g = d.guia_inicio_rapido;
-  c.innerHTML = `<h2 style="font-family:'Roboto Slab',serif;font-weight:400;font-size:20px;color:var(--blue);margin-bottom:8px">${esc(g.titulo||'Guía de inicio rápido')}</h2>
-    <p style="font-size:14px;color:#444;line-height:1.75;margin-bottom:20px">${esc(g.intro||'')}</p>
-    <div class="guia-grid">${(g.fichas||[]).map(f=>`<div class="guia-card"><div class="guia-tit">${esc(f.id)} · ${esc(f.titulo)}</div><div class="guia-desc">${esc(f.minimo||f.descripcion||'')}</div></div>`).join('')}</div>`;
+
+  // Lee guia_inicio_rapido si existe, si no usa consideraciones directamente
+  const src = d.guia_inicio_rapido || d.consideraciones;
+
+  if (!src) {
+    c.innerHTML = '<p style="color:#888;padding:20px">No hay guía de inicio rápido disponible en el JSON.</p>';
+    return;
+  }
+
+  // Consejo inicial
+  const consejo = src.consejo || null;
+  const consejoTit = src.consejo_titulo || (consejo && consejo.titulo) || '';
+  const consejoTxt = src.intro || (consejo && consejo.texto) || '';
+
+  // Fichas / actividades
+  const items = src.fichas || src.actividades || [];
+
+  let html = `<h2 style="font-family:'Roboto Slab',serif;font-weight:400;font-size:20px;color:var(--blue);margin-bottom:16px">${esc(src.titulo || 'Guía de inicio rápido')}</h2>`;
+
+  if (consejoTit || consejoTxt) {
+    html += `<div class="consejo-box">
+      ${consejoTit ? `<div class="consejo-tit">💡 ${esc(consejoTit)}</div>` : ''}
+      ${consejoTxt ? `<div class="consejo-txt">${esc(consejoTxt).replace(/\n\n/g,'</div><div class="consejo-txt" style="margin-top:10px">')}</div>` : ''}
+    </div>`;
+  }
+
+  if (items.length) {
+    html += `<table class="guia-table">
+      <tr>
+        <th>Actividad</th>
+        <th>Tiempo</th>
+        <th>Dispositivos</th>
+        <th>Mínimo imprescindible</th>
+      </tr>
+      ${items.map(a => `
+      <tr>
+        <td><strong>${esc(a.id)}</strong> · ${esc(a.titulo || a.nombre || '')}</td>
+        <td class="disp">${esc(a.tiempo || '')}</td>
+        <td class="disp">${esc(a.dispositivos || '')}</td>
+        <td class="min">${esc(a.minimo || a.descripcion || '')}</td>
+      </tr>`).join('')}
+    </table>`;
+  }
+
+  c.innerHTML = html;
 }
 
 async function loadData(){
