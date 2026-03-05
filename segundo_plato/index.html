@@ -122,14 +122,20 @@
     .menu-chip { font-size: 11px; padding: 5px 10px; border-radius: 2px; text-decoration: none; border: 1px solid var(--divider); color: var(--gray-mid); transition: all 0.18s; }
     .menu-chip:hover { border-color: var(--blue); color: var(--blue); }
     .menu-chip.here { border-color: var(--red); color: var(--red); font-weight: 600; background: rgba(198,0,70,0.05); }
-    footer { border-top: 1px solid var(--divider); padding: 28px 24px 40px; text-align: center; }
-    .footer-inner { max-width: 960px; margin: 0 auto; }
-    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
-    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
-    .footer-inst span { font-size: 11px; color: var(--gray-mid); line-height: 1.45; }
-    .footer-inst strong { font-weight: 600; color: var(--blue); }
-    .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; }
+    footer { width:100%; max-width:960px; padding:22px 24px 36px; text-align:center; border-top:1px solid #ccc; margin:0 auto; }
+    .footer-logos { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+    .footer-uva-pill { background:#c60046; color:#fff; font-family:'Libre Franklin',sans-serif; font-size:13px; font-weight:700; width:36px; height:36px; border-radius:3px; display:flex; align-items:center; justify-content:center; }
+    .footer-vline { width:1px; height:22px; background:#ccc; }
+    .footer-inst { display:flex; flex-direction:column; align-items:flex-start; gap:1px; }
+    .footer-inst span { font-size:11px; color:#777; line-height:1.45; }
+    .footer-inst strong { font-weight:600; color:#003973; }
+    .footer-project { font-family:'Roboto Slab',serif; font-size:14px; font-weight:300; color:#003973; margin-bottom:6px; }
+    .footer-project em { font-style:italic; color:#c60046; }
+    .footer-credit { font-size:11px; color:#777; font-weight:300; line-height:1.6; }
+    .footer-credit a { color:#003973; text-decoration:none; border-bottom:1px solid #ccc; }
+    .footer-credit a:hover { border-color:#c60046; color:#c60046; }
+    .footer-credit a { color:#003973; text-decoration:none; border-bottom:1px solid #ccc; }
+    .footer-credit a:hover { border-color:#c60046; color:#c60046; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } .tabla-evidencias, .combo-table { font-size: .78em; } }
   </style>
@@ -208,18 +214,21 @@
   <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="page-nav-btn primary">🍰 Postres →</a>
 </div>
 
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logos">
-      <div class="uva-pill">UVa</div>
-      <div class="footer-vline"></div>
-      <div class="footer-inst">
-        <span><strong>Universidad de Valladolid</strong></span>
-        <span>Facultad de Medicina</span>
-      </div>
+  <div class="footer-logos">
+    <span class="footer-uva-pill">UVa</span>
+    <div class="footer-vline"></div>
+    <div class="footer-inst">
+      <span><strong>EduMed</strong> · Facultad de Medicina</span>
+      <span>Universidad de Valladolid</span>
     </div>
-    <p class="footer-credit">Small <em>teAI</em>ching · Proyecto de innovación docente · 2025–2026</p>
   </div>
+  <p class="footer-project">Small Te<em>AI</em>ching &nbsp;·&nbsp; Slow AI</p>
+  <p class="footer-credit">
+    Webapp desarrollada por <a href="https://github.com/Tutorcyllo" target="_blank">TutorCyLlo</a>
+    con el soporte de <strong>Claude Sonnet 4.6</strong> &nbsp;·&nbsp; Marzo 2026
+  </p>
 </footer>
 
 <script>
