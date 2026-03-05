@@ -243,5 +243,54 @@
         "minimo": "LLM accesible + pizarra para anotar analogías elegidas"
       }
     ]
+  },
+  "guia_inicio_rapido": {
+    "titulo": "Consideraciones prácticas para el aula",
+    "intro": "¿Cómo empezar si nunca has usado la IA en clase?: Empieza por las Fichas 1, 2 o 3: solo las necesitas tú como docente, con el LLM en tu ordenador. Los estudiantes ni siquiera necesitan dispositivos. Una vez que te sientas cómodo con esas, introduce las Fichas 4, 5 y 6 donde los alumnos usan sus propios dispositivos.\n\nEn la tabla siguiente encontrarás el tiempo aproximado, qué dispositivos necesitas y el mínimo imprescindible para poner en marcha cada actividad.",
+    "consejo_titulo": "¿Cómo empezar si nunca has usado la IA en clase?",
+    "fichas": [
+      {
+        "id": "P1",
+        "titulo": "Sintetizador colectivo",
+        "tiempo": "5-10 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + método para recoger respuestas (cualquiera)"
+      },
+      {
+        "id": "P2",
+        "titulo": "Casos en vivo",
+        "tiempo": "10-20 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + proyector para mostrar los casos"
+      },
+      {
+        "id": "P3",
+        "titulo": "Visualizador auditable",
+        "tiempo": "10-15 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + proyector"
+      },
+      {
+        "id": "P4",
+        "titulo": "ABP en rondas",
+        "tiempo": "20-30 min",
+        "dispositivos": "Alumnos (1 por grupo)",
+        "minimo": "LLM accesible para alumnos + papel para registro de hipótesis"
+      },
+      {
+        "id": "P5",
+        "titulo": "Debate del mejor argumento",
+        "tiempo": "20-25 min",
+        "dispositivos": "Alumnos (1 por equipo)",
+        "minimo": "LLM accesible + tiempo para preparación y debate"
+      },
+      {
+        "id": "P6",
+        "titulo": "Analogías",
+        "tiempo": "10-15 min",
+        "dispositivos": "Alumnos (individual/pareja)",
+        "minimo": "LLM accesible + pizarra para anotar analogías elegidas"
+      }
+    ]
   }
 }
