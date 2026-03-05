@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍲 Primer Plato · Small teAIching</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --white: #FFFFFF; --gray-lt: #CCCCCC; --gray-mid: #777777; --gray-bg: #F5F5F5; --red: #c60046; --blue: #003973; --divider: #CCCCCC; --hover-bg: #EEF3FA; --gold: #e8a838; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Franklin', sans-serif; background: var(--white); color: var(--blue); min-height: 100vh; }
+    .top-bar { width: 100%; height: 4px; background: var(--red); }
+    .navbar { width: 100%; background: var(--blue); position: sticky; top: 0; z-index: 100; animation: fadeUp 0.5s ease both; }
+    .navbar-inner { max-width: 960px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-title { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.8); }
+    .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    .nav-menu { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-btn { background: none; border: none; color: rgba(255,255,255,0.65); padding: 7px 12px; border-radius: 3px; cursor: pointer; font-family: 'Libre Franklin', sans-serif; font-size: 12px; font-weight: 500; text-decoration: none; display: inline-block; transition: all 0.18s; white-space: nowrap; }
+    .nav-btn:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+    .nav-btn.current { color: var(--white); background: rgba(255,255,255,0.18); font-weight: 600; }
+    .hero { background: var(--blue); padding: 40px 24px 48px; animation: fadeUp 0.6s 0.07s ease both; }
+    .hero-inner { max-width: 960px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .hero-title { font-family: 'Roboto Slab', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 12px; }
+    .hero-title em { font-style: italic; font-weight: 500; }
+    .hero-sub { font-family: 'Roboto Slab', serif; font-size: 15px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 18px; max-width: 640px; }
+    .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; padding: 5px 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); }
+    .hero-desc { background: rgba(255,255,255,0.08); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; padding: 14px 18px; font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.85); max-width: 760px; }
+    .section-tabs { background: var(--white); border-bottom: 1px solid var(--divider); position: sticky; top: 61px; z-index: 90; }
+    .tabs-inner { max-width: 960px; margin: 0 auto; padding: 0 8px; display: flex; gap: 0; }
+    .stab { background: none; border: none; padding: 10px 10px; cursor: pointer; font-family: 'Libre Franklin', sans-serif; font-size: 12px; font-weight: 400; color: var(--gray-mid); border-bottom: 3px solid transparent; white-space: normal; text-align: center; line-height: 1.25; flex: 1; transition: all 0.18s; }
+    .stab:hover { color: var(--blue); background: var(--hover-bg); }
+    .stab.active { color: var(--blue); border-bottom-color: var(--red); font-weight: 600; }
+    .panel { display: none; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; animation: fadeUp 0.4s ease both; }
+    .panel.visible { display: block; }
+    .leyenda { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 16px 0 20px; border-bottom: 1px solid #ece8e0; margin-bottom: 20px; }
+    .ley-item { font-size: 12px; color: var(--gray-mid); display: flex; align-items: center; gap: 6px; }
+    .ley-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .fichas-list { display: flex; flex-direction: column; gap: 14px; }
+    .ficha { background: var(--white); border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #ece8e0; overflow: hidden; }
+    .ficha-top { padding: 18px 20px 14px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px; user-select: none; transition: background 0.15s; }
+    .ficha-top:hover { background: #fdf9f4; }
+    .ficha-id { background: var(--blue); color: var(--gold); border-radius: 6px; padding: 3px 9px; font-size: 12px; font-weight: 700; white-space: nowrap; flex-shrink: 0; margin-top: 3px; font-family: 'Roboto Slab', serif; }
+    .ficha-info h2 { font-size: 16px; color: var(--blue); margin-bottom: 3px; font-weight: 500; }
+    .ficha-info .fsub { color: var(--gray-mid); font-size: 13px; font-weight: 300; }
+    .chevron { margin-left: auto; flex-shrink: 0; color: #bbb; font-style: normal; font-size: 18px; transition: transform 0.25s; padding-top: 2px; }
+    .ficha.open .chevron { transform: rotate(180deg); }
+    .badges { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 20px 12px; }
+    .badge { border-radius: 10px; padding: 3px 10px; font-size: 11px; font-weight: 500; border: 1px solid; }
+    .b-momento { background: #e8f4fd; color: #1565c0; border-color: #bbdefb; }
+    .b-bloom { background: #f3e5f5; color: #7b1fa2; border-color: #e1bee7; }
+    .b-esf { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+    .b-fric-baja { background: rgba(232,245,233,0.5); color: #2e7d32; border-color: rgba(46,125,50,0.3); }
+    .b-fric-media { background: rgba(255,243,224,0.5); color: #e65100; border-color: rgba(230,81,0,0.3); }
+    .b-fric-alta { background: rgba(255,235,238,0.5); color: #c62828; border-color: rgba(198,40,40,0.3); }
+    .ficha-body { display: none; padding: 4px 20px 20px; border-top: 1px solid #f0ece0; }
+    .ficha.open .ficha-body { display: block; }
+    .fdesc { color: #444; line-height: 1.75; margin: 14px 0; font-size: 14px; }
+    .sec-in { margin: 14px 0; }
+    .sec-in h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 8px; font-weight: 600; }
+    ol.pasos { padding-left: 18px; color: #444; line-height: 1.85; font-size: 14px; }
+    ol.pasos li { margin-bottom: 4px; }
+    ul.lista { padding-left: 18px; color: #444; line-height: 1.85; font-size: 14px; }
+    ul.lista li { margin-bottom: 4px; }
+    .prompt-box { background: var(--blue); border-radius: 8px; overflow: hidden; margin: 6px 0; }
+    .prompt-label { background: var(--gold); color: var(--blue); font-size: 10px; font-weight: 700; padding: 6px 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .prompt-txt { color: #d4d4d4; font-family: 'Courier New', monospace; font-size: 12px; padding: 14px; white-space: pre-wrap; line-height: 1.65; }
+    .btn-copy { display: block; width: calc(100% - 28px); margin: 0 14px 12px; padding: 8px; background: rgba(232,168,56,0.12); color: var(--gold); border: 1px solid rgba(232,168,56,0.3); border-radius: 5px; cursor: pointer; font-size: 12px; transition: all 0.2s; font-family: 'Libre Franklin', sans-serif; }
+    .btn-copy:hover { background: rgba(232,168,56,0.22); }
+    .btn-copy.ok { background: rgba(76,175,80,0.12); color: #4caf50; border-color: rgba(76,175,80,0.3); }
+    .evidencia { background: #f8f6f0; border-radius: 8px; padding: 11px 14px; margin: 10px 0; font-size: 13px; line-height: 1.65; color: #444; }
+    .rm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .riesgo { background: #fff3e0; border-radius: 8px; padding: 11px; font-size: 12px; line-height: 1.6; color: #5d4037; }
+    .mitig { background: #e8f5e9; border-radius: 8px; padding: 11px; font-size: 12px; line-height: 1.6; color: #1b5e20; }
+    .cuando-box { background: var(--hover-bg); border-radius: 8px; padding: 12px 14px; margin: 10px 0; }
+    .cuando-box ul { padding-left: 16px; color: #444; font-size: 13px; line-height: 1.75; }
+    .guia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin: 16px 0; }
+    .guia-card { background: var(--white); border: 1px solid #ece8e0; border-radius: 8px; padding: 14px 16px; }
+    .guia-tit { font-weight: 600; font-size: 13px; color: var(--blue); margin-bottom: 6px; }
+    .guia-desc { font-size: 12px; color: var(--gray-mid); line-height: 1.6; }
+    .page-nav { max-width: 960px; margin: 0 auto; padding: 24px 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .page-nav-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--blue); border: 1px solid var(--divider); border-radius: 3px; padding: 8px 14px; text-decoration: none; transition: all 0.18s; background: var(--white); }
+    .page-nav-btn:hover { background: var(--hover-bg); border-color: var(--blue); }
+    .page-nav-btn.primary { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .page-nav-btn.primary:hover { background: #002a5a; }
+    .menu-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .menu-chip { font-size: 11px; padding: 5px 10px; border-radius: 2px; text-decoration: none; border: 1px solid var(--divider); color: var(--gray-mid); transition: all 0.18s; }
+    .menu-chip:hover { border-color: var(--blue); color: var(--blue); }
+    .menu-chip.here { border-color: var(--red); color: var(--red); font-weight: 600; background: rgba(198,0,70,0.05); }
+    footer { border-top: 1px solid var(--divider); padding: 28px 24px 40px; text-align: center; }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
+    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .footer-inst span { font-size: 11px; color: var(--gray-mid); line-height: 1.45; }
+    .footer-inst strong { font-weight: 600; color: var(--blue); }
+    .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } }
+  </style>
+</head>
+<body>
+<div class="top-bar"></div>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="https://tutorcyllo.github.io/smallteaiching/" class="nav-brand">
+      <div class="uva-pill">UVa</div>
+      <span class="nav-title">Small <em>teAIching</em></span>
+    </a>
+    <div class="nav-menu">
+      <a href="https://tutorcyllo.github.io/smallteaiching/entrantes" class="nav-btn">🥗 Entrantes</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/primer_plato" class="nav-btn current">🍲 Primer Plato</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/segundo_plato" class="nav-btn">🥘 Segundo Plato</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="nav-btn">🍰 Postres</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/sobremesa" class="nav-btn">☕ Sobremesa</a>
+    </div>
+  </div>
+</nav>
 
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Small teAIching · Menú SlowAI</div>
+    <h1 class="hero-title">🍲 <em>Primer Plato</em></h1>
+    <p class="hero-sub">Actividades compartidas entre docente y estudiantes en el aula</p>
+    <div class="hero-meta">
+      <span class="hero-badge">📅 En clase (síncrono)</span>
+      <span class="hero-badge">🎯 Comprender y Aplicar</span>
+      <span class="hero-badge">👤 Co-creador y practicante activo</span>
+      <span class="hero-badge">🎓 Facilitador y moderador</span>
+    </div>
+    <div class="hero-desc">
+      El Primer Plato recoge las actividades que ocurren <strong>EN EL AULA</strong>, con la presencia simultánea del docente y los estudiantes. Es el momento de la experiencia compartida: todos parten del mismo punto, debaten juntos, construyen conocimiento colectivamente. La IA entra aquí como herramienta de apoyo al docente para hacer la clase más dinámica, eficiente y reveladora.
+    </div>
+  </div>
+</div>
+
+<div class="section-tabs">
+  <div class="tabs-inner">
+    <button class="stab active" onclick="showPanel('fichas',this)">📋 Fichas de actividades</button>
+    <button class="stab" onclick="showPanel('guia',this)">⚡ Guía de inicio rápido</button>
+  </div>
+</div>
+
+<div class="panel visible" id="panel-fichas">
+  <div class="leyenda">
+    <span class="ley-item"><span class="ley-dot" style="background:#bbdefb"></span>📅 Momento de uso</span>
+    <span class="ley-item"><span class="ley-dot" style="background:#e1bee7"></span>🎯 Nivel de Bloom</span>
+    <span class="ley-item"><span class="ley-dot" style="background:#c8e6c9"></span>⚡ Esfuerzo docente</span>
+    <span class="ley-item"><span class="ley-dot" style="background:#a5d6a7"></span>🔥 Baja &nbsp;·&nbsp; <span class="ley-dot" style="background:#ffcc80"></span>🔥🔥 Media &nbsp;·&nbsp; <span class="ley-dot" style="background:#ef9a9a"></span>🔥🔥🔥 Alta = Fricción SlowAI</span>
+  </div>
+  <div class="fichas-list" id="fichas-container"></div>
+</div>
+
+<div class="panel" id="panel-guia">
+  <div id="guia-container"></div>
+</div>
+
+<div class="page-nav">
+  <a href="https://tutorcyllo.github.io/smallteaiching/entrantes" class="page-nav-btn">← 🥗 Entrantes</a>
+  <div class="menu-chips">
+    <a href="https://tutorcyllo.github.io/smallteaiching/entrantes" class="menu-chip">🥗 Entrantes</a>
+    <span class="menu-chip here">🍲 Primer Plato</span>
+    <a href="https://tutorcyllo.github.io/smallteaiching/segundo_plato" class="menu-chip">🥘 Segundo Plato</a>
+    <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="menu-chip">🍰 Postres</a>
+    <a href="https://tutorcyllo.github.io/smallteaiching/sobremesa" class="menu-chip">☕ Sobremesa</a>
+  </div>
+  <a href="https://tutorcyllo.github.io/smallteaiching/segundo_plato" class="page-nav-btn primary">🥘 Segundo Plato →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <div class="uva-pill">UVa</div>
+      <div class="footer-vline"></div>
+      <div class="footer-inst">
+        <span><strong>Universidad de Valladolid</strong></span>
+        <span>Facultad de Medicina</span>
+      </div>
+    </div>
+    <p class="footer-credit">Small <em>teAI</em>ching · Proyecto de innovación docente · 2025–2026</p>
+  </div>
+</footer>
+
+<script>
+const JSON_URL = 'https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/data/primer_plato.json';
+function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
+function showPanel(id,btn){ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('visible')); document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active')); document.getElementById('panel-'+id).classList.add('visible'); btn.classList.add('active'); }
+function friccionClass(f){ if(!f) return 'b-fric-baja'; if(f.includes('Alta')) return 'b-fric-alta'; if(f.includes('Media')) return 'b-fric-media'; return 'b-fric-baja'; }
+function toggleFicha(el){ el.closest('.ficha').classList.toggle('open'); }
+function copyPrompt(btn, text){ navigator.clipboard.writeText(text).then(()=>{ btn.textContent='✓ Prompt copiado'; btn.classList.add('ok'); setTimeout(()=>{btn.textContent='📋 Copiar prompt'; btn.classList.remove('ok');},2000); }); }
+
+function renderFichas(fichas){
+  document.getElementById('fichas-container').innerHTML = fichas.map(f=>`
+    <div class="ficha">
+      <div class="ficha-top" onclick="toggleFicha(this)">
+        <span class="ficha-id">${esc(f.id)}</span>
+        <div class="ficha-info"><h2>${esc(f.titulo)}</h2><p class="fsub">${esc(f.subtitulo||'')}</p></div>
+        <em class="chevron">▾</em>
+      </div>
+      <div class="badges">
+        <span class="badge b-momento">📅 ${esc(f.momento||'')}</span>
+        <span class="badge b-bloom">🎯 ${esc(f.bloom||'')}</span>
+        <span class="badge b-esf">⚡ ${esc(f.esfuerzo||'')}</span>
+        <span class="badge ${friccionClass(f.friccion)}">${esc(f.friccion||'')}</span>
+      </div>
+      <div class="ficha-body">
+        <p class="fdesc">${esc(f.descripcion||'')}</p>
+        ${f.cuando_usarlo?`<div class="sec-in"><h3>Cuándo usarlo</h3><div class="cuando-box"><ul>${f.cuando_usarlo.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></div></div>`:''}
+        ${f.necesitas?`<div class="sec-in"><h3>Qué necesitas</h3><ul class="lista">${f.necesitas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`:''}
+        ${f.pasos?`<div class="sec-in"><h3>Pasos</h3><ol class="pasos">${f.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>`:''}
+        ${f.prompt?`<div class="sec-in"><h3>Prompt listo para usar</h3>
+          <div class="prompt-box"><div class="prompt-label">✦ Prompt</div><div class="prompt-txt">${esc(f.prompt)}</div></div>
+          <button class="btn-copy" onclick="copyPrompt(this,'${f.prompt.replace(/'/g,"\\'")}')">📋 Copiar prompt</button>
+        </div>`:''}
+        ${f.evidencia?`<div class="sec-in"><h3>Evidencia evaluable</h3><div class="evidencia">📎 ${esc(f.evidencia)}</div></div>`:''}
+        ${f.riesgo_fastai||f.mitigacion_slowai?`<div class="sec-in"><h3>FastAI vs SlowAI</h3>
+          <div class="rm-grid">
+            <div class="riesgo">⚠️ <strong>Riesgo FastAI:</strong><br>${esc(f.riesgo_fastai||'')}</div>
+            <div class="mitig">✅ <strong>Mitigación SlowAI:</strong><br>${esc(f.mitigacion_slowai||'')}</div>
+          </div></div>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function renderGuia(d){
+  const c = document.getElementById('guia-container');
+  if(!d || !d.guia_inicio_rapido){ c.innerHTML='<p style="color:#888;padding:20px">No hay guía de inicio rápido disponible en el JSON.</p>'; return; }
+  const g = d.guia_inicio_rapido;
+  c.innerHTML = `<h2 style="font-family:'Roboto Slab',serif;font-weight:400;font-size:20px;color:var(--blue);margin-bottom:8px">${esc(g.titulo||'Guía de inicio rápido')}</h2>
+    <p style="font-size:14px;color:#444;line-height:1.75;margin-bottom:20px">${esc(g.intro||'')}</p>
+    <div class="guia-grid">${(g.fichas||[]).map(f=>`<div class="guia-card"><div class="guia-tit">${esc(f.id)} · ${esc(f.titulo)}</div><div class="guia-desc">${esc(f.minimo||f.descripcion||'')}</div></div>`).join('')}</div>`;
+}
+
+async function loadData(){
+  try {
+    const r = await fetch(JSON_URL);
+    const d = await r.json();
+    if(d.fichas) renderFichas(d.fichas);
+    renderGuia(d);
+  } catch(e){
+    document.getElementById('fichas-container').innerHTML='<p style="color:#888;padding:20px;text-align:center">⚠️ No se pudo cargar el JSON. Verifica que primer_plato.json está disponible.</p>';
+    console.error(e);
+  }
+}
+loadData();
+</script>
+</body>
+</html>
