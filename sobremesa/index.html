@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>☕ Sobremesa · Small teAIching</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --white: #FFFFFF; --gray-lt: #CCCCCC; --gray-mid: #777777; --gray-bg: #F5F5F5; --red: #c60046; --blue: #003973; --divider: #CCCCCC; --hover-bg: #EEF3FA; --gold: #e8a838; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Franklin', sans-serif; background: var(--white); color: var(--blue); min-height: 100vh; }
+    .top-bar { width: 100%; height: 4px; background: var(--red); }
+    .navbar { width: 100%; background: var(--blue); position: sticky; top: 0; z-index: 100; animation: fadeUp 0.5s ease both; }
+    .navbar-inner { max-width: 960px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-title { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.8); }
+    .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    .nav-menu { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-btn { background: none; border: none; color: rgba(255,255,255,0.65); padding: 7px 12px; border-radius: 3px; cursor: pointer; font-family: 'Libre Franklin', sans-serif; font-size: 12px; font-weight: 500; text-decoration: none; display: inline-block; transition: all 0.18s; white-space: nowrap; }
+    .nav-btn:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+    .nav-btn.current { color: var(--white); background: rgba(255,255,255,0.18); font-weight: 600; }
 
+    /* HERO especial sobremesa */
+    .hero { background: var(--blue); padding: 48px 24px 56px; animation: fadeUp 0.6s 0.07s ease both; position: relative; overflow: hidden; }
+    .hero::before { content: '☕'; position: absolute; right: 40px; top: 30px; font-size: 120px; opacity: 0.07; pointer-events: none; }
+    .hero-inner { max-width: 960px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .hero-title { font-family: 'Roboto Slab', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 12px; }
+    .hero-title em { font-style: italic; font-weight: 500; }
+    .hero-sub { font-family: 'Roboto Slab', serif; font-size: 15px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 18px; max-width: 640px; }
+    .hero-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; padding: 5px 12px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.8); }
+    .hero-desc { background: rgba(255,255,255,0.08); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; padding: 14px 18px; font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.85); max-width: 760px; margin-bottom: 18px; }
+    .cita-hero { font-family: 'Roboto Slab', serif; font-size: 18px; font-weight: 300; font-style: italic; color: var(--gold); line-height: 1.55; max-width: 600px; padding-left: 16px; border-left: 2px solid var(--gold); }
+
+    /* CONTENIDO SOBREMESA */
+    .sob-wrap { max-width: 960px; margin: 0 auto; padding: 40px 24px 64px; animation: fadeUp 0.5s 0.1s ease both; }
+
+    .problema-box { background: var(--gray-bg); border-radius: 10px; padding: 24px 28px; margin: 28px 0; }
+    .problema-box h2 { font-family: 'Roboto Slab', serif; font-size: 18px; font-weight: 400; color: var(--blue); margin-bottom: 12px; }
+    .problema-box p { font-size: 14px; color: #444; line-height: 1.8; }
+    .causa-box { background: rgba(198,0,70,0.05); border-left: 3px solid var(--red); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; font-size: 13px; color: #555; line-height: 1.75; font-style: italic; }
+
+    .que-cambia { font-size: 14px; color: #444; line-height: 1.8; margin: 28px 0; padding: 20px 24px; background: var(--hover-bg); border-radius: 8px; border-left: 3px solid var(--blue); }
+
+    .ideas-h2 { font-family: 'Roboto Slab', serif; font-size: 20px; font-weight: 400; color: var(--blue); margin: 32px 0 18px; }
+    .ideas-grid { display: flex; flex-direction: column; gap: 16px; }
+    .idea-card { background: var(--white); border: 1px solid #ece8e0; border-radius: 10px; padding: 20px 24px; border-left: 4px solid var(--blue); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    .idea-num { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+    .idea-tit { font-family: 'Roboto Slab', serif; font-size: 17px; font-weight: 400; color: var(--blue); margin-bottom: 10px; }
+    .idea-txt { font-size: 14px; color: #444; line-height: 1.8; }
+
+    .preg-docente { background: var(--blue); color: var(--white); border-radius: 10px; padding: 24px 28px; margin: 32px 0; }
+    .preg-docente .pd-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .preg-docente p { font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 300; font-style: italic; line-height: 1.7; color: rgba(255,255,255,0.9); }
+
+    .menu-completo-h2 { font-family: 'Roboto Slab', serif; font-size: 20px; font-weight: 400; color: var(--blue); margin: 36px 0 18px; }
+    .menu-completo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 32px; }
+    .mi-card { background: var(--white); border: 1px solid #ece8e0; border-radius: 8px; padding: 16px; text-align: center; transition: all 0.18s; text-decoration: none; display: block; color: inherit; }
+    .mi-card:hover { background: var(--hover-bg); border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,57,115,0.1); }
+    .mi-emoji { font-size: 28px; margin-bottom: 8px; }
+    .mi-tit { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 400; color: var(--blue); margin-bottom: 4px; }
+    .mi-mom { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+    .mi-prop { font-size: 12px; color: var(--gray-mid); line-height: 1.55; }
+
+    .cita-final { font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 300; font-style: italic; color: var(--blue); line-height: 1.65; text-align: center; padding: 24px; background: var(--gray-bg); border-radius: 10px; opacity: 0.85; }
+
+    .page-nav { max-width: 960px; margin: 0 auto; padding: 0 24px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .page-nav-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--blue); border: 1px solid var(--divider); border-radius: 3px; padding: 8px 14px; text-decoration: none; transition: all 0.18s; background: var(--white); }
+    .page-nav-btn:hover { background: var(--hover-bg); border-color: var(--blue); }
+    .page-nav-btn.primary { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .page-nav-btn.primary:hover { background: #002a5a; }
+    .menu-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .menu-chip { font-size: 11px; padding: 5px 10px; border-radius: 2px; text-decoration: none; border: 1px solid var(--divider); color: var(--gray-mid); transition: all 0.18s; }
+    .menu-chip:hover { border-color: var(--blue); color: var(--blue); }
+    .menu-chip.here { border-color: var(--red); color: var(--red); font-weight: 600; background: rgba(198,0,70,0.05); }
+    footer { border-top: 1px solid var(--divider); padding: 28px 24px 40px; text-align: center; }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
+    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .footer-inst span { font-size: 11px; color: var(--gray-mid); line-height: 1.45; }
+    .footer-inst strong { font-weight: 600; color: var(--blue); }
+    .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { .hero { padding: 28px 16px 36px; } .sob-wrap { padding: 24px 16px 48px; } .menu-completo-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+<div class="top-bar"></div>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="https://tutorcyllo.github.io/smallteaiching/" class="nav-brand">
+      <div class="uva-pill">UVa</div>
+      <span class="nav-title">Small <em>teAIching</em></span>
+    </a>
+    <div class="nav-menu">
+      <a href="https://tutorcyllo.github.io/smallteaiching/entrantes" class="nav-btn">🥗 Entrantes</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/primer_plato" class="nav-btn">🍲 Primer Plato</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/segundo_plato" class="nav-btn">🥘 Segundo Plato</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="nav-btn">🍰 Postres</a>
+      <a href="https://tutorcyllo.github.io/smallteaiching/sobremesa" class="nav-btn current">☕ Sobremesa</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Small teAIching · Menú SlowAI</div>
+    <h1 class="hero-title">☕ <em>Sobremesa</em></h1>
+    <p class="hero-sub" id="hero-sub">El banquete no termina aquí: apenas comienza</p>
+    <div class="hero-meta">
+      <span class="hero-badge">📅 Transferencia</span>
+      <span class="hero-badge">🎯 Aplicación profesional</span>
+    </div>
+    <div class="hero-desc" id="hero-desc">Cuando termina una comida importante, la conversación no para. La Sobremesa es el momento en que el docente y el estudiante se preguntan juntos: ¿qué queda de todo esto? ¿Dónde vive lo que aprendí? ¿Cuándo lo voy a necesitar de verdad?</div>
+    <div class="cita-hero" id="hero-cita"></div>
+  </div>
+</div>
+
+<main class="sob-wrap" id="main-content">
+  <div style="text-align:center;padding:40px;color:#888">Cargando contenido…</div>
+</main>
+
+<div class="page-nav">
+  <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="page-nav-btn">← 🍰 Postres</a>
+  <div class="menu-chips">
+    <a href="https://tutorcyllo.github.io/smallteaiching/entrantes" class="menu-chip">🥗 Entrantes</a>
+    <a href="https://tutorcyllo.github.io/smallteaiching/primer_plato" class="menu-chip">🍲 Primer Plato</a>
+    <a href="https://tutorcyllo.github.io/smallteaiching/segundo_plato" class="menu-chip">🥘 Segundo Plato</a>
+    <a href="https://tutorcyllo.github.io/smallteaiching/postres" class="menu-chip">🍰 Postres</a>
+    <span class="menu-chip here">☕ Sobremesa</span>
+  </div>
+  <a href="https://tutorcyllo.github.io/smallteaiching/" class="page-nav-btn primary">← Volver al Menú</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <div class="uva-pill">UVa</div>
+      <div class="footer-vline"></div>
+      <div class="footer-inst">
+        <span><strong>Universidad de Valladolid</strong></span>
+        <span>Facultad de Medicina</span>
+      </div>
+    </div>
+    <p class="footer-credit">Small <em>teAI</em>ching · Proyecto de innovación docente · 2025–2026</p>
+  </div>
+</footer>
+
+<script>
+const JSON_URL = 'https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/data/sobremesa.json';
+function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
+
+const menuLinks = {
+  'Entrantes': 'https://tutorcyllo.github.io/smallteaiching/entrantes',
+  'Primer Plato': 'https://tutorcyllo.github.io/smallteaiching/primer_plato',
+  'Segundo Plato': 'https://tutorcyllo.github.io/smallteaiching/segundo_plato',
+  'Postres': 'https://tutorcyllo.github.io/smallteaiching/postres',
+  'Sobremesa': 'https://tutorcyllo.github.io/smallteaiching/sobremesa',
+};
+
+async function loadData(){
+  try {
+    const r = await fetch(JSON_URL);
+    const d = await r.json();
+
+    if(d.subtitulo) document.getElementById('hero-sub').textContent = d.subtitulo;
+    if(d.descripcion) document.getElementById('hero-desc').textContent = d.descripcion;
+    if(d.cita_central) document.getElementById('hero-cita').textContent = `"${d.cita_central}"`;
+
+    let html = '';
+
+    // El problema
+    if(d.el_problema){
+      html += `<div class="problema-box">
+        <h2>${esc(d.el_problema.titulo||'El problema que nadie resuelve en el aula')}</h2>
+        <p>${esc(d.el_problema.texto||'')}</p>
+        ${d.el_problema.causa?`<div class="causa-box"><strong>¿Qué lo dificulta?</strong><br>${esc(d.el_problema.causa)}</div>`:''}
+      </div>`;
+    }
+
+    // Qué cambia con IA
+    if(d.que_cambia_con_ia){
+      html += `<div class="que-cambia">${esc(d.que_cambia_con_ia)}</div>`;
+    }
+
+    // Tres ideas
+    if(d.tres_ideas&&d.tres_ideas.length){
+      html += `<h2 class="ideas-h2">Tres ideas para llevar a la práctica</h2>
+        <div class="ideas-grid">${d.tres_ideas.map(i=>`
+          <div class="idea-card">
+            <div class="idea-num">Idea ${esc(String(i.numero))}</div>
+            <div class="idea-tit">${esc(i.titulo)}</div>
+            <p class="idea-txt">${esc(i.texto)}</p>
+          </div>`).join('')}</div>`;
+    }
+
+    // Pregunta docente
+    if(d.pregunta_docente){
+      html += `<div class="preg-docente">
+        <div class="pd-label">Una pregunta para el docente</div>
+        <p>${esc(d.pregunta_docente)}</p>
+      </div>`;
+    }
+
+    // Menú completo
+    if(d.menu_completo&&d.menu_completo.length){
+      html += `<h2 class="menu-completo-h2">☕ El menú completo</h2>
+        <div class="menu-completo-grid">${d.menu_completo.map(m=>{
+          const link = menuLinks[m.tiempo]||'#';
+          const isCurrent = m.tiempo==='Sobremesa';
+          return `<a href="${link}" class="mi-card" ${isCurrent?'style="border-color:var(--red);background:rgba(198,0,70,0.04)"':''}>
+            <div class="mi-emoji">${m.emoji}</div>
+            <div class="mi-tit">${esc(m.tiempo)}</div>
+            <div class="mi-mom">${esc(m.momento)}</div>
+            <div class="mi-prop">${esc(m.proposito)}</div>
+          </a>`;
+        }).join('')}</div>`;
+    }
+
+    // Cita IA final
+    if(d.cita_ia){
+      html += `<div class="cita-final">"${esc(d.cita_ia)}"</div>`;
+    }
+
+    document.getElementById('main-content').innerHTML = html;
+
+  } catch(e){
+    document.getElementById('main-content').innerHTML='<p style="color:#888;padding:20px;text-align:center">⚠️ No se pudo cargar el JSON de sobremesa.</p>';
+    console.error(e);
+  }
+}
+loadData();
+</script>
+</body>
+</html>
