@@ -122,16 +122,18 @@
     /* footer */
     .section-divider { width: 100%; max-width: 820px; padding: 0 24px; }
     .section-divider hr { border: none; border-top: 1px solid var(--divider); }
-    footer { width: 100%; max-width: 820px; padding: 22px 24px 36px; text-align: center; border-top: 1px solid var(--divider); }
-    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
-    .footer-uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .footer-vline { width: 1px; height: 22px; background: var(--gray-lt); }
-    .footer-inst { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
-    .footer-inst span { font-size: 11px; font-weight: 400; color: var(--gray-mid); line-height: 1.45; }
-    .footer-inst strong { font-weight: 600; color: var(--blue); }
-    .footer-project { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 300; color: var(--blue); margin-bottom: 6px; }
-    .footer-project em { font-style: italic; color: var(--red); }
-    .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; line-height: 1.6; }
+footer { width:100%; max-width:820px; padding:22px 24px 36px; text-align:center; border-top:1px solid #ccc; }
+    .footer-logos { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+    .footer-uva-pill { background:#c60046; color:#fff; font-family:'Libre Franklin',sans-serif; font-size:13px; font-weight:700; width:36px; height:36px; border-radius:3px; display:flex; align-items:center; justify-content:center; }
+    .footer-vline { width:1px; height:22px; background:#ccc; }
+    .footer-inst { display:flex; flex-direction:column; align-items:flex-start; gap:1px; }
+    .footer-inst span { font-size:11px; color:#777; line-height:1.45; }
+    .footer-inst strong { font-weight:600; color:#003973; }
+    .footer-project { font-family:'Roboto Slab',serif; font-size:14px; font-weight:300; color:#003973; margin-bottom:6px; }
+    .footer-project em { font-style:italic; color:#c60046; }
+    .footer-credit { font-size:11px; color:#777; font-weight:300; line-height:1.6; }
+    .footer-credit a { color:#003973; text-decoration:none; border-bottom:1px solid #ccc; }
+    .footer-credit a:hover { border-color:#c60046; color:#c60046; }
     .back-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--gray-lt); padding-bottom: 1px; transition: color 0.18s, border-color 0.18s; }
     .back-link:hover { color: var(--red); border-color: var(--red); }
     .back-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
@@ -367,20 +369,18 @@
   <div class="section-divider"><hr /></div>
   <footer>
     <div class="footer-logos">
-      <div class="footer-uva-pill">UVa</div>
+      <span class="footer-uva-pill">UVa</span>
       <div class="footer-vline"></div>
       <div class="footer-inst">
-        <span><strong>Facultad de Medicina</strong></span>
+        <span><strong>EduMed</strong> · Facultad de Medicina</span>
         <span>Universidad de Valladolid</span>
       </div>
     </div>
-    <p class="footer-project">Small <em>TeAIching</em> · Slow AI</p>
-    <p class="footer-credit">Una dieta a base de fricción cognitiva para que aprender sea más difícil que aprobar — no al revés.</p>
-    <br />
-    <a href="https://tutorcyllo.github.io/smallteaiching/" class="back-link">
-      <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
-      Volver al menú
-    </a>
+    <p class="footer-project">Small Te<em>AI</em>ching &nbsp;·&nbsp; Slow AI</p>
+    <p class="footer-credit">
+      Webapp desarrollada por <a href="https://github.com/Tutorcyllo" target="_blank">TutorCyLlo</a>
+      con el soporte de <strong>Claude Sonnet 4.6</strong> &nbsp;·&nbsp; Marzo 2026
+    </p>
   </footer>
 
 </body>
