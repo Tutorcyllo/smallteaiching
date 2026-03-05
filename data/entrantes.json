@@ -1,0 +1,307 @@
+{
+  "id": "entrantes",
+  "emoji": "🥗",
+  "titulo": "Entrantes",
+  "subtitulo": "Material previo a las clases presenciales",
+  "descripcion": "Los Entrantes son las actividades que el estudiante realiza ANTES de la clase presencial. Su objetivo es preparar una base de conocimiento común, activar el conocimiento previo y reducir el \"ruido\" en el aula. Con IA (SlowAI), estas actividades se convierten en experiencias de aprendizaje activo, no en simple consulta o copia.",
+  "momento": "Pre-clase",
+  "bloom": "Recordar y Comprender",
+  "rol_alumno": "Explorador activo del contenido",
+  "fichas": [
+    {
+      "id": "E1",
+      "titulo": "Guía de estudio + preguntas de comprobación",
+      "subtitulo": "Crear una base común antes de clase sin sustituir la comprensión",
+      "momento": "Pre-clase",
+      "bloom": "Recordar / Comprender",
+      "esfuerzo": "Bajo (10-15 min docente)",
+      "friccion": "🔥 Baja",
+      "descripcion": "El docente usa la IA para transformar sus apuntes en una guía de estudio estructurada. Se acompaña de preguntas de comprobación que el alumno debe responder SIN mirar los apuntes. El objetivo es crear una base común y fomentar la recuperación activa antes de clase.",
+      "necesitas": [
+        "Apuntes propios, índice del tema o material institucional en texto.",
+        "Un LLM (ChatGPT, Claude u otro) con acceso desde el navegador."
+      ],
+      "pasos": [
+        "Pega tus apuntes o el índice del tema en el chat del LLM.",
+        "Usa el prompt de abajo para generar la guía de estudio.",
+        "Revisa el resultado: comprueba que los datos son correctos.",
+        "Añade 5 preguntas cortas con respuesta razonada al final.",
+        "Comparte la guía con los estudiantes y pídeles que la lean y respondan las preguntas ANTES de clase.",
+        "En clase: dedica 5 minutos a aclarar dudas surgidas de la guía."
+      ],
+      "prompt": "A partir de este material, crea una guía de estudio en 1 página: 1) Objetivos de aprendizaje (3-5) 2) 8 conceptos clave con definición breve 3) 5 errores frecuentes que cometen los estudiantes 4) 5 preguntas de comprobación con respuesta razonada. Reglas: no inventes datos; si falta información marca [Duda]. No incluyas información que no esté en el texto original.",
+      "evidencia": "El alumno entrega sus respuestas a las preguntas de comprobación (sin mirar) + 1 ejemplo propio de un concepto clave.",
+      "riesgo_fastai": "El alumno usa la guía para memorizar sin comprender. Se limita a releer sin esfuerzo cognitivo.",
+      "mitigacion_slowai": "Exige que el alumno responda sin mirar y aporte 1 ejemplo clínico propio. Corrige en clase de forma colectiva."
+    },
+    {
+      "id": "E2",
+      "titulo": "Tutor socrático personalizado",
+      "subtitulo": "Guiar el estudio solo con preguntas, sin dar la respuesta directa",
+      "momento": "Pre-clase",
+      "bloom": "Comprender / Aplicar",
+      "esfuerzo": "Bajo (5 min docente)",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El estudiante sube sus apuntes a un LLM y le pide que le explique el tema SOLO haciendo preguntas. El LLM no da la respuesta: actúa como un tutor socrático que guía al alumno hacia el descubrimiento. Fomenta el pensamiento activo, la elaboración propia y la detección de lagunas de conocimiento.",
+      "necesitas": [
+        "El docente: solo el prompt (abajo) + instrucción clara al alumno.",
+        "El alumno: acceso a un LLM gratuito (ChatGPT, Claude, Copilot) y sus apuntes."
+      ],
+      "pasos": [
+        "El docente comparte con los alumnos el prompt y la instrucción de uso.",
+        "El alumno abre el LLM, pega sus apuntes y escribe el prompt.",
+        "El LLM hace preguntas progresivas. El alumno responde con sus propias palabras.",
+        "Al final, el alumno escribe un breve resumen de lo que descubrió (síntesis propia).",
+        "Trae esa síntesis a clase como punto de partida del debate."
+      ],
+      "prompt": "Actúa como tutor socrático. Tengo estos apuntes sobre [TEMA]. Tu rol: hacerme preguntas progresivas para que yo descubra los conceptos. Reglas: - Solo preguntas (máximo 1 pista cada 3 preguntas). - No expliques ni des la respuesta directa. - Cuando yo haya explicado el concepto con mis palabras y dado un ejemplo, cierra con una pregunta de síntesis: '¿Cómo lo explicarías a alguien que no sabe nada de esto?'",
+      "evidencia": "El alumno trae a clase: registro de sus respuestas al tutor socrático + síntesis final en sus propias palabras + 1 error que detectó en su propio razonamiento.",
+      "riesgo_fastai": "El LLM acaba explicando en lugar de solo preguntar. El alumno obtiene la respuesta sin esfuerzo.",
+      "mitigacion_slowai": "La regla 'solo preguntas' está en el prompt. El docente puede pedir el log de conversación como evidencia.",
+      "ejemplo_real": {
+        "nombre": "ReumatIA",
+        "descripcion": "Tutor socrático especializado en reumatología. Guía al estudiante mediante preguntas progresivas sin dar la respuesta directa.",
+        "url": "https://chatgpt.com/g/g-68134e3cc99c81918155430ce2bc9508-reumatia",
+        "logo": "https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/reumatia.avif"
+      }
+    },
+    {
+      "id": "E3",
+      "titulo": "Explicador de conceptos a demanda",
+      "subtitulo": "Ajustar el nivel de explicación: principiante → experto, con analogía",
+      "momento": "Pre-clase",
+      "bloom": "Recordar / Comprender",
+      "esfuerzo": "Bajo (5 min docente)",
+      "friccion": "🔥 Baja",
+      "descripcion": "El alumno le pide a la IA que explique un concepto difícil en dos niveles: uno muy sencillo y otro para experto. Incluye una analogía del mundo cotidiano y 3 preguntas de comprobación (sin respuestas). Útil cuando el material es denso y los alumnos tienen conocimientos previos muy variados.",
+      "necesitas": [
+        "El docente identifica los 2-3 conceptos más difíciles del tema.",
+        "El alumno necesita acceso a un LLM gratuito."
+      ],
+      "pasos": [
+        "El docente identifica los 2-3 conceptos más difíciles del tema y los comparte con los alumnos.",
+        "El alumno usa el prompt para explorar esos conceptos antes de clase.",
+        "El alumno responde las preguntas de comprobación y prepara 1 duda real para el aula.",
+        "En clase: la duda real del alumno es el punto de partida de la explicación docente."
+      ],
+      "prompt": "Explícame el concepto '[CONCEPTO]' de dos formas: 1) Como si tuviera 12 años (lenguaje sencillo, sin tecnicismos, con ejemplo cotidiano). 2) Como si fuera un estudiante de 3er año de medicina (nivel técnico). Después: - Incluye 1 analogía que ayude a recordarlo. - Propón 3 preguntas cortas para comprobar si lo he entendido. NO respondas esas 3 preguntas: las respondo yo.",
+      "evidencia": "El alumno trae a clase: sus respuestas a las 3 preguntas + 1 duda real que no pudo resolver + 1 analogía propia alternativa.",
+      "riesgo_fastai": "El alumno solo lee la explicación nivel principiante y da la tarea por hecha sin esfuerzo.",
+      "mitigacion_slowai": "Exige que el alumno responda las preguntas de comprobación y cree su propia analogía alternativa."
+    },
+    {
+      "id": "E4",
+      "titulo": "Traductor multimodal (texto → mapa / tarjetas / audio)",
+      "subtitulo": "Transformar apuntes en formatos alternativos para estudiar mejor",
+      "momento": "Pre-clase",
+      "bloom": "Recordar / Comprender",
+      "esfuerzo": "Bajo (10 min)",
+      "friccion": "🔥 Baja-Media",
+      "descripcion": "El alumno convierte sus apuntes de texto en tres formatos complementarios: mapa conceptual, tarjetas de repaso y guion de audio. Cada formato activa una vía de procesamiento diferente (visual, verbal, auditiva). El mapa conceptual puede importarse a herramientas como MindMeister o Whimsical.",
+      "necesitas": [
+        "Los apuntes del alumno en formato texto.",
+        "Acceso a un LLM (ChatGPT, Claude u otro)."
+      ],
+      "pasos": [
+        "El alumno pega sus apuntes en el LLM.",
+        "Aplica el prompt de abajo para obtener los tres formatos.",
+        "Verifica que el mapa y las tarjetas son fieles al texto original (compara con los apuntes).",
+        "Usa el guion de audio para escuchar el tema mientras se desplaza o hace ejercicio.",
+        "Trae a clase la tarjeta que le resultó más difícil de responder."
+      ],
+      "prompt": "Convierte el siguiente texto en tres formatos. Mantén fidelidad estricta al material: 1) MAPA CONCEPTUAL en viñetas anidadas (nodos principales y sus relaciones). 2) 10 TARJETAS Q/A (Pregunta | Respuesta) para repaso activo. En 3 de ellas incluye una trampa o error típico y explica por qué es trampa. 3) GUION DE AUDIO de 3-4 min: tono conversacional, explicativo, con ejemplos. Si hay información que no está en el texto, indícalo con [No disponible].",
+      "evidencia": "Tarjeta más difícil + 2 errores que cometió al responderla + comprobación de fidelidad del mapa con los apuntes originales.",
+      "riesgo_fastai": "El alumno genera formatos bonitos pero superficiales, sin verificar que sean fieles al texto.",
+      "mitigacion_slowai": "Exige que cite 2-3 fragmentos del original que corresponden al mapa. El profesor puede revisar la fidelidad en clase."
+    },
+    {
+      "id": "E5",
+      "titulo": "NotebookLM: el cuaderno inteligente",
+      "subtitulo": "Generar materiales de estudio con un solo clic y compartirlos con los alumnos",
+      "momento": "Pre-clase (docente prepara / alumno estudia)",
+      "bloom": "Recordar / Comprender",
+      "esfuerzo": "Bajo",
+      "friccion": "🔥 Baja",
+      "descripcion": "NotebookLM (Google, gratuito con cuenta Gmail) es una herramienta que SOLO responde con la información de los documentos que tú le aportas. No inventa datos de fuera. Acepta PDF, texto, presentaciones, enlaces a YouTube, audios e imágenes. Tiene dos modos: Chat (preguntas libres) y Studio (botones prediseñados, sin necesidad de escribir prompts).",
+      "necesitas": [
+        "Cuenta de Gmail para acceder a NotebookLM (https://notebooklm.google/).",
+        "Los materiales del tema: PDF, apuntes, artículos, vídeos de YouTube."
+      ],
+      "pasos": [
+        "Accede a NotebookLM: https://notebooklm.google/ (necesitas cuenta de Gmail).",
+        "Crea un nuevo cuaderno y dale nombre al tema (ej. 'Insuficiencia cardiaca — Bloque 3').",
+        "Sube tus materiales: PDF de apuntes, artículos clave, enlace a vídeo de YouTube, presentación.",
+        "Abre el apartado STUDIO y genera, con un solo clic, los materiales para tus alumnos: podcast de audio, mapa mental, tarjetas de repaso, cuestionario...",
+        "Revisa rápidamente el material generado: comprueba que es fiel a tus documentos.",
+        "Comparte el cuaderno: haz clic en 'Compartir' → 'Cualquiera con el enlace puede ver' → copia el enlace y envíaselo a los alumnos."
+      ],
+      "prompt": "EJEMPLOS DE PREGUNTAS PARA EL CHAT: - 'Resume los puntos más importantes de este documento en 10 frases clave.' - 'Compara el documento 1 y el documento 2: ¿cuáles son las principales diferencias?' - 'Aplicando este documento, ¿cómo manejarías a un paciente de 70 años con diabetes y fallo renal leve?' - '¿Cuáles son los 5 errores más frecuentes que cometen los estudiantes en este tema?' NOTA: Para podcast, mapa mental, tarjetas, cuestionario, presentación e infografía NO necesitas escribir nada: usa directamente los botones del STUDIO.",
+      "evidencia": "El alumno lleva a clase: 3 preguntas del cuestionario que falló + su explicación de por qué falló + 1 pregunta al chat que no pudo resolver con el texto.",
+      "riesgo_fastai": "El alumno escucha el podcast de forma pasiva o hace el cuestionario sin reflexionar sobre los fallos.",
+      "mitigacion_slowai": "La tarea activa es OBLIGATORIA: anotar los 3 fallos del cuestionario con su explicación razonada. Sin eso, no se considera preparación válida."
+    },
+    {
+      "id": "E6",
+      "titulo": "Paciente virtual pre-clase: practica antes de llegar al aula",
+      "subtitulo": "El docente construye el escenario; el alumno ensaya libremente, sin nota",
+      "momento": "Pre-clase (autónomo)",
+      "bloom": "Aplicar / Analizar",
+      "esfuerzo": "Medio (15-20 min docente)",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El docente configura la IA como un interlocutor específico —un paciente con una enfermedad concreta, un cliente con objeciones difíciles, un alumno con dificultades de comprensión, un tutor exigente— y los estudiantes practican con él ANTES de llegar al aula o a la práctica real. El objetivo no es ser evaluado: es llegar habiendo ensayado, haber cometido ya los primeros errores en un entorno seguro, y llegar a clase con preguntas reales. El docente solo necesita escribir el prompt una vez y compartirlo con los alumnos.",
+      "necesitas": [
+        "Definir el perfil del interlocutor: quién es, qué situación vive, qué actitud tiene.",
+        "Fijar los objetivos de aprendizaje: ¿qué habilidades debe practicar el alumno?",
+        "Acceso a cualquier LLM gratuito (ChatGPT, Claude, Copilot)."
+      ],
+      "pasos": [
+        "Escribe el perfil del interlocutor con los datos esenciales usando el prompt base.",
+        "Pruébalo tú mismo: juega el rol del estudiante y comprueba que el simulador responde de forma coherente.",
+        "Ajusta si es necesario: añade restricciones, cambia la actitud o añade datos que no debe revelar hasta que el alumno pregunte.",
+        "Comparte el prompt con los alumnos en el campus virtual.",
+        "Define la evidencia que deberán traer a clase: transcripción, autoevaluación, o el momento en que la simulación se complicó."
+      ],
+      "prompt": "Vas a actuar como [ROL: paciente / cliente / alumno / familiar / supervisor]. PERFIL: - Nombre ficticio: [NOMBRE] - Edad y contexto: [DESCRIPCION BREVE] - Situación: [QUE ESTA VIVIENDO, QUE LE PREOCUPA] - Actitud: [ej: ansioso y poco comunicativo / colaborador pero con baja comprensión / desconfiado]. INFORMACIÓN QUE NO DARÁS ESPONTÁNEAMENTE: - [DATO CLAVE 1: solo lo revelas si preguntan directamente] - [DATO CLAVE 2: solo si preguntan con la palabra exacta]. REGLAS DURANTE LA SIMULACIÓN: - Responde solo a lo que te pregunten. No des información extra. - Mantén el perfil emocional durante toda la conversación. - Si el estudiante hace una pregunta cerrada cuando debería ser abierta, responde con un monosílabo. AL FINAL: cuando el estudiante escriba 'Fin de la simulación', sal del rol y da retroalimentación: 1) Habilidades que ha demostrado bien 2) Momento en que la comunicación se complicó 3) Dato importante que no supo obtener 4) Una pregunta que debería haber hecho y no hizo.",
+      "evidencia": "Transcripción de la simulación + autoevaluación (qué hice bien / qué falló / qué pregunta no supe hacer) + 1 variante propuesta por el alumno para hacerla más difícil.",
+      "riesgo_fastai": "La simulación es demasiado fácil: el interlocutor colabora en exceso y no genera dificultad real.",
+      "mitigacion_slowai": "El docente define explícitamente la actitud difícil y los datos que NO se revelan espontáneamente. Probar el prompt uno mismo antes de distribuirlo es imprescindible.",
+      "ejemplo_real": {
+        "nombre": "Anamnesio",
+        "descripcion": "Paciente virtual para practicar la anamnesis clínica antes de llegar al aula. Simula distintos perfiles de paciente con actitudes y datos que no revela espontáneamente.",
+        "url": "https://chatgpt.com/g/g-67a93dafb740819197ad5018f8e223b5-anamnesio-prototipo",
+        "logo": "https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/anamnesio.avif"
+      }
+    }
+  ],
+  "documentos_base": {
+    "titulo": "Uso de la IA en la elaboración de documentos base de la asignatura",
+    "intro": "Diseñar o actualizar una Guía Docente, un Programa, una Ficha de asignatura o calcular la distribución de ECTS es una de las tareas más laboriosas —y menos visibles— del trabajo docente. La IA puede reducir significativamente ese tiempo, especialmente en las fases de redacción, revisión de coherencia y adaptación a normativas. El resultado de la IA es siempre un borrador que el docente revisa, ajusta y valida.",
+    "aviso": "La IA no conoce la normativa específica de tu universidad ni las restricciones de tu plan de estudios. Úsala para ahorrar tiempo en la redacción y detectar incoherencias, pero contrasta siempre el resultado con los documentos oficiales. Especialmente en los ECTS: la estimación de horas de trabajo autónomo es una decisión pedagógica que requiere tu criterio como docente.",
+    "usos": [
+      {
+        "tarea": "Actualizar una Guía Docente existente",
+        "descripcion": "Revisar y modernizar contenidos, incorporar metodologías activas, asegurar coherencia entre objetivos, actividades y evaluación, e incluir un apartado sobre uso de IA en la asignatura."
+      },
+      {
+        "tarea": "Generar un borrador de guía desde cero",
+        "descripcion": "A partir de los objetivos de aprendizaje y el nivel del curso, la IA propone una estructura completa con competencias, contenidos, metodología y criterios de evaluación."
+      },
+      {
+        "tarea": "Verificar la coherencia interna",
+        "descripcion": "Detectar si los objetivos, los contenidos, las actividades y la evaluación están alineados — o si hay criterios no evaluados, o actividades que no responden a ningún objetivo declarado."
+      },
+      {
+        "tarea": "Navegar normativa compleja",
+        "descripcion": "Resumir lo más relevante de un reglamento, un plan de estudios o una normativa institucional y señalar qué debe modificarse en la guía para cumplirla."
+      },
+      {
+        "tarea": "Calcular y distribuir los ECTS",
+        "descripcion": "Estimar el tiempo de trabajo del estudiante por actividad (clases, prácticas, estudio, trabajos, exámenes) y verificar que la suma cuadra con los créditos asignados."
+      },
+      {
+        "tarea": "Adaptar a distintos contextos",
+        "descripcion": "Generar versiones de la misma guía para distintos niveles (grado/máster), distintas modalidades (presencial/híbrida) o distintos perfiles de estudiante."
+      }
+    ],
+    "prompts": [
+      {
+        "id": "MD1",
+        "titulo": "Revisar y mejorar una Guía Docente existente",
+        "prompt": "Eres un especialista en diseño curricular universitario. Voy a proporcionarte la Guía Docente actual de mi asignatura y, si la tengo, el modelo oficial de guía de mi universidad. Revisa el documento y genera una versión mejorada que: 1) Se ajuste al modelo oficial de la universidad (estructura, apartados y formato) 2) Actualice los contenidos eliminando temas obsoletos y reforzando los más relevantes 3) Asegure coherencia entre objetivos, actividades y evaluación (señala incoherencias antes de corregirlas) 4) Incorpore, si procede, metodologías activas: aula invertida, ABP, casos, simulación 5) Incluya un párrafo sobre uso de IA generativa en la asignatura: qué se permite, qué no, y en qué actividades evaluables aplica cada criterio. Formato de respuesta: - Primero: lista de cambios propuestos con justificación breve de cada uno - Después: guía completa revisada. [PEGA AQUÍ LA GUÍA DOCENTE ACTUAL] [PEGA AQUÍ EL MODELO OFICIAL DE TU UNIVERSIDAD, si lo tienes]"
+      },
+      {
+        "id": "MD2",
+        "titulo": "Calcular y verificar la distribución de ECTS",
+        "prompt": "Ayúdame a calcular y verificar la distribución del tiempo de trabajo del estudiante para una asignatura de [N] ECTS (equivale a [N x 25] horas totales de trabajo). Actividades previstas: - Clases presenciales: [N] horas - Seminarios / prácticas: [N] horas - Tutorías: [N] horas - Estudio autónomo y preparación: [N] horas estimadas - Trabajos, proyectos o casos: [N] horas estimadas - Preparación y realización de exámenes: [N] horas estimadas. Tareas: 1) Verifica si la suma cuadra con los créditos asignados 2) Si hay desajuste, indica dónde y cómo redistribuir 3) Señala actividades que parezcan infravaloradas o sobrevaloradas respecto al esfuerzo real de un estudiante medio 4) Genera la tabla de distribución de ECTS lista para incluir en la guía docente."
+      }
+    ]
+  },
+  "catalogo_material": {
+    "titulo": "Catálogo de acciones para crear material de estudio",
+    "intro": "El docente usa la IA para transformar el temario existente en materiales más ricos y accesibles. A continuación, todas las acciones posibles organizadas por tipo de material. En todos los casos el resultado es un borrador que el docente revisa y valida.",
+    "categorias": [
+      {
+        "id": "A1",
+        "titulo": "A partir de texto existente (apuntes, PDF, artículos)",
+        "items": [
+          "Guía de estudio resumida (objetivos, conceptos clave, errores frecuentes, preguntas)",
+          "Resumen en 1 página: idea principal + 5-8 conceptos + conexiones entre ellos",
+          "Mapa conceptual en texto (nodos y relaciones, listo para copiar a MindMeister, Whimsical o similar)",
+          "Flashcards Q/A (pregunta/respuesta) para repaso activo, incluyendo trampas deliberadas",
+          "Esquema o índice comentado: jerarquía de temas con breve descripción de cada epígrafe",
+          "Transformación de diapositivas a capítulo de texto (con objetivos, cuerpo y autoevaluación)",
+          "Glosario de términos clave con definición y ejemplo clínico",
+          "Línea temporal o cronología del contenido",
+          "Versión simplificada del texto (nivel principiante) y versión avanzada (nivel experto)"
+        ]
+      },
+      {
+        "id": "A2",
+        "titulo": "Imágenes y recursos visuales",
+        "items": [
+          "Ilustraciones anatómicas o fisiológicas personalizadas (estilo atlas, diagrama educativo)",
+          "Infografías informativas (descripción de un proceso, datos clave de una patología)",
+          "Infografías-resumen clínico (síntomas, diagnóstico, tratamiento en una sola imagen)",
+          "Infografías con algoritmos diagnósticos o de decisión",
+          "Esquemas de fisiopatología (ej.: cascada inflamatoria, potencial de acción)",
+          "Imágenes ilustrativas para casos clínicos (fotorrealistas o esquemáticas)",
+          "Gráficos dinámicos y diagramas de flujo (herramientas: Napkin.ai, Creately, Draw.io)"
+        ]
+      },
+      {
+        "id": "A3",
+        "titulo": "Audio y vídeo",
+        "items": [
+          "Guion de audio educativo a partir de apuntes (3-5 min, listo para grabar o convertir con texto-a-voz)",
+          "Podcast simulado con dos voces (usando NotebookLM): dos presentadores analizan y discuten el material",
+          "Vídeos en otro idioma: traducir vídeos educativos al español u otros idiomas (HeyGen, Rask.ai)",
+          "Transcripción y resumen de vídeos de YouTube o grabaciones de clase (con NotebookLM o similar)",
+          "Bustos parlantes (avatares): crear un avatar que explique un tema usando texto como guion (HeyGen, D-ID)",
+          "Píldoras en vídeo: convertir un tema en un vídeo corto educativo de 2-5 minutos"
+        ]
+      }
+    ],
+    "herramientas": [
+      {
+        "nombre": "NotebookLM (Google)",
+        "para_que": "Autoestudio con tus propios documentos",
+        "acciones": "Resúmenes, mapa mental, podcast, preguntas, cronología"
+      },
+      {
+        "nombre": "ChatGPT / Claude",
+        "para_que": "Generar y transformar textos",
+        "acciones": "Guías, flashcards, glosarios, esquemas, versiones por nivel"
+      },
+      {
+        "nombre": "MindMeister / Whimsical",
+        "para_que": "Mapas mentales interactivos",
+        "acciones": "Visualización de relaciones entre conceptos"
+      },
+      {
+        "nombre": "Napkin.ai / Creately",
+        "para_que": "Mapas conceptuales e infografías",
+        "acciones": "Diagramas, flujos, esquemas visuales"
+      },
+      {
+        "nombre": "Canva / Genially",
+        "para_que": "Diseño de presentaciones e infografías",
+        "acciones": "Presentaciones, infografías, materiales visuales"
+      },
+      {
+        "nombre": "HeyGen / D-ID",
+        "para_que": "Avatares y bustos parlantes",
+        "acciones": "Vídeos educativos con presentador virtual"
+      },
+      {
+        "nombre": "Rask.ai / HeyGen",
+        "para_que": "Traducción de vídeos",
+        "acciones": "Doblar o subtitular vídeos a otro idioma"
+      },
+      {
+        "nombre": "Draw.io (Mermaid)",
+        "para_que": "Diagramas de flujo",
+        "acciones": "Algoritmos, decisiones, procesos clínicos"
+      }
+    ]
+  }
+}

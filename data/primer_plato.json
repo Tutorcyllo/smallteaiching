@@ -1,0 +1,247 @@
+{
+  "id": "primer_plato",
+  "emoji": "🍲",
+  "titulo": "Primer Plato",
+  "subtitulo": "Actividades compartidas entre docente y estudiantes en el aula",
+  "descripcion": "El Primer Plato recoge las actividades que ocurren EN EL AULA, con la presencia simultánea del docente y los estudiantes. Es el momento de la experiencia compartida: todos parten del mismo punto, debaten juntos, construyen conocimiento colectivamente y aprenden también de las voces y errores de los demás. La IA entra aquí como herramienta de apoyo al docente para hacer la clase más dinámica, eficiente y reveladora. No sustituye al profesor: amplifica lo que ocurre en la sala.",
+  "momento": "En clase (síncrono)",
+  "bloom": "Comprender y Aplicar",
+  "rol_alumno": "Co-creador y practicante activo",
+  "rol_docente": "Facilitador y moderador",
+  "fichas": [
+    {
+      "id": "P1",
+      "titulo": "Sintetizador de participación colectiva",
+      "subtitulo": "La IA organiza las respuestas del grupo; el aula las valida, corrige y detecta disensos",
+      "tipo": "docente",
+      "momento": "En clase (5-10 min)",
+      "bloom": "Comprender / Aplicar",
+      "esfuerzo": "Muy bajo (2-3 min docente)",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El docente recoge respuestas breves del grupo (por cualquier medio: pizarra, Wooclap, formulario, post-its digitales...) y las pega en el LLM. La IA las agrupa en 3-5 categorías mostrando patrones, citas textuales y disensos. El resultado no se acepta como verdad: la clase lo valida, lo corrige y decide qué categorías faltan o sobran.",
+      "cuando_usarlo": [
+        "Al inicio de clase: '¿Qué sabéis ya de este tema?' (activación de conocimiento previo).",
+        "A mitad de clase: '¿Qué conclusión saca cada grupo del caso?' (comparación de razonamientos).",
+        "Al final de clase: '¿Qué es lo más importante que aprendisteis hoy?' (cierre colectivo)."
+      ],
+      "necesitas": [
+        "Un LLM abierto en el ordenador del docente.",
+        "Un método para recoger respuestas breves: pizarra, Wooclap, Mentimeter, papel, Padlet...",
+        "Entre 10 y 40 respuestas del grupo."
+      ],
+      "pasos": [
+        "Lanza una pregunta abierta al grupo: que cada alumno escriba 1-3 frases como máximo.",
+        "Recoge las respuestas (copia-pega desde el formulario o transcribe desde la pizarra).",
+        "Abre el LLM, pega el bloque completo y aplica el prompt de abajo.",
+        "Proyecta el resultado agrupado para que todos lo vean.",
+        "Invita al grupo a corregir categorías: '¿Falta alguna categoría? ¿Alguna cita está mal clasificada? ¿Qué disenso os llama la atención?'",
+        "Usa 1 pregunta de profundización para abrir el debate principal de la clase."
+      ],
+      "prompt": "Aquí tienes las respuestas de un grupo de estudiantes a la pregunta: '[PREGUNTA]'. [PEGA AQUI LAS RESPUESTAS]. Agrupa estas respuestas en 3-5 categorías temáticas. Para cada categoría muestra: 1) Idea central (1 frase) 2) 2 citas textuales representativas (sin modificar) 3) 1 duda o error frecuente que aparece 4) 1 pregunta para profundizar en clase. Si hay posiciones claramente opuestas, crea una categoría 'Disenso' y muestra ambas. Regla: no cambies el contenido de las respuestas; conserva las citas literales.",
+      "evidencia": "El mapa de categorías corregido por el grupo + 1 conclusión consensuada + 1 disenso explícito nombrado por la clase.",
+      "riesgo_fastai": "La IA crea un 'consenso falso' agrupando respuestas opuestas bajo una misma etiqueta genérica. El grupo acepta el resumen sin cuestionarlo.",
+      "mitigacion_slowai": "Exigir citas textuales + categoría de disenso visible + corrección pública obligatoria. El docente nunca acepta el resultado sin validación del grupo."
+    },
+    {
+      "id": "P2",
+      "titulo": "Generador de casos en vivo (3 niveles)",
+      "subtitulo": "Crear casos contextualizados con dificultad graduada para discutir en grupos en tiempo real",
+      "tipo": "docente",
+      "momento": "En clase (10-20 min)",
+      "bloom": "Comprender / Aplicar / Analizar",
+      "esfuerzo": "Bajo (5 min docente)",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El docente genera en el momento 3 casos clínicos (o problemas) sobre el tema de la clase, con dificultad creciente: aplicar → analizar → decidir. Cada caso incluye una 'trampa' típica y una mini-rúbrica de 3 criterios para que los grupos evalúen sus propias respuestas.",
+      "cuando_usarlo": [
+        "Justo después de explicar un concepto: los casos lo aterrizan de inmediato.",
+        "Para introducir un tema difícil: los casos crean la necesidad de saber antes de la explicación.",
+        "Para el cierre de clase: los 3 niveles permiten comprobar diferentes grados de comprensión."
+      ],
+      "necesitas": [
+        "El tema del caso y 1-2 objetivos clínicos o de aprendizaje.",
+        "Grupos de 3-5 alumnos.",
+        "5 minutos antes o durante la clase para generar los casos."
+      ],
+      "pasos": [
+        "Define el tema y 3 objetivos (aplicar / analizar / decidir y justificar).",
+        "Usa el prompt para generar los 3 casos con trampa y rúbrica.",
+        "Repártelos: nivel 1 para grupos menos avanzados, nivel 3 para los más avanzados; o el mismo nivel para comparar soluciones entre grupos.",
+        "Cada grupo trabaja 5-8 minutos y anota: diagnóstico/decisión + justificación + 'qué datos faltaban'.",
+        "Puesta en común: el docente compara soluciones entre grupos y revela la trampa.",
+        "Cierre: ¿qué pregunta haríais al paciente que no aparece en el caso?"
+      ],
+      "prompt": "Genera 3 casos clínicos sobre [TEMA] para estudiantes de [NIVEL/ESPECIALIDAD]. Nivel 1 (APLICAR): presentación típica, datos suficientes para una decisión directa. Nivel 2 (ANALIZAR): datos incompletos o ambiguos que obligan a razonar diferenciales. Nivel 3 (DECIDIR Y JUSTIFICAR): caso con comorbilidades o contexto que complica la decisión. Para cada caso incluye: - Presentación clínica breve (3-5 líneas) - Una 'trampa' o error típico que cometen los estudiantes - Mini-rúbrica de evaluación (3 criterios: qué busca el evaluador). Ancla los casos en evidencia clínica real. No inventes datos epidemiológicos.",
+      "evidencia": "Decisión de cada grupo + justificación escrita (3 argumentos) + lista de 'preguntas que faltaban' para resolver el caso.",
+      "riesgo_fastai": "Los casos son irreales, demasiado sencillos o sin contexto clínico relevante. Los grupos los resuelven mecánicamente sin razonamiento real.",
+      "mitigacion_slowai": "Anclar el prompt a guías clínicas o datos reales del servicio. El docente siempre revisa los casos antes de repartirlos (1 minuto de lectura rápida)."
+    },
+    {
+      "id": "P3",
+      "titulo": "Visualizador auditable (tabla o diagrama para criticar)",
+      "subtitulo": "La IA genera una representación con huecos; el alumnado la completa, corrige y defiende",
+      "tipo": "docente",
+      "momento": "En clase (10-15 min)",
+      "bloom": "Comprender / Analizar",
+      "esfuerzo": "Muy bajo (5 min docente)",
+      "friccion": "🔥 Baja-Media",
+      "descripcion": "El docente genera con la IA una tabla comparativa, un diagrama de flujo o un esquema sobre un concepto complejo, pero con huecos deliberados para que el alumnado los complete. El resultado no se acepta como correcto: el grupo lo audita, detecta errores, completa lo que falta y corrige lo que es incorrecto. Convierte la clase magistral en una actividad de análisis crítico.",
+      "cuando_usarlo": [
+        "Para explicar conceptos con múltiples variables (comparativa diagnóstica, clasificaciones, algoritmos de decisión).",
+        "Para revisar un tema estudiado en los Entrantes: la tabla con huecos fuerza la recuperación activa en clase.",
+        "Para introducir la discusión de una guía clínica o protocolo complejo."
+      ],
+      "necesitas": [
+        "El concepto o los dos elementos a comparar.",
+        "Proyector o pantalla para mostrar la tabla a toda la clase.",
+        "Opcional: pizarra digital o Padlet para que los alumnos completen los huecos en tiempo real."
+      ],
+      "pasos": [
+        "Genera la tabla o diagrama con el prompt de abajo antes de la clase (o en los primeros 5 minutos).",
+        "Proyecta la tabla CON huecos visibles ('...') sin mostrar las respuestas.",
+        "Grupos de 2-3 alumnos discuten 3-5 minutos qué va en cada hueco.",
+        "Rellena los huecos en vivo con las respuestas del grupo: debate las discrepancias.",
+        "Revela los errores deliberados: '¿Alguien detectó algo que no cuadraba?'",
+        "Cierre: el grupo redacta en 1 frase la diferencia más importante que aprendió."
+      ],
+      "prompt": "Crea una tabla comparativa entre [CONCEPTO A] y [CONCEPTO B] para estudiantes de [NIVEL]. Columnas: Definición | Mecanismo | Presentación clínica | Ejemplo concreto | Malentendido común. Instrucciones especiales: - Deja 4-5 celdas en blanco marcadas como '...' distribuidas en distintas filas y columnas. - Introduce 1-2 errores deliberados sutiles (no obvios) en el contenido. - Al final, en un apartado separado, muestra la tabla completa y correcta para que el docente la use como clave de corrección.",
+      "evidencia": "Tabla completada por el grupo + errores detectados y justificados + 1 frase de síntesis de la diferencia más importante.",
+      "riesgo_fastai": "El grupo acepta la tabla como verdad sin cuestionarla, o no detecta los errores deliberados.",
+      "mitigacion_slowai": "Anunciar explícitamente al inicio: 'Esta tabla tiene errores. Tenéis que encontrarlos.' El docente guarda la tabla correcta y la compara al final públicamente."
+    },
+    {
+      "id": "P4",
+      "titulo": "Aprendizaje basado en problemas (ABP) en vivo",
+      "subtitulo": "Resolver un problema en rondas: cada ronda añade datos nuevos que obligan a reajustar",
+      "tipo": "estudiantes",
+      "momento": "En clase (20-30 min)",
+      "bloom": "Aplicar / Analizar / Evaluar",
+      "esfuerzo": "Medio (10 min docente)",
+      "friccion": "🔥🔥🔥 Alta",
+      "descripcion": "Un caso o problema se presenta en 3 rondas: en cada ronda la IA añade nuevos datos que obligan al estudiante a reajustar su hipótesis inicial. El foco no está en llegar a la respuesta correcta, sino en justificar CADA cambio de opinión y detectar qué información fue decisiva. Simula el razonamiento clínico real.",
+      "necesitas": [
+        "Dispositivo con acceso a un LLM (ChatGPT, Claude, Copilot) por grupo.",
+        "El caso inicial preparado por el docente (o generado con la IA antes de clase).",
+        "Un registro escrito de las hipótesis en cada ronda (papel o digital)."
+      ],
+      "pasos": [
+        "El docente presenta el CASO INICIAL (datos básicos del paciente/problema).",
+        "Ronda 1 (5 min): cada alumno/grupo escribe su hipótesis inicial y pide a la IA los datos de la segunda ronda usando el prompt.",
+        "Ronda 2 (5 min): llegan nuevos datos. El alumno debe: ¿cambio de hipótesis? Si cambia, justifica POR QUÉ cambió. Si no cambia, justifica POR QUÉ se mantiene.",
+        "Ronda 3 (5 min): datos finales y decisión definitiva con plan de acción.",
+        "Puesta en común (10 min): el docente compara las decisiones entre grupos. ¿En qué ronda cambió más gente? ¿Qué dato fue el decisivo?",
+        "Cierre: cada alumno anota 1 error de razonamiento propio que detectó durante el ejercicio."
+      ],
+      "prompt": "Voy a resolver un caso clínico en 3 rondas. Aquí está el caso inicial: [DATOS INICIALES DEL CASO]. Mi hipótesis actual es: [HIPÓTESIS]. Dame los datos de la RONDA 2: nuevos hallazgos de exploración física o resultados de pruebas complementarias iniciales. Incluye algún dato que pueda cambiar o confirmar mi hipótesis. No resuelvas el caso todavía. --- [Cuando el alumno pide la Ronda 3] Dame los datos de la RONDA 3: resultado de pruebas definitivas y contexto adicional. Ahora sí puedo tomar la decisión final. Al terminar: dame retroalimentación sobre mi razonamiento en las 3 rondas (qué hice bien, qué error típico cometí, qué me faltó preguntar).",
+      "evidencia": "Registro de las 3 hipótesis + justificación de cada cambio + 1 error de razonamiento propio identificado + retroalimentación recibida de la IA.",
+      "riesgo_fastai": "El alumno pide directamente la solución a la IA sin pasar por las rondas, o la IA resuelve el caso en la primera interacción.",
+      "mitigacion_slowai": "El prompt está diseñado para que la IA dé datos por rondas, no la solución. El docente recoge el registro de hipótesis como evidencia obligatoria."
+    },
+    {
+      "id": "P5",
+      "titulo": "Debate del mejor argumento contrario",
+      "subtitulo": "Cada equipo defiende la postura opuesta a la suya con los argumentos más sólidos posibles",
+      "tipo": "estudiantes",
+      "momento": "En clase (20-25 min)",
+      "bloom": "Analizar / Evaluar",
+      "esfuerzo": "Medio (10 min docente)",
+      "friccion": "🔥🔥🔥 Alta",
+      "descripcion": "Cada equipo defiende la postura CONTRARIA a la que cree o le parece más obvia, construyendo los argumentos MÁS SÓLIDOS posibles para esa postura. No se trata de ganar el debate, sino de tomarse en serio la otra posición. La IA actúa como asistente de documentación: ayuda a encontrar evidencia real y construir argumentos rigurosos.",
+      "cuando_usarlo": [
+        "Temas con dos posturas legítimas: ej. 'tratamiento A vs tratamiento B', 'cribado sí vs no'.",
+        "Cuando el grupo tiende al pensamiento uniforme: todos opinan lo mismo sin haber analizado la evidencia del otro lado.",
+        "Para desarrollar habilidades de comunicación y argumentación clínica."
+      ],
+      "pasos": [
+        "El docente define el tema y las dos posturas (A y B). Divide el grupo en dos mitades.",
+        "Asigna las posturas al azar o de forma contraria a la opinión real de cada alumno.",
+        "Fase de preparación (8 min): cada equipo usa la IA para construir sus 3 mejores argumentos con evidencia.",
+        "Ronda de exposición (8 min): cada equipo presenta sus argumentos. El otro equipo escucha sin interrumpir.",
+        "Contraargumentación (4 min): cada equipo responde a 1 argumento del contrario.",
+        "Síntesis final (5 min): cada equipo nombra el argumento contrario que más les convenció. El grupo elabora 1 conclusión conjunta."
+      ],
+      "prompt": "Voy a participar en un debate. Mi postura asignada es: [POSTURA A o B: ej. 'El cribado universal de X ESTÁ justificado']. Ayúdame a construir los 3 argumentos MÁS SÓLIDOS posibles para defender esta postura, aunque yo personalmente no la comparta. Para cada argumento: 1) Enunciado claro (1 frase) 2) Evidencia o dato que lo respalda (con fuente si es posible) 3) Cómo responder al contraargumento más frecuente. Regla fundamental: construye el argumento MÁS FUERTE posible, no el más fácil de rebatir. El objetivo es tomarse en serio la otra posición. No incluyas todavía los argumentos del lado contrario.",
+      "evidencia": "Los 3 argumentos construidos con la IA + 1 argumento contrario que convenció al alumno + 1 conclusión conjunta del grupo.",
+      "riesgo_fastai": "La IA construye argumentos débiles o sin evidencia real. El debate se convierte en un ejercicio retórico vacío sin anclaje en datos.",
+      "mitigacion_slowai": "Exigir que cada argumento cite una fuente verificable. El docente revisa 1-2 argumentos en voz alta antes del debate para calibrar su calidad."
+    },
+    {
+      "id": "P6",
+      "titulo": "Generador de analogías contextualizadas (en clase)",
+      "subtitulo": "Explorar analogías del tema con sus límites para activar comprensión profunda",
+      "tipo": "estudiantes",
+      "momento": "En clase (10-15 min)",
+      "bloom": "Comprender / Aplicar",
+      "esfuerzo": "Bajo (5 min)",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "Los estudiantes le piden a la IA 3 analogías para explicar un concepto difícil, pero también sus LÍMITES (dónde la analogía se rompe o puede confundir). El foco está en que el alumno elija la mejor analogía, la defienda ante el grupo y explique por qué las otras dos son menos útiles. Una analogía sin sus límites explicitados puede crear malentendidos más peligrosos que no tener analogía.",
+      "cuando_usarlo": [
+        "Al explicar un mecanismo fisiopatológico complejo (ej. potencial de acción, cascada de coagulación).",
+        "Cuando el grupo tiene dificultades para conectar el concepto con algo conocido.",
+        "Como actividad de calentamiento al inicio de clase para activar conocimiento previo con un reto conceptual."
+      ],
+      "pasos": [
+        "El docente anuncia el concepto: 'Vamos a buscar las 3 mejores analogías para explicar [CONCEPTO]'.",
+        "Individual o en parejas: cada alumno usa el prompt para obtener 3 analogías con sus límites.",
+        "Cada alumno elige la mejor y prepara una justificación de 2 minutos.",
+        "El grupo comparte: el docente anota en la pizarra las analogías elegidas y sus límites.",
+        "Votación: ¿cuál es la analogía más útil para este grupo? ¿Por qué?",
+        "Cierre: el docente señala qué límite de la analogía ganadora es el más peligroso si se ignora."
+      ],
+      "prompt": "Genera 3 analogías diferentes para explicar [CONCEPTO] a estudiantes de [NIVEL]. Para cada analogía: 1) La analogía (2-3 frases, con lenguaje cercano) 2) Qué ilumina bien (qué aspecto del concepto explica de forma clara) 3) Dónde se rompe o puede confundir (los límites: qué aspecto del concepto NO captura bien o puede llevar a malentendidos) 4) Una pregunta de comprobación: ¿entendiste realmente el concepto? Importante: no elijas analogías demasiado técnicas. Deben conectar con experiencias cotidianas o clínicas accesibles para el nivel del grupo.",
+      "evidencia": "Las 3 analogías con sus límites + justificación de la elección + el límite más peligroso identificado por el grupo.",
+      "riesgo_fastai": "El alumno elige la analogía más intuitiva sin analizar sus límites. La clase la adopta sin cuestionar dónde falla.",
+      "mitigacion_slowai": "La presentación de los límites es OBLIGATORIA: no se puede defender una analogía sin nombrar 2 límites. El docente refuerza el límite más importante al cerrar."
+    }
+  ],
+  "consideraciones": {
+    "titulo": "Consideraciones prácticas para el aula",
+    "consejo": {
+      "titulo": "¿Cómo empezar si nunca has usado la IA en clase?",
+      "texto": "Empieza por las Fichas 1, 2 o 3: solo las necesitas tú como docente, con el LLM en tu ordenador. Los estudiantes ni siquiera necesitan dispositivos. Una vez que te sientas cómodo con esas, introduce las Fichas 4, 5 y 6 donde los alumnos usan sus propios dispositivos."
+    },
+    "actividades": [
+      {
+        "id": "P1",
+        "nombre": "Sintetizador colectivo",
+        "tiempo": "5-10 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + método para recoger respuestas (cualquiera)"
+      },
+      {
+        "id": "P2",
+        "nombre": "Casos en vivo",
+        "tiempo": "10-20 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + proyector para mostrar los casos"
+      },
+      {
+        "id": "P3",
+        "nombre": "Visualizador auditable",
+        "tiempo": "10-15 min",
+        "dispositivos": "Solo el docente",
+        "minimo": "LLM abierto + proyector"
+      },
+      {
+        "id": "P4",
+        "nombre": "ABP en rondas",
+        "tiempo": "20-30 min",
+        "dispositivos": "Alumnos (1 por grupo)",
+        "minimo": "LLM accesible para alumnos + papel para registro de hipótesis"
+      },
+      {
+        "id": "P5",
+        "nombre": "Debate del mejor argumento",
+        "tiempo": "20-25 min",
+        "dispositivos": "Alumnos (1 por equipo)",
+        "minimo": "LLM accesible + tiempo para preparación y debate"
+      },
+      {
+        "id": "P6",
+        "nombre": "Analogías",
+        "tiempo": "10-15 min",
+        "dispositivos": "Alumnos (individual/pareja)",
+        "minimo": "LLM accesible + pizarra para anotar analogías elegidas"
+      }
+    ]
+  }
+}

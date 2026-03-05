@@ -1,0 +1,180 @@
+{
+  "id": "postres",
+  "emoji": "🍰",
+  "titulo": "Postres",
+  "subtitulo": "Retroalimentación, metacognición y evaluación",
+  "descripcion": "Los Postres son el momento en que el aprendizaje se asienta. Son actividades post-clase orientadas a dos propósitos complementarios: la retroalimentación formativa (que el alumno sepa con precisión qué hizo bien y qué debe mejorar) y la metacognición (que el alumno desarrolle conciencia sobre su propio proceso de aprendizaje). Este documento tiene dos partes: fichas para los alumnos, y herramientas para el docente en la evaluación.",
+  "momento": "Post-clase · Reflexión",
+  "bloom": "Evaluar · Síntesis · Metacognición",
+  "rol_alumno": "Evaluador crítico de su propio proceso",
+  "rol_docente": "Diseñador del feedback y la reflexión",
+  "fichas": [
+    {
+      "id": "PO1",
+      "titulo": "Feedback formativo por criterios",
+      "subtitulo": "La IA evalúa el trabajo según una rúbrica y señala el próximo paso más urgente",
+      "momento": "Post-clase",
+      "bloom": "Evaluar / Metacognición",
+      "esfuerzo": "10-20 min alumno · 3 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El alumno pega su trabajo (o un fragmento) en el LLM junto con la rúbrica de la asignatura. La IA evalúa criterio por criterio, señala qué funciona y qué no, y propone un único próximo paso accionable en 15-20 minutos. El alumno no puede limitarse a leer el feedback: debe reescribir o corregir UNA sola cosa en función de él.",
+      "pasos": [
+        "El alumno entrega el trabajo o un fragmento relevante.",
+        "Pega el texto en el LLM con el prompt de feedback + rúbrica.",
+        "Lee el feedback completo y elige el próximo paso que va a trabajar.",
+        "Dedica 15-20 minutos a aplicar ese único paso.",
+        "Entrega la micro-mejora + una frase que explique qué cambió y por qué."
+      ],
+      "prompt": "Actúa como evaluador formativo. Tu objetivo es ayudar al alumno a mejorar, no solo a puntuarle. Evalúa este trabajo usando la siguiente rúbrica (puntúa de 0 a 3 cada criterio): [PEGA AQUI LOS CRITERIOS DE TU RÚBRICA, o usa estos genéricos:] 1) Claridad y precisión del argumento 2) Uso y calidad de la evidencia aportada 3) Estructura y coherencia interna 4) Adecuación al nivel y la tarea pedida. Para cada criterio: - Puntuación (0-3) + justificación en 1 frase - Cita textual de algo que funciona bien - Cita textual de algo que debe mejorarse. Al final: - Identifica el ÚNICO cuello de botella principal (el problema que más limita el trabajo) - Propón un próximo paso accionable: algo concreto que el alumno pueda hacer en 15-20 min. Regla: NO reescribas el trabajo. Solo evalúa, cita y propone. [PEGA AQUÍ EL TRABAJO O FRAGMENTO]",
+      "evidencia": "Trabajo original + feedback de la IA + micro-mejora del alumno (máx. 1 página) + frase explicando qué cambió y por qué.",
+      "riesgo_fastai": "El alumno lee el feedback por encima, dice 'muy bien' y no cambia nada. El feedback se convierte en ruido.",
+      "mitigacion_slowai": "La micro-reentrega es obligatoria. Sin el fragmento mejorado + la frase de justificación, el feedback no cuenta como realizado."
+    },
+    {
+      "id": "PO2",
+      "titulo": "Diario de metacognición guiado",
+      "subtitulo": "6 preguntas para que el alumno reflexione sobre su propio proceso de aprendizaje",
+      "momento": "Post-clase / Post-tarea",
+      "bloom": "Evaluar / Metacognición",
+      "esfuerzo": "15-20 min alumno · 2 min docente",
+      "friccion": "🔥 Baja",
+      "descripcion": "La metacognición es una de las habilidades con mayor impacto demostrado en el rendimiento académico. Esta ficha usa la IA para generar 6 preguntas personalizadas que el alumno debe responder por escrito con ejemplos concretos de su propio trabajo. Las 6 preguntas cubren: dificultades, decisiones tomadas, evidencia usada, alternativas descartadas, transferencia posible y plan de mejora. El cierre es siempre un plan 'si-entonces'.",
+      "pasos": [
+        "Al terminar una tarea, actividad o bloque temático, el alumno describe brevemente qué hizo en 3-5 frases.",
+        "Pega esa descripción en el LLM con el prompt. La IA genera las 6 preguntas personalizadas.",
+        "El alumno responde cada pregunta por escrito, con ejemplos concretos del trabajo.",
+        "Cierra con el plan 'si-entonces' para la próxima vez.",
+        "Guarda las respuestas: son la base del portfolio reflexivo (Ficha 4)."
+      ],
+      "prompt": "Voy a describir brevemente una actividad o tarea que acabo de realizar. Genera 6 preguntas metacognitivas personalizadas basadas en mi descripción. Las preguntas deben explorar: 1) Qué me resultó más difícil y por qué 2) Qué decisión importante tomé durante el proceso (y cuál fue mi razonamiento) 3) Qué evidencia o información usé para tomar esa decisión 4) Qué alternativa descarté y por qué 5) Cómo podría aplicar lo aprendido en una situación diferente 6) Qué haría de forma distinta la próxima vez. Reglas para las preguntas: - Deben ser específicas a MI actividad, no genéricas - Deben requerir respuestas con ejemplos concretos - No se pueden responder con 'sí' o 'no'. Al final, cuando yo haya respondido todas, pídeme un plan si-entonces: 'Si la próxima vez me encuentro con [situación X], entonces haré [acción Y]'. Mi actividad: [DESCRIPCION BREVE DE LO QUE HICE]",
+      "evidencia": "Respuestas a las 6 preguntas (con ejemplos concretos, no genéricos) + plan si-entonces para la próxima vez.",
+      "riesgo_fastai": "El alumno responde con frases vagas y generales ('estuvo bien', 'me costó el tiempo'). La reflexión no produce aprendizaje.",
+      "mitigacion_slowai": "El prompt pide ejemplos concretos en cada pregunta. El docente puede leer las respuestas y devolver una sola pregunta de seguimiento si la respuesta es demasiado superficial."
+    },
+    {
+      "id": "PO3",
+      "titulo": "Análisis de errores de cohorte",
+      "subtitulo": "El docente detecta patrones de error del grupo para ajustar la docencia (con respuestas anonimizadas)",
+      "momento": "Post-clase / Post-corrección",
+      "bloom": "Evaluar / Diagnóstico grupal",
+      "esfuerzo": "10-15 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "Después de corregir un examen, una tarea o un conjunto de respuestas, el docente usa la IA para analizar un conjunto de respuestas anonimizadas e identificar los errores más frecuentes, su causa conceptual probable y una propuesta de ejercicio de refuerzo para cada uno. El resultado no es una nota: es un mapa diagnóstico del grupo.",
+      "aviso_privacidad": "Antes de pegar cualquier respuesta de alumno en un LLM externo, elimina todos los datos identificables: nombre, número de matrícula, fecha de nacimiento, y cualquier dato que permita identificar al alumno. Si tu universidad tiene acceso a Copilot Profesional u otro entorno institucional con garantías de privacidad, prioriza esa herramienta.",
+      "pasos": [
+        "Reúne las respuestas del grupo a una pregunta concreta (no todo el examen).",
+        "Anonimiza: elimina todos los datos personales.",
+        "Pega las respuestas en el LLM con el prompt de análisis de cohorte.",
+        "Lee el informe: contrasta los errores identificados con tu propia percepción docente.",
+        "Diseña una actividad de 10 minutos para la próxima clase que aborde el error más frecuente."
+      ],
+      "prompt": "Actúa como experto en evaluación formativa. Voy a pegarte un conjunto de respuestas ANONIMIZADAS de mis alumnos a la siguiente pregunta: [PREGUNTA O TAREA QUE SE EVALUÓ]. Analiza el conjunto de respuestas e identifica: 1) Los 5 errores o malentendidos más frecuentes (con ejemplos textuales anonimizados) 2) Para cada error: cuál es la causa conceptual probable (qué no entendieron o confundieron) 3) Para cada error: 1 ejercicio de refuerzo concreto y breve (10-15 min) para trabajarlo en clase 4) Un 'indicador de mejora': cómo sabría yo si el error se ha corregido en la próxima evaluación. Al final: qué patrones globales ves en el grupo. ¿Dominan mejor los aspectos básicos o los avanzados? RESPUESTAS ANONIMIZADAS: [PEGA AQUÍ LAS RESPUESTAS, UNA POR PÁRRAFO]",
+      "evidencia": "Informe de 5 errores frecuentes + causa conceptual + ejercicio de refuerzo + indicador de mejora + patrón global del grupo.",
+      "riesgo_fastai": "Aceptar el análisis de la IA sin contrastarlo. La IA puede equivocarse o sesgarse si las respuestas son pocas o muy similares.",
+      "mitigacion_slowai": "El docente contrasta el análisis con su propia lectura de las respuestas. El informe es un punto de partida, no una verdad definitiva. Siempre validar antes de actuar."
+    },
+    {
+      "id": "PO4",
+      "titulo": "Portfolio reflexivo asistido",
+      "subtitulo": "La IA organiza y pregunta. El alumno selecciona, reflexiona y escribe.",
+      "momento": "Final de curso / Final de bloque",
+      "bloom": "Evaluar / Crear / Metacognición",
+      "esfuerzo": "30-45 min alumno · 5 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "Un portfolio de aprendizaje es una colección organizada de evidencias que muestra el progreso del alumno a lo largo del tiempo. No es una carpeta de trabajos: es una narrativa de aprendizaje. La IA actúa como andamio estructural: propone categorías, detecta huecos y hace preguntas — pero no escribe la reflexión. La distinción es crítica: la IA organiza y pregunta; el alumno reflexiona y escribe.",
+      "pasos": [
+        "El alumno hace un inventario de todas las evidencias disponibles: borradores, registros de simulación, diarios de metacognición, trabajos entregados, notas de clase.",
+        "Pega el inventario en el LLM con el prompt. La IA sugiere cómo organizar las evidencias por criterio o competencia.",
+        "El alumno selecciona cuáles incluir y descarta las que no demuestran progreso relevante.",
+        "Para cada evidencia incluida, la IA propone 2-3 preguntas reflexivas. El alumno las responde con sus propias palabras.",
+        "El alumno escribe la narrativa de cierre: qué aprendió, qué cambió en su forma de pensar o actuar, qué le queda pendiente."
+      ],
+      "prompt": "Voy a compartir contigo un inventario de mis evidencias de aprendizaje. Tu trabajo es ayudarme a ORGANIZAR, no a escribir mi reflexión. Paso 1: A partir de mi inventario, sugiere cómo agrupar las evidencias por criterio o competencia. Detecta si hay algún criterio sin evidencia (un hueco en mi portfolio). Sugiere 1-2 evidencias adicionales que podría añadir si las tuviera. Paso 2: Para cada evidencia que yo seleccione incluir, hazme 2-3 preguntas reflexivas específicas: - Por qué elegiste esta evidencia y no otra - Qué demuestra sobre tu aprendizaje - Qué cambió entre el inicio y el resultado final. Reglas: - NO redactes la reflexión por mí - NO inventes evidencias que no mencione - Solo estructura, detecta huecos y haz preguntas. Mi inventario de evidencias: [LISTA DE TRABAJOS, BORRADORES, DIARIOS, ETC. CON UNA FRASE DE DESCRIPCION CADA UNO]",
+      "evidencia": "Portfolio con evidencias seleccionadas + justificación de cada selección (en palabras del alumno) + narrativa de cierre: qué aprendí, qué cambió, qué me queda.",
+      "riesgo_fastai": "El alumno pide a la IA que 'escriba la reflexión del portfolio' o que 'redacte la narrativa de aprendizaje'. El resultado es un texto vacío de aprendizaje real.",
+      "mitigacion_slowai": "El prompt prohíbe explícitamente que la IA redacte. El docente puede pedir al alumno que defienda oralmente una evidencia del portfolio: si no puede explicarla, la reflexión no es suya."
+    }
+  ],
+  "herramientas_docente": {
+    "titulo": "La IA como asistente del docente en la evaluación",
+    "intro": "Diseñar buenos instrumentos de evaluación —preguntas tipo test rigurosas, rúbricas claras, casos de examen bien calibrados, retroalimentación personalizada— lleva tiempo. Es uno de los usos donde la IA puede tener mayor impacto inmediato en la carga de trabajo del docente.\n\nEsta sección ofrece prompts concretos para cuatro tareas de evaluación habituales. En todos los casos, la IA genera un borrador: el juicio final sobre la calidad, la pertinencia y la corrección siempre es del docente.",
+    "principio": "La IA puede proponer una rúbrica, generar 20 preguntas tipo test o redactar feedback personalizado en segundos. Pero puede cometer errores, introducir sesgos o generar contenido que no se ajuste exactamente a tu asignatura. Revisa siempre lo que genera. Un error en una pregunta de examen que llega a 200 alumnos sin revisión docente es un problema evitable. Trata cada output de la IA como un borrador de un becario inteligente pero que no conoce tu asignatura: útil, pero necesita supervisión.",
+    "aviso_anonimizacion": "Nunca pegues nombres ni datos identificables de tus alumnos en un LLM externo. Crea un código temporal para cada alumno (Alumno_01, Alumno_02…) antes de pegar las respuestas. Guarda la tabla de equivalencias en tu ordenador.",
+    "prompts": [
+      {
+        "id": "HD1",
+        "titulo": "B.1 · Generación de rúbricas de evaluación",
+        "intro": "Una rúbrica bien construida tiene tres elementos esenciales: criterios observables (no vagos), descriptores por nivel que permitan distinguir una respuesta de otra con claridad, y ejemplos ancla que ilustren cada nivel. Construir todo eso desde cero lleva tiempo. La IA puede generar un borrador sólido en minutos.",
+        "prompt": "Actúa como experto en evaluación educativa. Diseña una rúbrica para evaluar la siguiente tarea: [DESCRIPCIÓN BREVE DE LA TAREA]. Asignatura: [NOMBRE]. Nivel: [Grado / Máster / Posgrado]. Objetivos de aprendizaje que evalúa: [LISTA]. La rúbrica debe tener: - Entre 4 y 6 criterios específicos y observables (no vagos como 'calidad' o 'esfuerzo') - 4 niveles de desempeño: Excelente (4), Notable (3), Suficiente (2), Insuficiente (1) - Para cada nivel: descriptor observable en 1-2 frases (qué HACE el alumno, no qué 'tiene') - Para cada criterio: 1 ejemplo ancla (frase o característica concreta del trabajo). Formato de salida: tabla con criterios en filas y niveles en columnas. Al final: una nota sobre cómo usar esta rúbrica en la defensa oral si procede.",
+        "variante": "En la era de la IA, muchos docentes están aumentando el peso de la defensa oral en los TFG y TFM. Añade esta instrucción al prompt: 'Asigna un peso mínimo del 60% a la defensa oral. Los criterios de la defensa deben evaluar dominio conceptual, capacidad de responder preguntas no preparadas, y coherencia entre el texto escrito y lo explicado verbalmente.'",
+        "criterios_comparativa": {
+          "titulo": "Criterios vagos vs. criterios observables",
+          "ejemplos": [
+            {
+              "evitar": "Calidad del trabajo",
+              "usar": "El argumento central está respaldado por al menos 3 fuentes verificadas y citadas correctamente"
+            },
+            {
+              "evitar": "Esfuerzo demostrado",
+              "usar": "El alumno entrega borrador 1, registro de cambios y versión final con justificación de cada decisión"
+            },
+            {
+              "evitar": "Buena presentación",
+              "usar": "El texto tiene estructura clara: introducción con tesis, desarrollo con evidencia, conclusión que responde la pregunta inicial"
+            },
+            {
+              "evitar": "Comprensión del tema",
+              "usar": "El alumno es capaz de explicar oralmente el argumento principal sin leer y de responder a 2 preguntas no preparadas sobre el contenido"
+            }
+          ]
+        }
+      },
+      {
+        "id": "HD2",
+        "titulo": "B.2 · Generación de preguntas de examen",
+        "intro": "La IA puede generar preguntas tipo test, de desarrollo y casos en cuestión de minutos a partir del material de la asignatura. Lo que tarda es hacerlas bien: con distractores plausibles, sin ambigüedad, bien calibradas por dificultad y alineadas con los objetivos de aprendizaje.",
+        "prompt": "Eres un experto en evaluación educativa. Genera preguntas tipo test de alta calidad. Tema: [TEMA ESPECÍFICO]. Nivel de dificultad: [Básico / Medio / Alto]. Número de preguntas: [N]. Objetivos que evalúa: [LISTA]. Para cada pregunta: 1) Enunciado claro, sin ambigüedad, en tercera persona 2) 4 opciones (A, B, C, D): solo una correcta 3) Racional de la respuesta correcta (por qué es correcta) 4) Racional de cada distractor (por qué es incorrecto pero plausible) 5) Nivel de dificultad estimado (1=fácil, 2=medio, 3=difícil) y Bloom que evalúa. Reglas de calidad: - Evita enunciados negativos ('¿Cuál NO es...') - Evita 'todas las anteriores' y 'ninguna de las anteriores' - Los distractores deben ser errores conceptuales reales, no absurdos obvios - Evita pistas gramaticales en las opciones. Al final: indica cuál es la pregunta más difícil del conjunto y por qué.",
+        "prompt2": "Genera [N] preguntas de desarrollo / casos de examen sobre [TEMA]. Contexto de la asignatura: [BREVE DESCRIPCIÓN]. Nivel: [Grado / Máster]. Tiempo disponible para responder cada pregunta: [MINUTOS]. Para cada pregunta o caso: 1) Enunciado completo con toda la información necesaria para responder 2) Datos relevantes que se aportan (si es un caso: edad, contexto, variables clave) 3) Pregunta o tarea específica que debe realizar el alumno 4) Criterios de corrección: qué debe contener una respuesta EXCELENTE (4 puntos) 5) Errores típicos que harían bajar la nota a Notable (3), Suficiente (2) o Insuficiente (1) 6) Una 'trampa conceptual' o elemento de confusión que distingue a quienes dominan el tema. Genera preguntas que NO puedan responderse copiando un párrafo del libro. Prioriza la aplicación y el análisis sobre la memorización.",
+        "variante": "Para generar variantes de examen: añade al prompt 'Genera 3 variantes de esta misma pregunta con datos diferentes para usar en distintas convocatorias, manteniendo el mismo nivel de dificultad y los mismos criterios de corrección.'"
+      },
+      {
+        "id": "HD3",
+        "titulo": "B.3 · Corrección asistida y retroalimentación personalizada",
+        "intro": "Corregir 40 o 100 respuestas de desarrollo con retroalimentación individualizada es una de las tareas más costosas en tiempo para el docente. La IA puede ayudar de dos formas: aplicando criterios de corrección de forma consistente sobre respuestas escritas, y generando retroalimentación personalizada para cada alumno.",
+        "modalidades": [
+          {
+            "nombre": "Corrección con rúbrica",
+            "para_que": "El docente proporciona la rúbrica y la respuesta. La IA puntúa criterio a criterio y justifica cada puntuación con citas textuales.",
+            "cuando": "Evaluaciones formativas, borradores, trabajos de proceso donde el feedback importa más que la nota."
+          },
+          {
+            "nombre": "Retroalimentación personalizada post-corrección",
+            "para_que": "El docente ya tiene la nota. Le pide a la IA que genere un feedback personalizado para cada alumno basado en sus errores concretos.",
+            "cuando": "Después de corregir exámenes o trabajos: la IA redacta el feedback, el docente lo revisa y ajusta antes de enviarlo."
+          },
+          {
+            "nombre": "Detección de incoherencias o alucinaciones",
+            "para_que": "El alumno ha usado IA para redactar. El docente pide a la IA que identifique referencias incorrectas, datos falsos o afirmaciones no verificables.",
+            "cuando": "Trabajos escritos donde se sospecha uso de IA generativa sin supervisión crítica."
+          }
+        ],
+        "prompt": "Actúa como corrector académico riguroso. Tienes que evaluar la siguiente respuesta usando la rúbrica que te proporciono. RÚBRICA: [PEGA AQUÍ TU RÚBRICA CON CRITERIOS Y NIVELES]. RESPUESTA DEL ALUMNO: [PEGA AQUÍ LA RESPUESTA ANONIMIZADA]. Para cada criterio de la rúbrica: 1) Nivel asignado (Excelente / Notable / Suficiente / Insuficiente) 2) Justificación en 1-2 frases con cita textual de la respuesta 3) Qué debería añadir o corregir para subir un nivel. Al final: - Nota total y su justificación - Un comentario global de 3-4 frases para devolver al alumno - El UN elemento más importante que debería trabajar para la próxima tarea. Tono: constructivo, específico, sin condescendencia."
+      }
+    ],
+    "limites": {
+      "titulo": "B.4 · Límites y advertencias en el uso de la IA para evaluar",
+      "si": [
+        "Generar borradores de rúbricas, preguntas y feedback que el docente revisa y ajusta.",
+        "Detectar patrones de error en respuestas anonimizadas del grupo.",
+        "Aplicar criterios de corrección de forma consistente cuando el docente proporciona la rúbrica.",
+        "Identificar referencias incorrectas o datos no verificables en trabajos escritos."
+      ],
+      "no": [
+        "Poner la nota final de un alumno sin revisión docente. La nota es siempre responsabilidad del profesor.",
+        "Evaluar habilidades clínicas, procedimentales o actitudinales que requieren observación directa.",
+        "Confirmar o descartar plagio. La IA puede dar pistas, pero no es un detector fiable ni un juez.",
+        "Pegar respuestas identificables de alumnos sin anonimizar previamente."
+      ]
+    }
+  }
+}

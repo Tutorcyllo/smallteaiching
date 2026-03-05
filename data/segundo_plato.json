@@ -1,0 +1,305 @@
+{
+  "id": "segundo_plato",
+  "emoji": "🥘",
+  "titulo": "Segundo Plato",
+  "subtitulo": "El estudiante crea: producción propia con andamiaje de la IA",
+  "descripcion": "El Segundo Plato es el momento en que el protagonismo pasa al estudiante. Es él quien produce, diseña, resuelve o crea. La IA actúa como colaborador: cuestiona, sugiere, da retroalimentación y ofrece andamiaje ajustado, pero nunca entrega el producto final. A diferencia de los Entrantes y el Primer Plato, estas actividades se desarrollan principalmente fuera del aula y a ritmo individual.",
+  "momento": "Trabajo autónomo del estudiante",
+  "bloom": "Aplicar · Analizar · Evaluar · Crear",
+  "rol_alumno": "Productor y autor",
+  "rol_docente": "Diseñador de la tarea y evaluador del proceso",
+  "pregunta_clave": "¿Puede un estudiante resolver esta tarea en un solo prompt, sin necesitar conocimiento propio, experiencia, contexto local o razonamiento iterativo? Si la respuesta es sí → la tarea necesita rediseño. Si la respuesta es no → la tarea tiene valor en la era de la IA.",
+  "checklist_tarea": {
+    "titulo": "¿Mi tarea aguanta la era de la IA?",
+    "intro": "Una vez diseñada una tarea con valor real, la IA puede acompañar al estudiante como colaborador crítico. Pero primero hay que asegurarse de que la tarea no se resuelve con un solo prompt.",
+    "test_30_segundos": {
+      "titulo": "El test de los 30 segundos",
+      "texto": "Antes de publicar cualquier tarea, pruébala tú mismo en ChatGPT o Claude con un prompt sencillo. Si en 30 segundos obtienes una respuesta que parecería aceptable → rediseña la tarea. Si la respuesta es genérica, incompleta o incorrecta sin el contexto del estudiante → la tarea tiene valor."
+    },
+    "checklist": [
+      "¿Requiere contexto local, personal o clínico que la IA no tiene?",
+      "¿Obliga al estudiante a tomar una posición y defenderla con su propio razonamiento?",
+      "¿Está planteada por fases o etapas que hacen visible el proceso de pensamiento?",
+      "¿Tiene una audiencia o restricción específica que no se puede resolver genéricamente?",
+      "¿Conecta con experiencia vivida o datos reales que el estudiante debe aportar?",
+      "¿La evaluación incluye el proceso (borradores, decisiones, reflexión) además del producto final?"
+    ],
+    "nota_checklist": "Comprueba que la tarea cumple al menos 3 de estos 6 criterios antes de proponerla.",
+    "estrategias": [
+      {
+        "num": 1,
+        "titulo": "Escenario basado en contexto local o real",
+        "descripcion": "La IA no conoce tu municipio, tu empresa ni tu entorno. Anclar la tarea en un contexto concreto obliga al estudiante a aportar datos que el modelo no tiene.",
+        "ejemplo_disciplina": "Ingeniería agrícola",
+        "ejemplo": "Diseña un sistema de riego sostenible para una explotación semiárida concreta, considerando los cultivos disponibles, las condiciones climáticas locales y el presupuesto del agricultor."
+      },
+      {
+        "num": 2,
+        "titulo": "Resolución de problemas con restricciones reales",
+        "descripcion": "Añadir restricciones concretas —presupuesto, normativa local, recursos disponibles, plazos— hace la tarea irreducible a un solo prompt genérico.",
+        "ejemplo_disciplina": "Arquitectura",
+        "ejemplo": "Diseña la reforma de accesibilidad de un edificio público de tu ciudad con un presupuesto máximo de 40.000 €, respetando la normativa municipal vigente y sin alterar la fachada protegida."
+      },
+      {
+        "num": 3,
+        "titulo": "Tarea que requiere demostrar un hecho con datos propios",
+        "descripcion": "Solicitar que el estudiante construya un argumento basado en datos que él mismo ha buscado, verificado y seleccionado — no que la IA le proporcione.",
+        "ejemplo_disciplina": "Medicina / Enfermería",
+        "ejemplo": "Demuestra cómo las generaciones más jóvenes son más reticentes a donar sangre. Analiza el impacto en los bancos de sangre de tu comunidad y propón un plan concreto para revertir esta tendencia."
+      },
+      {
+        "num": 4,
+        "titulo": "Tarea con audiencia específica",
+        "descripcion": "La IA escribe para audiencias genéricas. Adaptar el tono, el nivel y el contenido a un receptor concreto y conocido exige criterio y decisiones que solo el alumno puede tomar.",
+        "ejemplo_disciplina": "Educación primaria",
+        "ejemplo": "Elabora un cuento interactivo para niños de 7 años que explique por qué es importante el reciclaje y cómo hacerlo en casa y en la escuela. Justifica las decisiones de vocabulario y estructura."
+      },
+      {
+        "num": 5,
+        "titulo": "Reflexión sobre experiencia personal o vivencia",
+        "descripcion": "La IA no puede reflexionar sobre lo que el estudiante ha vivido, visto o sentido. Las tareas que conectan teoría con experiencia propia son esencialmente personales.",
+        "ejemplo_disciplina": "Trabajo social",
+        "ejemplo": "Reflexiona sobre una situación en la que hayas presenciado o vivido una situación de desigualdad o vulnerabilidad. Relaciónala con conceptos teóricos del curso y plantea una intervención posible."
+      },
+      {
+        "num": 6,
+        "titulo": "Preguntas hipotéticas con dilema real y posición razonada",
+        "descripcion": "Los dilemas éticos, sociales o científicos sin respuesta única requieren que el estudiante se posicione, justifique y asuma las consecuencias de su postura.",
+        "ejemplo_disciplina": "Derecho",
+        "ejemplo": "Un paciente psiquiátrico acusado de asesinato quiere declararse culpable, aunque existen pruebas de su inocencia. Como abogado defensor, ¿cómo abordarías el conflicto entre la autonomía del paciente y tu deber ético?"
+      },
+      {
+        "num": 7,
+        "titulo": "Tarea por fases documentadas (proceso visible)",
+        "descripcion": "Solicitar el trabajo en etapas —boceto, borrador, revisión, diálogo con la IA, versión final— hace visible el proceso de pensamiento y dificulta la generación de una única respuesta.",
+        "ejemplo_disciplina": "Cualquier disciplina",
+        "ejemplo": "Presenta una lluvia de ideas inicial (sin IA), un esquema comentado, el desarrollo completo indicando qué partes trabajaste con IA y cuáles modificaste, y una reflexión final sobre tu proceso."
+      },
+      {
+        "num": 8,
+        "titulo": "Tarea en formato distinto al documento escrito",
+        "descripcion": "Solicitar vídeos, audios, posters, mapas mentales u otros formatos obliga al alumno a participar activamente en la creación más allá de solicitar texto a la IA.",
+        "ejemplo_disciplina": "Física / Lengua inglesa",
+        "ejemplo": "Graba un vídeo breve (tipo reel académico) explicando en lenguaje claro cómo funciona un ordenador cuántico, orientado a jóvenes de 18 a 25 años."
+      }
+    ]
+  },
+  "fichas": [
+    {
+      "id": "S1",
+      "titulo": "Escritura iterativa con crítica estructurada",
+      "subtitulo": "La IA da retroalimentación por criterios. El alumno aplica los cambios y justifica cada decisión",
+      "momento": "Trabajo autónomo",
+      "bloom": "Aplicar / Analizar / Evaluar / Crear",
+      "esfuerzo": "30-60 min estudiante · 3 min docente",
+      "friccion": "🔥🔥🔥 Alta",
+      "descripcion": "El alumno entrega un borrador propio a la IA. La IA lo evalúa con una rúbrica (nunca lo reescribe) señalando qué funciona, qué no y qué debería revisarse. El alumno aplica los cambios que considera pertinentes, justifica por qué acepta o rechaza cada sugerencia, y entrega la versión mejorada. El valor pedagógico está en la iteración y la justificación.",
+      "necesitas": [
+        "Un borrador propio (mini-ensayo, informe clínico, caso, introducción de TFG). La IA solo entra cuando ya existe texto del alumno.",
+        "La rúbrica de evaluación de la asignatura (si existe) para introducirla en el prompt."
+      ],
+      "pasos": [
+        "El alumno escribe el borrador 1 SIN usar la IA.",
+        "Pega el borrador en el LLM con el prompt de retroalimentación estructurada.",
+        "Lee el feedback y decide: ¿acepto cada sugerencia? ¿La rechazo? ¿La modifico? Para cada decisión, escribe una justificación de 1-2 frases.",
+        "Escribe el borrador 2 incorporando solo los cambios que ha decidido hacer.",
+        "Opcional: repite el ciclo una vez más (borrador 3).",
+        "Entrega: borrador 1 + borrador 2 + registro de decisiones (qué cambié y por qué, qué rechacé y por qué)."
+      ],
+      "prompt": "Evalúa este borrador con la siguiente rúbrica (puntúa de 0 a 3 cada criterio): 1) Claridad y precisión del lenguaje 2) Solidez del argumento o razonamiento clínico 3) Estructura y coherencia interna 4) Relevancia y uso de evidencia. Para cada criterio: - Puntuación (0-3) con justificación en 1 frase - 1 fragmento concreto del texto que ilustra el punto fuerte - 1 fragmento concreto que debe mejorarse. Al final: 1 pregunta que obligue al alumno a repensar una parte del texto. REGLA ABSOLUTA: NO reescribas ningún fragmento del texto. Solo critica y pregunta. [PEGA AQUÍ EL BORRADOR]",
+      "evidencia": "Borrador 1 + Borrador 2 + Registro de decisiones (mínimo 4 entradas: qué cambié / qué rechacé + justificación de cada uno).",
+      "riesgo_fastai": "El alumno le pide directamente a la IA que reescriba el texto o que 'mejore el borrador'. El resultado es texto del modelo, no del alumno.",
+      "mitigacion_slowai": "El prompt incluye la regla 'NO reescribas'. El docente compara borrador 1 y 2: si son demasiado distintos en estilo y corrección sin justificación, es señal de alerta."
+    },
+    {
+      "id": "S2",
+      "titulo": "Caso escalonado (ABP autónomo)",
+      "subtitulo": "Resolver un caso en rondas progresivas: cada ronda añade datos que obligan a reajustar",
+      "momento": "Trabajo autónomo",
+      "bloom": "Aplicar / Analizar / Evaluar",
+      "esfuerzo": "30-45 min estudiante · 5 min docente",
+      "friccion": "🔥🔥🔥 Alta",
+      "descripcion": "El docente define un caso inicial con datos básicos. El alumno trabaja con la IA para desarrollarlo en 3 rondas: en cada ronda llegan nuevos datos clínicos que pueden confirmar o contradecir la hipótesis anterior. El foco no está en llegar a la respuesta correcta, sino en documentar cómo evoluciona el razonamiento y qué información fue decisiva en cada momento.",
+      "necesitas": [
+        "El caso inicial proporcionado por el docente (o el alumno puede generarlo con el prompt a partir de un tema).",
+        "Acceso a un LLM.",
+        "Papel o documento para registrar las hipótesis por rondas."
+      ],
+      "pasos": [
+        "El docente proporciona el caso inicial (o el alumno usa el prompt para generarlo a partir de un tema).",
+        "Ronda 1: el alumno escribe su hipótesis inicial y la lista de pruebas que pediría. Luego pide a la IA los datos de la Ronda 2.",
+        "Ronda 2: recibe nuevos datos. ¿Mantiene la hipótesis? ¿La cambia? Justifica por escrito antes de avanzar.",
+        "Ronda 3: datos definitivos y decisión final con plan de acción justificado.",
+        "Reflexión final: ¿qué dato fue el más decisivo? ¿Qué error de razonamiento cometí en la Ronda 1? ¿Qué pregunta no hice que habría ayudado?"
+      ],
+      "prompt": "Voy a resolver un caso clínico en 3 rondas. CASO INICIAL: [DESCRIPCION BASICA: edad, sexo, motivo de consulta, 2-3 datos del contexto]. Mi hipótesis en la Ronda 1 es: [HIPOTESIS]. Las pruebas que solicitaría son: [LISTA]. Dame los datos de la RONDA 2: resultados de exploración física y pruebas iniciales. Incluye al menos 1 dato que pueda cuestionar mi hipótesis. No resuelvas el caso. No me des el diagnóstico. --- [Una vez escrita la hipótesis de Ronda 2, pedir Ronda 3:] Dame los datos de la RONDA 3: resultados de pruebas complementarias definitivas. Ahora puedo tomar la decisión final. Al terminar las 3 rondas: Dame retroalimentación sobre mi razonamiento: ¿qué hice bien?, ¿qué error típico cometí?, ¿qué pregunta no hice y habría cambiado el caso?",
+      "evidencia": "Registro de las 3 hipótesis + justificación de cada cambio + reflexión final: 1 error de razonamiento + 1 pregunta que no hice.",
+      "riesgo_fastai": "El alumno pide el diagnóstico directamente en la primera interacción o salta las rondas.",
+      "mitigacion_slowai": "El prompt prohíbe explícitamente revelar el diagnóstico. El docente exige el registro de las 3 hipótesis como entregable: sin él no hay evidencia del proceso."
+    },
+    {
+      "id": "S3",
+      "titulo": "Creación de preguntas de examen con análisis de distractores",
+      "subtitulo": "El alumno genera preguntas tipo test de calidad, invirtiendo el rol evaluador",
+      "momento": "Trabajo autónomo",
+      "bloom": "Analizar / Evaluar / Crear",
+      "esfuerzo": "30-45 min estudiante · 3 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "Crear una buena pregunta tipo test requiere comprender el tema en profundidad: hay que identificar el concepto clave, elegir los distractores más plausibles y razonar por qué cada opción incorrecta es incorrecta. La IA ayuda al alumno a evaluar la calidad de las preguntas que él ha creado — no a crearlas. El alumno diseña; la IA critica.",
+      "necesitas": [
+        "Conocimiento del tema (sin IA en la fase de creación inicial).",
+        "Acceso a un LLM para la fase de evaluación y mejora."
+      ],
+      "pasos": [
+        "El alumno estudia el tema y, sin ayuda de la IA, escribe 5 preguntas tipo test con 4 opciones cada una.",
+        "Para cada pregunta, escribe el racional: por qué la opción correcta es correcta y por qué cada distractor es incorrecto.",
+        "Pega las preguntas en el LLM con el prompt de evaluación de calidad.",
+        "La IA evalúa cada pregunta: ¿es ambigua? ¿Hay dos respuestas correctas? ¿El distractor más plausible es realmente incorrecto?",
+        "El alumno revisa y mejora las preguntas problemáticas. Entrega la versión mejorada con el racional actualizado."
+      ],
+      "prompt": "Voy a entregarte 5 preguntas tipo test que he creado sobre [TEMA]. Para cada pregunta evalúa: 1) ¿Es la respuesta correcta inequívocamente correcta? (sí/no + razón) 2) ¿Son los distractores plausibles pero claramente incorrectos? (sí/no + razón) 3) ¿Hay ambigüedad en el enunciado? (sí/no + qué frase es ambigua) 4) Nivel de dificultad estimado (fácil / medio / difícil) y por qué 5) 1 sugerencia de mejora concreta (si procede). No me generes preguntas nuevas. Solo evalúa las que te entrego. [PEGA AQUÍ TUS 5 PREGUNTAS CON SUS OPCIONES Y EL RACIONAL DE CADA UNA]",
+      "evidencia": "5 preguntas + racional completo (por qué correcta + por qué cada distractor es incorrecto) + versión mejorada tras la evaluación de la IA.",
+      "riesgo_fastai": "El alumno pide a la IA que genere las preguntas directamente. El racional queda vacío o copiado.",
+      "mitigacion_slowai": "El orden importa: el prompt pide EVALUAR preguntas existentes, no generarlas. El docente puede comprobar que las preguntas tienen el estilo del alumno (vocabulario, nivel, errores típicos)."
+    },
+    {
+      "id": "S4",
+      "titulo": "Debate con la IA como oponente informado",
+      "subtitulo": "La IA adopta una postura crítica sólida y obliga al alumno a refinar su argumento en rondas",
+      "momento": "Trabajo autónomo",
+      "bloom": "Analizar / Evaluar",
+      "esfuerzo": "20-30 min estudiante · 3 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "El alumno expone su postura sobre un tema controvertido o con evidencia contradictoria. La IA asume el rol de oponente informado y formula objeciones específicas, pide evidencia y señala supuestos. El alumno debe responder a cada objeción con argumentos sólidos. Después de 3 rondas, redacta una síntesis: qué mantiene de su postura inicial y qué ha matizado.",
+      "necesitas": [
+        "Un tema con dos posturas legítimas o con evidencia contradictoria.",
+        "La postura inicial del alumno escrita en 5-10 frases.",
+        "Acceso a un LLM."
+      ],
+      "pasos": [
+        "El alumno escribe su postura inicial (5-10 frases) sobre el tema asignado.",
+        "Pega la postura con el prompt. La IA responde con 3 objeciones específicas y pide evidencia.",
+        "El alumno responde a cada objeción por escrito. No puede limitarse a 'estoy de acuerdo': debe argumentar.",
+        "Rondas 2 y 3: la IA profundiza en los puntos más débiles del argumento.",
+        "Síntesis final: el alumno escribe qué mantiene, qué ha matizado y cuál es el argumento contrario que más le ha costado rebatir."
+      ],
+      "prompt": "Voy a presentarte mi postura sobre [TEMA]. Tu rol es el de oponente informado y riguroso. Reglas: - Formula 3 objeciones específicas y fundamentadas a mi argumento. - Pide evidencia concreta cuando haga afirmaciones generales. - Señala los supuestos implícitos que no he justificado. - NO te pongas de mi lado ni valides mi postura sin argumentos. - Mantén el rol de oponente durante las 3 rondas. Al final de las 3 rondas, pídeme una síntesis: qué mantengo, qué he matizado y qué objeción me ha resultado más difícil de responder. Mi postura: [TEXTO DEL ALUMNO]",
+      "evidencia": "Postura inicial + respuestas a las 3 rondas de objeciones + síntesis final (qué mantengo / qué maticé / objeción más difícil).",
+      "riesgo_fastai": "La IA abandona el rol de oponente y empieza a validar al alumno o a estar de acuerdo con todo.",
+      "mitigacion_slowai": "El prompt incluye la instrucción explícita de mantener el rol. Si la IA cede, el alumno puede recordárselo: 'Sigue siendo el oponente riguroso, no estés de acuerdo sin argumentos sólidos.'"
+    },
+    {
+      "id": "S5",
+      "titulo": "Simulación evaluable: la IA como paciente con rúbrica",
+      "subtitulo": "Hay entregable, rúbrica y retroalimentación estructurada sobre el desempeño",
+      "momento": "Trabajo autónomo",
+      "bloom": "Aplicar / Analizar",
+      "esfuerzo": "20-40 min estudiante · 5 min docente",
+      "friccion": "🔥🔥 Media",
+      "descripcion": "A diferencia del simulador pre-clase (E6), aquí la simulación ES la tarea evaluable. La IA actúa como paciente, familiar o interlocutor profesional con un perfil definido por el docente. El alumno practica la entrevista, la comunicación de malas noticias o la toma de decisiones, y al finalizar la IA sale del rol y emite retroalimentación estructurada con rúbrica. El entregable incluye la transcripción completa, la autoevaluación razonada y una propuesta de mejora para una segunda simulación. Permite repetir el escenario cuantas veces sea necesario, con variantes de dificultad creciente, antes de enfrentarse a pacientes reales.",
+      "variantes": [
+        "Paciente con baja adherencia al tratamiento: el alumno practica la entrevista motivacional.",
+        "Familiar agresivo en urgencias: el alumno practica la gestión emocional y la comunicación de incertidumbre.",
+        "Comunicación de diagnóstico grave: el alumno practica el protocolo de malas noticias.",
+        "Paciente con barrera idiomática o cultural: el alumno adapta su comunicación."
+      ],
+      "pasos": [
+        "El docente (o el alumno) define el perfil del paciente/interlocutor usando el prompt.",
+        "La simulación comienza: el alumno hace preguntas, el 'paciente' responde en rol.",
+        "Cuando el alumno considera que ha terminado la entrevista, escribe: 'Fin de la entrevista. Dame retroalimentación.'",
+        "La IA sale del rol y evalúa: puntos fuertes, aspectos a mejorar, errores de comunicación detectados.",
+        "Opcional: repetir con una variante más difícil (mismo paciente, diferente actitud o nuevo dato que complica el caso)."
+      ],
+      "prompt": "Vas a actuar como paciente en una simulación clínica. Aquí está tu perfil: Nombre: [NOMBRE FICTICIO]. Edad y contexto: [DESCRIPCION]. Motivo de consulta: [MOTIVO]. Actitud: [ej: ansioso y poco comunicativo / colaborador pero con baja comprensión / agresivo]. Información que NO vas a dar espontáneamente: [DATOS CLAVE A EXPLORAR]. Reglas durante la simulación: - Responde solo a lo que te pregunten. No des información extra. - Mantén el perfil emocional descrito durante toda la entrevista. - Si el alumno hace una pregunta cerrada cuando debería haber sido abierta, responde con un monosílabo. Cuando el alumno escriba 'Fin de la entrevista', sal del rol y evalúa: 1) Habilidades de comunicación (apertura, escucha, manejo emocional) 2) Completitud de la anamnesis (qué datos obtuvo, qué se perdió) 3) 2 puntos fuertes y 2 aspectos concretos a mejorar 4) Una pregunta que debería haber hecho y no hizo.",
+      "evidencia": "Transcripción de la simulación + retroalimentación de la IA + reflexión del alumno: qué haría diferente en una segunda entrevista.",
+      "riesgo_fastai": "La simulación es superficial: el 'paciente' colabora demasiado y no pone a prueba al alumno. El ejercicio no genera aprendizaje real.",
+      "mitigacion_slowai": "Definir explícitamente en el prompt la actitud difícil del paciente y los datos que NO dará espontáneamente. La dificultad es pedagógicamente necesaria."
+    }
+  ],
+  "defender_trabajos": {
+    "titulo": "¿Cómo defender los trabajos en la era de la IA?",
+    "intro": "Si un estudiante puede generar el producto final de una tarea con un prompt, el producto final ha dejado de ser evidencia de aprendizaje. La respuesta no es prohibir la IA. Es diseñar la evaluación de forma que la IA sea un colaborador visible, y que el estudiante tenga que demostrar que él ha sido el autor intelectual del proceso.",
+    "principio": "No evaluamos el producto. Evaluamos la capacidad del estudiante de dar cuenta de él. Un trabajo excelente que el alumno no puede explicar, no puede defender ni contextualizar, no evidencia aprendizaje.",
+    "evidencias_proceso": [
+      {
+        "tipo": "Borradores con anotaciones",
+        "descripcion": "El alumno entrega borrador 1 y borrador final con comentarios que explican cada cambio significativo.",
+        "como_pedirlo": "Entrega en 2 versiones + log de cambios (mínimo 5 entradas: qué cambié, por qué)."
+      },
+      {
+        "tipo": "Registro de interacciones con la IA",
+        "descripcion": "El alumno guarda y entrega los prompts clave y las respuestas más relevantes de sus conversaciones con la IA.",
+        "como_pedirlo": "Exportar la conversación completa de ChatGPT o Claude e incluirla como anexo."
+      },
+      {
+        "tipo": "Declaración de uso de IA",
+        "descripcion": "El alumno describe explícitamente para qué usó la IA, qué le aportó y qué limitaciones encontró.",
+        "como_pedirlo": "Sección obligatoria al final del trabajo: 'Uso de inteligencia artificial: herramienta, propósito, aportación y limitaciones'."
+      },
+      {
+        "tipo": "Bocetos o ideas previas",
+        "descripcion": "Captura del pensamiento antes de la IA: lluvia de ideas a mano, esquema inicial, mapa conceptual propio.",
+        "como_pedirlo": "Foto del boceto en papel o esquema en texto plano entregado ANTES de que el alumno use cualquier herramienta de IA."
+      },
+      {
+        "tipo": "Reflexión metacognitiva",
+        "descripcion": "El alumno reflexiona sobre su propio proceso de aprendizaje: qué fue difícil, qué cambió en su comprensión, qué haría diferente.",
+        "como_pedirlo": "Párrafo final de 200-300 palabras: 'Qué aprendí haciendo este trabajo que no sabía al empezarlo'."
+      }
+    ],
+    "modalidades_defensa": [
+      {
+        "modalidad": "Defensa oral clásica (5-10 min)",
+        "descripcion": "El alumno explica su trabajo de viva voz y responde preguntas del docente. Las preguntas pueden no estar en el trabajo — obligan a aplicar el conocimiento, no a recitarlo."
+      },
+      {
+        "modalidad": "Preguntas sobre el proceso",
+        "descripcion": "El docente pregunta directamente sobre las decisiones tomadas durante el trabajo: '¿Por qué elegiste este enfoque y no el otro?', '¿Qué descartaste?', '¿Qué cambiarías ahora?'."
+      },
+      {
+        "modalidad": "Explicación con mapa mental",
+        "descripcion": "El alumno elabora un mapa mental del trabajo (a mano o digital) y lo explica en la defensa. El mapa exige que el alumno haya estructurado el conocimiento, no solo que lo haya producido."
+      },
+      {
+        "modalidad": "Preguntas 'a partir del trabajo'",
+        "descripcion": "El docente usa el trabajo como punto de partida para ir más allá: '¿Cómo cambiaría tu conclusión si el paciente fuera diabético?', '¿Qué dice la guía de 2024 sobre esto?'."
+      },
+      {
+        "modalidad": "Defensa por vídeo breve (2-3 min)",
+        "descripcion": "El alumno graba un vídeo explicando el trabajo con sus palabras, sin leer. La grabación es evidencia de que hay una mente detrás del texto."
+      },
+      {
+        "modalidad": "Revisión por pares con preguntas cruzadas",
+        "descripcion": "Los alumnos leen el trabajo de un compañero y deben hacerle 3 preguntas en clase. Obliga a leer con atención y a que el autor defienda su trabajo ante sus iguales."
+      }
+    ],
+    "combinaciones_recomendadas": [
+      {
+        "tipo_trabajo": "Un ensayo o informe (2-5 págs.)",
+        "minimo": "Borrador 1 + log de cambios + declaración de uso de IA",
+        "opcional": "Defensa oral de 5 min con 2 preguntas sobre el proceso"
+      },
+      {
+        "tipo_trabajo": "Un caso clínico resuelto",
+        "minimo": "Registro de las hipótesis por rondas + reflexión final",
+        "opcional": "Mapa mental del razonamiento + pregunta '¿y si el paciente fuera...?'"
+      },
+      {
+        "tipo_trabajo": "Un TFG o trabajo extenso",
+        "minimo": "Borradores progresivos + registro de interacciones con IA + reflexión metacognitiva",
+        "opcional": "Defensa oral con preguntas sobre decisiones metodológicas + mapa mental"
+      },
+      {
+        "tipo_trabajo": "Una presentación oral",
+        "minimo": "Vídeo de 2 min explicando el trabajo con sus palabras (sin leer)",
+        "opcional": "Preguntas cruzadas de compañeros en clase"
+      },
+      {
+        "tipo_trabajo": "Preguntas tipo test creadas por el alumno",
+        "minimo": "Racional completo de cada opción + versión mejorada tras evaluación de la IA",
+        "opcional": "Defensa oral: explica oralmente por qué cada distractor es incorrecto"
+      }
+    ],
+    "prompt_verificacion": "Quiero que me ayudes a verificar si comprendo bien mi propio trabajo. He escrito un trabajo sobre [TEMA]. Aquí está el resumen o las ideas principales: [TEXTO O ESQUEMA DEL ALUMNO]. Hazme 5 preguntas sobre mi propio trabajo que: 1) No se respondan leyendo literalmente el texto (requieran razonamiento) 2) Exploren las relaciones entre los conceptos que he desarrollado 3) Me pidan aplicar las conclusiones a un caso o situación nueva. Después de que yo responda, dime qué respuestas muestran comprensión profunda y cuáles parecen superficiales o memorísticas."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "sobremesa",
+  "emoji": "☕",
+  "titulo": "Sobremesa",
+  "subtitulo": "El banquete no termina aquí: apenas comienza",
+  "descripcion": "Cuando termina una comida importante, la conversación no para. Todo lo contrario: a veces lo más valioso ocurre después, cuando los platos ya están retirados y nadie tiene prisa. Se digiere lo comido, se conecta con lo vivido, se habla de lo que viene. La Sobremesa es el momento en que el docente y el estudiante se preguntan juntos: ¿qué queda de todo esto? ¿Dónde vive lo que aprendí? ¿Cuándo lo voy a necesitar de verdad.",
+  "momento": "Transferencia",
+  "bloom": "Transferencia / Aplicación profesional",
+  "proposito": "Conectar lo aprendido con la práctica profesional, los retos vitales y el aprendizaje continuo.",
+  "cita_central": "El aprendizaje que no se transfiere no es aprendizaje: es memoria temporal.",
+  "cita_ia": "La IA puede ayudarte a prepararte para el mundo real. Pero el mundo real tendrás que vivirlo tú.",
+  "el_problema": {
+    "titulo": "El problema que nadie resuelve en el aula",
+    "texto": "La mayoría de los programas formativos funcionan bien dentro de sus propios límites: los alumnos aprenden lo que se les enseña, superan las evaluaciones y obtienen sus créditos. Pero hay una brecha persistente entre lo que ocurre en el aula y lo que ocurre fuera de ella. Un estudiante de medicina puede resolver brillantemente un caso clínico en papel y bloquearse ante un paciente real. Un alumno de dirección de empresas puede dominar los modelos de gestión y no saber cómo actuar en una reunión conflictiva.",
+    "causa": "La transferencia falla cuando el aprendizaje se queda en la forma abstracta en que fue enseñado. Cuando no hay oportunidad de practicarlo en contextos parecidos a los reales. Cuando nadie pregunta al estudiante: ¿dónde usarías esto? ¿Qué cambiaría si el contexto fuera diferente? ¿Qué parte de lo aprendido sobrevive al cambio de escenario?"
+  },
+  "que_cambia_con_ia": "La inteligencia artificial no resuelve el problema de la transferencia, pero sí abre posibilidades nuevas para trabajarla. Permite simular contextos reales antes de llegar a ellos. Permite explorar variantes de un mismo problema. Permite al estudiante preguntarse 'y si las condiciones fueran otras' con un interlocutor disponible en cualquier momento. Pero hay algo que la IA no puede sustituir: la decisión personal de seguir aprendiendo después de que el curso haya terminado.",
+  "tres_ideas": [
+    {
+      "numero": 1,
+      "titulo": "Pregunta siempre por el destino",
+      "texto": "Antes de diseñar cualquier actividad o tarea, vale la pena hacerse una pregunta sencilla: ¿dónde va a necesitar este conocimiento el estudiante fuera del aula? No como ejercicio retórico, sino como criterio de diseño real. Una tarea que conecta con un destino concreto — un paciente, un cliente, un aula, una comunidad — tiene más probabilidades de transferirse que una tarea que existe solo para ser evaluada. La IA puede ayudar a construir esos contextos de destino, pero la pregunta tiene que hacerla el docente."
+    },
+    {
+      "numero": 2,
+      "titulo": "Las comunidades de práctica hacen lo que el aula no puede",
+      "texto": "El aula es un entorno protegido. Tiene sus virtudes — la seguridad para equivocarse, el tiempo para reflexionar, la guía del docente — pero también sus límites. Fuera del aula está donde los conocimientos se ponen a prueba, se ajustan y se vuelven propios de verdad. Las comunidades de práctica — grupos de profesionales que comparten retos, que aprenden juntos resolviendo problemas reales — son el espacio donde ocurre la transferencia más duradera. Una de las cosas más útiles que puede hacer un docente es ayudar a sus estudiantes a encontrar esas comunidades y a participar en ellas desde antes de terminar la formación."
+    },
+    {
+      "numero": 3,
+      "titulo": "Aprender a aprender es la competencia más duradera",
+      "texto": "Los conocimientos concretos tienen fecha de caducidad. Los modelos de lenguaje ya saben más hechos que cualquier persona y lo que saben hoy se quedará obsoleto mañana. En este contexto, la competencia más valiosa que puede desarrollar un estudiante no es saber mucho: es saber qué hacer cuando no sabe. Eso incluye saber buscar, contrastar y verificar. Saber reconocer las propias lagunas. Saber pedir ayuda — a personas, a herramientas, a comunidades — sin perder el criterio propio. Y saber, sobre todo, que el aprendizaje no termina con el curso: apenas empieza."
+    }
+  ],
+  "pregunta_docente": "¿Cuál de los conocimientos o habilidades que trabajas en tu asignatura tiene más probabilidades de seguir siendo útil dentro de diez años? ¿Estás dedicando tiempo suficiente a ese núcleo, o lo estás diluyendo entre contenidos que un modelo de IA ya puede gestionar mejor que cualquier estudiante?",
+  "menu_completo": [
+    {
+      "emoji": "🥗",
+      "tiempo": "Entrantes",
+      "momento": "Pre-clase",
+      "proposito": "Activar el conocimiento previo y construir base común antes de llegar al aula."
+    },
+    {
+      "emoji": "🍲",
+      "tiempo": "Primer Plato",
+      "momento": "En clase",
+      "proposito": "Experiencia compartida: debate, co-construcción y participación activa con el grupo."
+    },
+    {
+      "emoji": "🥘",
+      "tiempo": "Segundo Plato",
+      "momento": "Trabajo del alumno",
+      "proposito": "El estudiante crea, analiza y evalúa con andamiaje de la IA — siendo siempre el autor."
+    },
+    {
+      "emoji": "🍰",
+      "tiempo": "Postres",
+      "momento": "Post-clase",
+      "proposito": "Retroalimentación formativa, metacognición y consolidación de lo aprendido."
+    },
+    {
+      "emoji": "☕",
+      "tiempo": "Sobremesa",
+      "momento": "Transferencia",
+      "proposito": "Conectar lo aprendido con la práctica profesional, los retos vitales y el aprendizaje continuo."
+    }
+  ]
+}
