@@ -95,10 +95,24 @@
     .est-tit { font-weight: 600; font-size: 14px; color: var(--blue); margin-bottom: 6px; }
     .est-desc { font-size: 12px; color: var(--gray-mid); line-height: 1.6; }
     /* Defender trabajos */
+    .principio-box { background: var(--blue); color: var(--gold); border-radius: 10px; padding: 16px 20px; font-style: italic; line-height: 1.7; margin-bottom: 24px; font-size: 14px; }
+    .section-h2 { font-family: 'Roboto Slab', serif; font-weight: 400; font-size: 18px; color: var(--blue); margin: 28px 0 6px; }
+    .section-intro { font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 16px; }
+    .tabla-evidencias { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .87em; }
+    .tabla-evidencias th { background: var(--blue); color: var(--gold); padding: 9px 12px; text-align: left; font-weight: 600; }
+    .tabla-evidencias td { padding: 10px 12px; border-bottom: 1px solid #f0ece0; color: #444; vertical-align: top; line-height: 1.6; }
+    .tabla-evidencias tr:nth-child(even) td { background: #faf9f7; }
+    .tabla-evidencias td strong { color: var(--blue); }
+    .tabla-evidencias .como { font-size: .82em; color: #555; }
     .defensa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin: 16px 0; }
     .defensa-card { background: var(--white); border: 1px solid #ece8e0; border-radius: 8px; padding: 14px 16px; border-left: 4px solid #7b1fa2; }
     .def-tit { font-weight: 600; font-size: 13px; color: #7b1fa2; margin-bottom: 6px; }
     .def-desc { font-size: 12px; color: #555; line-height: 1.6; }
+    .combo-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .85em; }
+    .combo-table th { background: #f3e5f5; color: #7b1fa2; padding: 9px 12px; text-align: left; font-weight: 600; }
+    .combo-table td { padding: 9px 12px; border-bottom: 1px solid #f0ece0; color: #444; vertical-align: top; line-height: 1.6; font-size: .85em; }
+    .combo-table tr:nth-child(even) td { background: #fdf9f7; }
+    .combo-table .opcional { color: var(--gray-mid); font-style: italic; }
     .page-nav { max-width: 960px; margin: 0 auto; padding: 24px 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
     .page-nav-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--blue); border: 1px solid var(--divider); border-radius: 3px; padding: 8px 14px; text-decoration: none; transition: all 0.18s; background: var(--white); }
     .page-nav-btn:hover { background: var(--hover-bg); border-color: var(--blue); }
@@ -117,7 +131,7 @@
     .footer-inst strong { font-weight: 600; color: var(--blue); }
     .footer-credit { font-size: 11px; color: var(--gray-mid); font-weight: 300; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } }
+    @media (max-width: 600px) { .rm-grid { grid-template-columns: 1fr; } .hero { padding: 28px 16px 36px; } .panel { padding: 24px 16px 48px; } .tabla-evidencias, .combo-table { font-size: .78em; } }
   </style>
 </head>
 <body>
@@ -214,10 +228,22 @@ function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function showPanel(id,btn){ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('visible')); document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active')); document.getElementById('panel-'+id).classList.add('visible'); btn.classList.add('active'); }
 function friccionClass(f){ if(!f) return 'b-fric-baja'; if(f.includes('Alta')) return 'b-fric-alta'; if(f.includes('Media')) return 'b-fric-media'; return 'b-fric-baja'; }
 function toggleFicha(el){ el.closest('.ficha').classList.toggle('open'); }
-function copyPrompt(btn,text){ navigator.clipboard.writeText(text).then(()=>{ btn.textContent='✓ Prompt copiado'; btn.classList.add('ok'); setTimeout(()=>{btn.textContent='📋 Copiar prompt'; btn.classList.remove('ok');},2000); }); }
+
+const _prompts = {};
+function copyPrompt(id){
+  const txt = _prompts[id]||'';
+  navigator.clipboard.writeText(txt).then(()=>{
+    const btn = document.getElementById('copybtn-'+id);
+    btn.textContent='✓ Prompt copiado'; btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='📋 Copiar prompt'; btn.classList.remove('ok');},2000);
+  });
+}
 
 function renderFichas(fichas){
-  document.getElementById('fichas-container').innerHTML = fichas.map(f=>`
+  document.getElementById('fichas-container').innerHTML = fichas.map(f=>{
+    const pid = 'p-'+f.id;
+    _prompts[pid] = f.prompt||'';
+    return `
     <div class="ficha">
       <div class="ficha-top" onclick="toggleFicha(this)">
         <span class="ficha-id">${esc(f.id)}</span>
@@ -234,9 +260,10 @@ function renderFichas(fichas){
         <p class="fdesc">${esc(f.descripcion||'')}</p>
         ${f.necesitas?`<div class="sec-in"><h3>Qué necesitas</h3><ul class="lista">${f.necesitas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`:''}
         ${f.pasos?`<div class="sec-in"><h3>Pasos</h3><ol class="pasos">${f.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>`:''}
+        ${f.variantes?`<div class="sec-in"><h3>Variantes</h3><ul class="lista">${f.variantes.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>`:''}
         ${f.prompt?`<div class="sec-in"><h3>Prompt listo para usar</h3>
           <div class="prompt-box"><div class="prompt-label">✦ Prompt</div><div class="prompt-txt">${esc(f.prompt)}</div></div>
-          <button class="btn-copy" onclick="copyPrompt(this,'${f.prompt.replace(/'/g,"\\'")}')">📋 Copiar prompt</button>
+          <button class="btn-copy" id="copybtn-${pid}" onclick="copyPrompt('${pid}')">📋 Copiar prompt</button>
         </div>`:''}
         ${f.evidencia?`<div class="sec-in"><h3>Evidencia evaluable</h3><div class="evidencia">📎 ${esc(f.evidencia)}</div></div>`:''}
         ${f.riesgo_fastai||f.mitigacion_slowai?`<div class="sec-in"><h3>FastAI vs SlowAI</h3>
@@ -245,7 +272,8 @@ function renderFichas(fichas){
             <div class="mitig">✅ <strong>Mitigación SlowAI:</strong><br>${esc(f.mitigacion_slowai||'')}</div>
           </div></div>`:''}
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 function renderChecklist(d){
@@ -276,14 +304,70 @@ function renderChecklist(d){
 }
 
 function renderDefensa(d){
-  const src = d&&(d.defender_trabajos||d.defensa_trabajos);
-  if(!src){ document.getElementById('defensa-container').innerHTML='<p style="color:#888;padding:20px">No hay información de defensa de trabajos en el JSON.</p>'; return; }
-  let html = `<h2 style="font-family:'Roboto Slab',serif;font-weight:400;font-size:20px;color:var(--blue);margin-bottom:8px">${esc(src.titulo||'Defender trabajos')}</h2>
-    <p style="font-size:14px;color:#444;line-height:1.75;margin-bottom:20px">${esc(src.intro||src.descripcion||'')}</p>`;
-  if(src.modalidades||src.estrategias){
-    html += `<div class="defensa-grid">${(src.modalidades||src.estrategias||[]).map(m=>`
-      <div class="defensa-card"><div class="def-tit">${esc(m.titulo||m.nombre||'')}</div><div class="def-desc">${esc(m.descripcion||m.texto||'')}</div></div>`).join('')}</div>`;
+  const dt = d && d.defender_trabajos;
+  if(!dt){ document.getElementById('defensa-container').innerHTML='<p style="color:#888;padding:20px">No hay información de defensa de trabajos en el JSON.</p>'; return; }
+
+  // Principio central
+  let html = '';
+  if(dt.principio){
+    html += `<div class="principio-box">💡 ${esc(dt.principio)}</div>`;
   }
+
+  // Intro
+  html += `<h2 class="section-h2">📋 Evidencias de proceso: qué pedir además del resultado</h2>
+    <p class="section-intro">${esc(dt.intro||'')}</p>`;
+
+  // Tabla de evidencias de proceso
+  if(dt.evidencias_proceso && dt.evidencias_proceso.length){
+    html += `<table class="tabla-evidencias">
+      <tr><th>Evidencia</th><th>Cómo pedirlo</th></tr>
+      ${dt.evidencias_proceso.map(e=>`
+      <tr>
+        <td><strong>${esc((e.icono||'')+' '+e.tipo)}</strong><br>
+          <span style="color:#888;font-size:.88em;line-height:1.55;display:block;margin-top:3px">${esc(e.descripcion)}</span></td>
+        <td class="como">${esc(e.como_pedirlo)}</td>
+      </tr>`).join('')}
+    </table>`;
+  }
+
+  // Modalidades de defensa oral
+  if(dt.modalidades_defensa && dt.modalidades_defensa.length){
+    html += `<h2 class="section-h2">🗣️ Modalidades de defensa oral</h2>
+      <p class="section-intro">Formas de verificar que el estudiante es el autor intelectual de su trabajo. Las preguntas de la defensa no tienen que estar en el trabajo: obligan a aplicar el conocimiento, no a recitarlo.</p>
+      <div class="defensa-grid">${dt.modalidades_defensa.map(m=>`
+        <div class="defensa-card">
+          <div class="def-tit">${esc(m.modalidad)}</div>
+          <div class="def-desc">${esc(m.descripcion)}</div>
+        </div>`).join('')}</div>`;
+  }
+
+  // Combinaciones recomendadas
+  if(dt.combinaciones_recomendadas && dt.combinaciones_recomendadas.length){
+    html += `<h2 class="section-h2">⚡ Combinaciones recomendadas por tipo de trabajo</h2>
+      <p class="section-intro">No hace falta pedirlo todo. Con 2 o 3 evidencias bien elegidas la evaluación ya es robusta.</p>
+      <table class="combo-table">
+        <tr><th>Tipo de trabajo</th><th>Pide al menos…</th><th>Opcional (muy recomendable)</th></tr>
+        ${dt.combinaciones_recomendadas.map(c=>`
+        <tr>
+          <td><strong>${esc(c.tipo_trabajo)}</strong></td>
+          <td>${esc(c.minimo)}</td>
+          <td class="opcional">${esc(c.opcional||'')}</td>
+        </tr>`).join('')}
+      </table>`;
+  }
+
+  // Prompt de verificación
+  if(dt.prompt_verificacion){
+    const pid = 'p-verificacion';
+    _prompts[pid] = dt.prompt_verificacion;
+    html += `<h3 style="font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:#888;margin:28px 0 10px">Prompt para verificar que el alumno comprende su propio trabajo</h3>
+      <div class="prompt-box">
+        <div class="prompt-label">✦ Prompt</div>
+        <div class="prompt-txt">${esc(dt.prompt_verificacion)}</div>
+      </div>
+      <button class="btn-copy" id="copybtn-${pid}" onclick="copyPrompt('${pid}')">📋 Copiar prompt</button>`;
+  }
+
   document.getElementById('defensa-container').innerHTML = html;
 }
 
@@ -298,7 +382,7 @@ async function loadData(){
     renderChecklist(d);
     renderDefensa(d);
   } catch(e){
-    document.getElementById('fichas-container').innerHTML='<p style="color:#888;padding:20px;text-align:center">⚠️ No se pudo cargar el JSON.</p>';
+    document.getElementById('fichas-container').innerHTML='<p style="color:#888;padding:20px;text-align:center">⚠️ No se pudo cargar el JSON. Verifica que segundo_plato.json está disponible.</p>';
     console.error(e);
   }
 }
