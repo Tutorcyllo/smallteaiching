@@ -681,6 +681,7 @@
       border-left: 4px solid #F5C518;
       border-radius: 0 4px 4px 0;
       text-decoration: none;
+      cursor: pointer;
       transition: background 0.18s;
     }
     .rule-note-link:hover { background: #FFF3CC; }
@@ -1065,14 +1066,15 @@
               <span class="re-ex">Ej: <em>"¿Cómo mejorarías esta instrucción para que el resultado sea más útil?"</em></span>
             </li>
           </ul></div>
-          <a class="rule-note-link" href="https://github.com/Tutorcyllo/smallteaiching/blob/main/assests/pdfs/ClaudevsChatGPT.pdf" target="_blank">
+          <div class="rule-note-link" role="button" tabindex="0"
+               onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/ClaudevsChatGPT.pdf', 'ClaudevsChatGPT.pdf', this)">
             <span class="rule-note-icon">📄</span>
             <span class="rule-note-text">
               <span class="rule-note-label">Nota experta</span>
               No todos los LLM responden igual a las instrucciones. La comparación de ChatGPT y Claude.
             </span>
-            <span class="rule-note-arrow">→</span>
-          </a>
+            <span class="rule-note-arrow item-arrow">⬇</span>
+          </div>
         </div>
       </details>
 
@@ -1233,6 +1235,39 @@
     img.onload  = () => { img.style.display = 'block'; if (icon) icon.classList.remove('visible'); };
     img.onerror = () => { img.style.display = 'none';  if (icon) icon.classList.add('visible'); };
   });
+
+  // Descarga de PDFs vía fetch+blob — funciona en todos los navegadores
+  // ⚠️ Si el repo fuera privado, alojar los PDFs en GitHub Pages del mismo repo
+  // y usar URLs https://tutorcyllo.github.io/smallteaiching/assests/pdfs/NOMBRE.pdf
+  async function descargarPDF(url, nombre, btn) {
+    const flecha = btn.querySelector('.item-arrow');
+    const textoOriginal = flecha.textContent;
+    flecha.textContent = '…';
+    btn.style.opacity = '0.7';
+    btn.style.pointerEvents = 'none';
+
+    try {
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error('Error al obtener el archivo');
+      const blob = await resp.blob();
+      const urlBlob = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = urlBlob;
+      a.download = nombre;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(urlBlob);
+      flecha.textContent = '✓';
+      setTimeout(() => { flecha.textContent = textoOriginal; }, 2000);
+    } catch (e) {
+      flecha.textContent = '!';
+      setTimeout(() => { flecha.textContent = textoOriginal; }, 2000);
+    } finally {
+      btn.style.opacity = '';
+      btn.style.pointerEvents = '';
+    }
+  }
 </script>
 
 </body>
