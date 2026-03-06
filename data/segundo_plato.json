@@ -302,7 +302,7 @@
     ],
     "prompt_verificacion": "Quiero que me ayudes a verificar si comprendo bien mi propio trabajo. He escrito un trabajo sobre [TEMA]. Aquí está el resumen o las ideas principales: [TEXTO O ESQUEMA DEL ALUMNO]. Hazme 5 preguntas sobre mi propio trabajo que: 1) No se respondan leyendo literalmente el texto (requieran razonamiento) 2) Exploren las relaciones entre los conceptos que he desarrollado 3) Me pidan aplicar las conclusiones a un caso o situación nueva. Después de que yo responda, dime qué respuestas muestran comprensión profunda y cuáles parecen superficiales o memorísticas.",
     "detectores_ia": {
-      "titulo": "¿Qué no funciona: los detectores de IA",
+      "titulo": "¿Qué no funciona? Los detectores de IA",
       "advertencia": "Los detectores automáticos de texto generado por IA (GPTZero, Turnitin AI Detection, etc.) tienen tasas de falsos positivos inaceptables para un uso punitivo. No son una herramienta fiable para abrir expedientes disciplinarios.",
       "por_que_no_funciona": [
         "Pueden señalar como «generado por IA» textos escritos por estudiantes con un estilo claro y bien estructurado.",
