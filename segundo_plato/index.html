@@ -365,6 +365,18 @@ function renderDefensa(d){
       </table>`;
   }
 
+  // Detectores de IA
+  if(dt.detectores_ia){
+    const di = dt.detectores_ia;
+    html += `<div style="background:#fff3e0;border-left:4px solid #ff9800;border-radius:0 8px 8px 0;padding:16px 18px;margin:24px 0;color:#5d4037">
+      <p style="font-weight:600;font-size:14px;margin-bottom:8px">⚠️ ${esc(di.titulo||'')}</p>
+      <p style="font-size:13px;line-height:1.7;margin-bottom:10px">${esc(di.advertencia||'')}</p>
+      ${di.por_que_no_funciona&&di.por_que_no_funciona.length?`<ul style="padding-left:18px;font-size:13px;line-height:1.8;margin-bottom:10px">${di.por_que_no_funciona.map(r=>`<li>${esc(typeof r==='string'?r:r.razon||r.texto||JSON.stringify(r))}</li>`).join('')}</ul>`:''}
+      ${di.uso_legitimo?`<p style="font-size:13px;line-height:1.7;color:#2e7d32;font-style:italic;margin-bottom:8px">✅ ${esc(di.uso_legitimo)}</p>`:''}
+      ${di.conclusion?`<p style="font-size:13px;line-height:1.7;font-weight:600">${esc(di.conclusion)}</p>`:''}
+    </div>`;
+  }
+
   // Prompt de verificación
   if(dt.prompt_verificacion){
     const pid = 'p-verificacion';
