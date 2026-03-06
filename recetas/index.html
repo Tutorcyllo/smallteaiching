@@ -455,6 +455,7 @@
     .menu-item:nth-child(1) { animation-delay: 0.22s; }
     .menu-item:nth-child(2) { animation-delay: 0.30s; }
     .menu-item:nth-child(3) { animation-delay: 0.38s; }
+    .menu-item:nth-child(4) { animation-delay: 0.46s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 500px) {
@@ -502,11 +503,11 @@
     <ul class="menu-list" role="list">
 
       <!-- Receta 1: NotebookLM -->
-      <li class="menu-item">
-        <a class="menu-link"
-           href="https://github.com/Tutorcyllo/smallteaiching/blob/main/assests/pdfs/notebookLM.slowai.pdf"
-           target="_blank" rel="noopener"
-           aria-label="Ver receta: Cómo utilizar NotebookLM">
+      <li class="menu-item" style="display:flex;flex-direction:column;">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/notebookLM.slowai.pdf', 'notebookLM.slowai.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/notebookLM.slowai.pdf', 'notebookLM.slowai.pdf', this)"
+             aria-label="Descargar receta: Cómo utilizar NotebookLM">
           <div class="item-thumb-wrap" aria-hidden="true">
             <img class="item-icon"
                  src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/notebooklm.svg"
@@ -519,16 +520,54 @@
             <p class="item-title">Cómo utilizar NotebookLM</p>
             <p class="item-desc">Organiza tus materiales docentes y crea preguntas, resúmenes y podcasts con IA directamente desde tus propios documentos.</p>
           </div>
-          <span class="item-arrow" aria-hidden="true">›</span>
-        </a>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
+        </div>
+
+        <!-- Acordeón de enlaces NotebookLM -->
+        <div class="item-accordion">
+          <button class="accordion-toggle" aria-expanded="false" onclick="toggleAcc(this)">
+            <span class="accordion-label">Enlaces y recursos para aprender a usar NotebookLM</span>
+            <span class="accordion-chevron">›</span>
+          </button>
+          <div class="accordion-body">
+
+            <div class="acc-group">
+              <p class="acc-group-title">Tutorial y cursos</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://sites.google.com/view/notebook-lm/tutorial" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Web</span>
+                  Tutorial oficial de NotebookLM
+                </a>
+                <a class="acc-link" href="https://aula.sedem.org/courses/uso-de-notebook-lm/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Curso</span>
+                  Curso SEDEM: Uso de NotebookLM
+                </a>
+              </div>
+            </div>
+
+            <div class="acc-group">
+              <p class="acc-group-title">Vídeo</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://www.youtube.com/watch?v=b2fGNHPlUGA&t=30s" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 4 7 4V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  <span class="acc-link-type">Vídeo</span>
+                  NotebookLM en acción
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </li>
 
       <!-- Receta 2: Asistente de IA -->
       <li class="menu-item" style="display:flex;flex-direction:column;">
-        <a class="menu-link"
-           href="https://github.com/Tutorcyllo/smallteaiching/blob/main/assests/pdfs/asistenteIA.slowai.pdf"
-           target="_blank" rel="noopener"
-           aria-label="Ver receta: Cómo crear un asistente de IA">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/asistenteIA.slowai.pdf', 'asistenteIA.slowai.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/asistenteIA.slowai.pdf', 'asistenteIA.slowai.pdf', this)"
+             aria-label="Descargar receta: Cómo crear un asistente de IA">
           <div class="item-thumb-wrap" aria-hidden="true">
             <img class="item-icon"
                  src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/asistenteescritura.svg"
@@ -541,8 +580,8 @@
             <p class="item-title">Cómo crear un asistente de IA</p>
             <p class="item-desc">Diseña tu propio asistente personalizado para tareas docentes: corrección, feedback, generación de casos clínicos y mucho más.</p>
           </div>
-          <span class="item-arrow" aria-hidden="true">›</span>
-        </a>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
+        </div>
 
         <!-- Acordeón de enlaces -->
         <div class="item-accordion">
@@ -604,12 +643,34 @@
         </div>
       </li>
 
-      <!-- Receta 3: Vibe Coding -->
+      <!-- Receta 3: Agente en Copilot para rúbricas -->
       <li class="menu-item">
-        <a class="menu-link"
-           href="https://github.com/Tutorcyllo/smallteaiching/blob/main/assests/pdfs/vibecoding.slowai.pdf"
-           target="_blank" rel="noopener"
-           aria-label="Ver receta: Vibe coding">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/asistenterubricas.pdf', 'asistenterubricas.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/asistenterubricas.pdf', 'asistenterubricas.pdf', this)"
+             aria-label="Descargar receta: Creación de un agente en Copilot">
+          <div class="item-thumb-wrap" aria-hidden="true">
+            <img class="item-icon"
+                 src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/corrector.svg"
+                 alt="Agente Copilot"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span style="display:none;width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--white);font-family:'Roboto Slab',serif;font-size:18px;font-weight:400;align-items:center;justify-content:center;flex-shrink:0;">C</span>
+          </div>
+          <div class="item-body">
+            <span class="item-course">Receta 03 · Herramienta</span>
+            <p class="item-title">Ejemplo de creación de un agente (Copilot)</p>
+            <p class="item-desc">Paso a paso para crear un agente en Microsoft Copilot que te ayude a elaborar, actualizar o adaptar rúbricas de evaluación.</p>
+          </div>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
+        </div>
+      </li>
+
+      <!-- Receta 4: Vibe Coding -->
+      <li class="menu-item" style="display:flex;flex-direction:column;">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/vibecoding.slowai.pdf', 'vibecoding.slowai.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/vibecoding.slowai.pdf', 'vibecoding.slowai.pdf', this)"
+             aria-label="Descargar receta: Vibe coding">
           <div class="item-thumb-wrap" aria-hidden="true">
             <img class="item-icon"
                  src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/generarprompt.svg"
@@ -618,12 +679,37 @@
             <span style="display:none;width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--white);font-family:'Roboto Slab',serif;font-size:18px;font-weight:400;align-items:center;justify-content:center;flex-shrink:0;">V</span>
           </div>
           <div class="item-body">
-            <span class="item-course">Receta 03 · Técnica</span>
+            <span class="item-course">Receta 04 · Técnica</span>
             <p class="item-title">Vibe coding para hablar con tu LLM</p>
             <p class="item-desc">Crea juegos, páginas web o recursos digitales describiéndolos en lenguaje natural, sin necesidad de saber programar. La IA escribe el código; tú defines la intención.</p>
           </div>
-          <span class="item-arrow" aria-hidden="true">›</span>
-        </a>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
+        </div>
+
+        <!-- Acordeón de enlaces Vibe Coding -->
+        <div class="item-accordion">
+          <button class="accordion-toggle" aria-expanded="false" onclick="toggleAcc(this)">
+            <span class="accordion-label">Enlaces para entender y empezar con el vibe coding</span>
+            <span class="accordion-chevron">›</span>
+          </button>
+          <div class="accordion-body">
+            <div class="acc-group">
+              <p class="acc-group-title">Recursos</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://cloud.google.com/discover/what-is-vibe-coding?hl=es-419" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Web</span>
+                  ¿Qué es el vibe coding? · Google Cloud
+                </a>
+                <a class="acc-link" href="https://educacion.bilateria.org/category/vibe-coding" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Blog</span>
+                  Vibe coding en educación · Bilateria
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
 
     </ul>
@@ -647,6 +733,37 @@
   </footer>
 
   <script>
+    async function descargarPDF(url, nombre, btn) {
+      // Feedback visual inmediato
+      const flecha = btn.querySelector('.item-arrow');
+      const textoOriginal = flecha.textContent;
+      flecha.textContent = '…';
+      btn.style.opacity = '0.7';
+      btn.style.pointerEvents = 'none';
+
+      try {
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error('Error al obtener el archivo');
+        const blob = await resp.blob();
+        const urlBlob = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = urlBlob;
+        a.download = nombre;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(urlBlob);
+        flecha.textContent = '✓';
+        setTimeout(() => { flecha.textContent = textoOriginal; }, 2000);
+      } catch (e) {
+        flecha.textContent = '!';
+        setTimeout(() => { flecha.textContent = textoOriginal; }, 2000);
+      } finally {
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
+      }
+    }
+
     function toggleAcc(btn) {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', !expanded);
