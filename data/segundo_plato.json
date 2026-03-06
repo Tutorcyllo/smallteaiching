@@ -218,56 +218,33 @@
   ],
   "defender_trabajos": {
     "titulo": "¿Cómo defender los trabajos en la era de la IA?",
-    "intro": "Si un estudiante puede generar el producto final de una tarea con un prompt, el producto final ha dejado de ser evidencia de aprendizaje. La respuesta no es prohibir la IA. Es diseñar la evaluación de forma que la IA sea un colaborador visible, y que el estudiante tenga que demostrar que él ha sido el autor intelectual del proceso.\n\nA continuación, ocho tipos de evidencia que puedes combinar. No hace falta pedirlas todas: con 2 o 3 bien elegidas es suficiente para que la evaluación sea robusta.",
+    "intro": "Si un estudiante puede generar el producto final de una tarea con un prompt, el producto final ha dejado de ser evidencia de aprendizaje. La respuesta no es prohibir la IA. Es diseñar la evaluación de forma que la IA sea un colaborador visible, y que el estudiante tenga que demostrar que él ha sido el autor intelectual del proceso.",
     "principio": "No evaluamos el producto. Evaluamos la capacidad del estudiante de dar cuenta de él. Un trabajo excelente que el alumno no puede explicar, no puede defender ni contextualizar, no evidencia aprendizaje.",
     "evidencias_proceso": [
       {
-        "tipo": "El propio trabajo",
-        "icono": "📄",
-        "descripcion": "El trabajo en sí es el punto de partida, pero no es suficiente como única evidencia. Un trabajo excelente que el alumno no puede explicar no evidencia aprendizaje.",
-        "como_pedirlo": "Entrega en el campus virtual con fecha y hora registrada. Formato editable (no solo PDF) para poder comparar versiones."
+        "tipo": "Borradores con anotaciones",
+        "descripcion": "El alumno entrega borrador 1 y borrador final con comentarios que explican cada cambio significativo.",
+        "como_pedirlo": "Entrega en 2 versiones + log de cambios (mínimo 5 entradas: qué cambié, por qué)."
       },
       {
-        "tipo": "Documentar el proceso",
-        "icono": "🔄",
-        "descripcion": "El alumno entrega los borradores intermedios y una copia de los mensajes clave intercambiados con el LLM. Hace visible el proceso de pensamiento, no solo el resultado.",
-        "como_pedirlo": "Borrador 1 (antes de usar la IA) + borrador final + exportación de la conversación con ChatGPT o Claude + log de cambios: mínimo 5 entradas con 'qué cambié y por qué'."
+        "tipo": "Registro de interacciones con la IA",
+        "descripcion": "El alumno guarda y entrega los prompts clave y las respuestas más relevantes de sus conversaciones con la IA.",
+        "como_pedirlo": "Exportar la conversación completa de ChatGPT o Claude e incluirla como anexo."
       },
       {
-        "tipo": "Preguntas tipo test con retroalimentación",
-        "icono": "❓",
-        "descripcion": "El alumno crea 5 preguntas tipo test sobre su propio trabajo, con 4 opciones, la respuesta correcta y el racional de por qué cada distractor es incorrecto. Invertir el rol evaluador exige comprensión profunda.",
-        "como_pedirlo": "5 preguntas + 4 opciones cada una + respuesta correcta + justificación de cada distractor. La IA evalúa la calidad de las preguntas (no las genera)."
+        "tipo": "Declaración de uso de IA",
+        "descripcion": "El alumno describe explícitamente para qué usó la IA, qué le aportó y qué limitaciones encontró.",
+        "como_pedirlo": "Sección obligatoria al final del trabajo: 'Uso de inteligencia artificial: herramienta, propósito, aportación y limitaciones'."
       },
       {
-        "tipo": "Mapa mental del trabajo",
-        "icono": "🗺️",
-        "descripcion": "El alumno elabora un mapa mental que refleja la estructura conceptual de su trabajo: ideas principales, relaciones entre conceptos y jerarquía de argumentos. El mapa exige haber procesado el contenido, no solo haberlo producido.",
-        "como_pedirlo": "Mapa en MindMeister, Whimsical o similar (o a mano). El alumno lo explica en la defensa o graba un vídeo de 2 min navegándolo en voz alta."
-      },
-      {
-        "tipo": "Presentación oral",
-        "icono": "🎤",
-        "descripcion": "El alumno explica su trabajo de viva voz. Las preguntas del docente no tienen que estar en el trabajo: obligan a aplicar el conocimiento en lugar de recitarlo. Una presentación oral de 5-10 min es muy difícil de falsificar.",
-        "como_pedirlo": "Presentación de 5-10 min + 2-3 preguntas del docente sobre decisiones tomadas: '¿Por qué este enfoque y no el otro?', '¿Qué descartaste?', '¿Qué cambiarías ahora?'."
-      },
-      {
-        "tipo": "Valoración entre pares",
-        "icono": "🤝",
-        "descripcion": "Los alumnos leen el trabajo de un compañero, lo evalúan con una rúbrica y le formulan 3 preguntas en clase. Quien evalúa aprende tanto como quien es evaluado. Obliga a leer con atención y a que el autor defienda su trabajo ante sus iguales.",
-        "como_pedirlo": "Cada alumno evalúa 1 trabajo asignado aleatoriamente + rúbrica completada + 3 preguntas formuladas por escrito antes de la sesión de pares."
-      },
-      {
-        "tipo": "Vídeo explicativo breve",
-        "icono": "🎬",
-        "descripcion": "El alumno graba un vídeo de 2-3 min explicando su trabajo con sus propias palabras, sin leer. La grabación es evidencia directa de que hay una mente detrás del texto: el lenguaje, las pausas y la forma de explicar son imposibles de delegar.",
-        "como_pedirlo": "Vídeo de 2-3 min grabado con el móvil. Sin guion leído. El alumno debe explicar: qué hizo, por qué lo hizo así, y qué aprendió haciéndolo."
+        "tipo": "Bocetos o ideas previas",
+        "descripcion": "Captura del pensamiento antes de la IA: lluvia de ideas a mano, esquema inicial, mapa conceptual propio.",
+        "como_pedirlo": "Foto del boceto en papel o esquema en texto plano entregado ANTES de que el alumno use cualquier herramienta de IA."
       },
       {
         "tipo": "Reflexión metacognitiva",
-        "icono": "🪞",
-        "descripcion": "El alumno reflexiona sobre su propio proceso: qué fue difícil, qué cambió en su comprensión, qué haría diferente. Una reflexión genuina incluye errores, dudas y cambios de criterio — cosas que la IA no puede inventar de forma creíble.",
-        "como_pedirlo": "Párrafo de 200-300 palabras al final del trabajo: 'Qué aprendí haciendo esto que no sabía al empezarlo, y qué haría de forma diferente si volviera a hacerlo'."
+        "descripcion": "El alumno reflexiona sobre su propio proceso de aprendizaje: qué fue difícil, qué cambió en su comprensión, qué haría diferente.",
+        "como_pedirlo": "Párrafo final de 200-300 palabras: 'Qué aprendí haciendo este trabajo que no sabía al empezarlo'."
       }
     ],
     "modalidades_defensa": [
@@ -298,97 +275,43 @@
     ],
     "combinaciones_recomendadas": [
       {
-        "tipo_trabajo": "Ensayo o informe (2-5 págs.)",
-        "minimo": "Borrador 1 + log de cambios + conversación con IA exportada",
-        "opcional": "Presentación oral de 5 min con 2 preguntas sobre decisiones tomadas"
+        "tipo_trabajo": "Un ensayo o informe (2-5 págs.)",
+        "minimo": "Borrador 1 + log de cambios + declaración de uso de IA",
+        "opcional": "Defensa oral de 5 min con 2 preguntas sobre el proceso"
       },
       {
-        "tipo_trabajo": "Caso clínico resuelto",
-        "minimo": "Registro de hipótesis por rondas + reflexión metacognitiva",
+        "tipo_trabajo": "Un caso clínico resuelto",
+        "minimo": "Registro de las hipótesis por rondas + reflexión final",
         "opcional": "Mapa mental del razonamiento + pregunta '¿y si el paciente fuera...?'"
       },
       {
-        "tipo_trabajo": "TFG o trabajo extenso",
-        "minimo": "Borradores progresivos + conversación con IA exportada + reflexión metacognitiva",
-        "opcional": "Defensa oral con preguntas sobre decisiones metodológicas + valoración entre pares"
+        "tipo_trabajo": "Un TFG o trabajo extenso",
+        "minimo": "Borradores progresivos + registro de interacciones con IA + reflexión metacognitiva",
+        "opcional": "Defensa oral con preguntas sobre decisiones metodológicas + mapa mental"
       },
       {
-        "tipo_trabajo": "Trabajo en grupo",
-        "minimo": "Log de contribuciones individuales + vídeo explicativo de 2 min por miembro",
-        "opcional": "Valoración entre pares + preguntas cruzadas en sesión presencial"
+        "tipo_trabajo": "Una presentación oral",
+        "minimo": "Vídeo de 2 min explicando el trabajo con sus palabras (sin leer)",
+        "opcional": "Preguntas cruzadas de compañeros en clase"
       },
       {
-        "tipo_trabajo": "Trabajo de evaluación continua (corto)",
-        "minimo": "5 preguntas tipo test creadas por el alumno sobre su propio trabajo + racional de distractores",
-        "opcional": "Mapa mental + vídeo de 2 min"
+        "tipo_trabajo": "Preguntas tipo test creadas por el alumno",
+        "minimo": "Racional completo de cada opción + versión mejorada tras evaluación de la IA",
+        "opcional": "Defensa oral: explica oralmente por qué cada distractor es incorrecto"
       }
     ],
     "prompt_verificacion": "Quiero que me ayudes a verificar si comprendo bien mi propio trabajo. He escrito un trabajo sobre [TEMA]. Aquí está el resumen o las ideas principales: [TEXTO O ESQUEMA DEL ALUMNO]. Hazme 5 preguntas sobre mi propio trabajo que: 1) No se respondan leyendo literalmente el texto (requieran razonamiento) 2) Exploren las relaciones entre los conceptos que he desarrollado 3) Me pidan aplicar las conclusiones a un caso o situación nueva. Después de que yo responda, dime qué respuestas muestran comprensión profunda y cuáles parecen superficiales o memorísticas.",
-    "modalidades": [
-      {
-        "titulo": "── Evidencias de proceso ──",
-        "descripcion": "Qué pedir además del trabajo final para que la evaluación sea robusta en la era de la IA."
-      },
-      {
-        "titulo": "📄 El propio trabajo",
-        "descripcion": "El trabajo en sí es el punto de partida, pero no es suficiente como única evidencia. Un trabajo excelente que el alumno no puede explicar no evidencia aprendizaje.\n📌 Cómo pedirlo: Entrega en el campus virtual con fecha y hora registrada. Formato editable (no solo PDF) para poder comparar versiones."
-      },
-      {
-        "titulo": "🔄 Documentar el proceso",
-        "descripcion": "El alumno entrega los borradores intermedios y una copia de los mensajes clave intercambiados con el LLM. Hace visible el proceso de pensamiento, no solo el resultado.\n📌 Cómo pedirlo: Borrador 1 (antes de usar la IA) + borrador final + exportación de la conversación con ChatGPT o Claude + log de cambios: mínimo 5 entradas con 'qué cambié y por qué'."
-      },
-      {
-        "titulo": "❓ Preguntas tipo test con retroalimentación",
-        "descripcion": "El alumno crea 5 preguntas tipo test sobre su propio trabajo, con 4 opciones, la respuesta correcta y el racional de por qué cada distractor es incorrecto. Invertir el rol evaluador exige comprensión profunda.\n📌 Cómo pedirlo: 5 preguntas + 4 opciones cada una + respuesta correcta + justificación de cada distractor. La IA evalúa la calidad de las preguntas (no las genera)."
-      },
-      {
-        "titulo": "🗺️ Mapa mental del trabajo",
-        "descripcion": "El alumno elabora un mapa mental que refleja la estructura conceptual de su trabajo: ideas principales, relaciones entre conceptos y jerarquía de argumentos. El mapa exige haber procesado el contenido, no solo haberlo producido.\n📌 Cómo pedirlo: Mapa en MindMeister, Whimsical o similar (o a mano). El alumno lo explica en la defensa o graba un vídeo de 2 min navegándolo en voz alta."
-      },
-      {
-        "titulo": "🎤 Presentación oral",
-        "descripcion": "El alumno explica su trabajo de viva voz. Las preguntas del docente no tienen que estar en el trabajo: obligan a aplicar el conocimiento en lugar de recitarlo. Una presentación oral de 5-10 min es muy difícil de falsificar.\n📌 Cómo pedirlo: Presentación de 5-10 min + 2-3 preguntas del docente sobre decisiones tomadas: '¿Por qué este enfoque y no el otro?', '¿Qué descartaste?', '¿Qué cambiarías ahora?'."
-      },
-      {
-        "titulo": "🤝 Valoración entre pares",
-        "descripcion": "Los alumnos leen el trabajo de un compañero, lo evalúan con una rúbrica y le formulan 3 preguntas en clase. Quien evalúa aprende tanto como quien es evaluado. Obliga a leer con atención y a que el autor defienda su trabajo ante sus iguales.\n📌 Cómo pedirlo: Cada alumno evalúa 1 trabajo asignado aleatoriamente + rúbrica completada + 3 preguntas formuladas por escrito antes de la sesión de pares."
-      },
-      {
-        "titulo": "🎬 Vídeo explicativo breve",
-        "descripcion": "El alumno graba un vídeo de 2-3 min explicando su trabajo con sus propias palabras, sin leer. La grabación es evidencia directa de que hay una mente detrás del texto: el lenguaje, las pausas y la forma de explicar son imposibles de delegar.\n📌 Cómo pedirlo: Vídeo de 2-3 min grabado con el móvil. Sin guion leído. El alumno debe explicar: qué hizo, por qué lo hizo así, y qué aprendió haciéndolo."
-      },
-      {
-        "titulo": "🪞 Reflexión metacognitiva",
-        "descripcion": "El alumno reflexiona sobre su propio proceso: qué fue difícil, qué cambió en su comprensión, qué haría diferente. Una reflexión genuina incluye errores, dudas y cambios de criterio — cosas que la IA no puede inventar de forma creíble.\n📌 Cómo pedirlo: Párrafo de 200-300 palabras al final del trabajo: 'Qué aprendí haciendo esto que no sabía al empezarlo, y qué haría de forma diferente si volviera a hacerlo'."
-      },
-      {
-        "titulo": "── Modalidades de defensa oral ──",
-        "descripcion": "Formas de verificar que el estudiante es el autor intelectual de su trabajo."
-      },
-      {
-        "titulo": "Defensa oral clásica (5-10 min)",
-        "descripcion": "El alumno explica su trabajo de viva voz y responde preguntas del docente. Las preguntas pueden no estar en el trabajo — obligan a aplicar el conocimiento, no a recitarlo."
-      },
-      {
-        "titulo": "Preguntas sobre el proceso",
-        "descripcion": "El docente pregunta directamente sobre las decisiones tomadas durante el trabajo: '¿Por qué elegiste este enfoque y no el otro?', '¿Qué descartaste?', '¿Qué cambiarías ahora?'."
-      },
-      {
-        "titulo": "Explicación con mapa mental",
-        "descripcion": "El alumno elabora un mapa mental del trabajo (a mano o digital) y lo explica en la defensa. El mapa exige que el alumno haya estructurado el conocimiento, no solo que lo haya producido."
-      },
-      {
-        "titulo": "Preguntas 'a partir del trabajo'",
-        "descripcion": "El docente usa el trabajo como punto de partida para ir más allá: '¿Cómo cambiaría tu conclusión si el paciente fuera diabético?', '¿Qué dice la guía de 2024 sobre esto?'."
-      },
-      {
-        "titulo": "Defensa por vídeo breve (2-3 min)",
-        "descripcion": "El alumno graba un vídeo explicando el trabajo con sus palabras, sin leer. La grabación es evidencia de que hay una mente detrás del texto."
-      },
-      {
-        "titulo": "Revisión por pares con preguntas cruzadas",
-        "descripcion": "Los alumnos leen el trabajo de un compañero y deben hacerle 3 preguntas en clase. Obliga a leer con atención y a que el autor defienda su trabajo ante sus iguales."
-      }
-    ]
+    "detectores_ia": {
+      "titulo": "¿Qué no funciona: los detectores de IA",
+      "advertencia": "Los detectores automáticos de texto generado por IA (GPTZero, Turnitin AI Detection, etc.) tienen tasas de falsos positivos inaceptables para un uso punitivo. No son una herramienta fiable para abrir expedientes disciplinarios.",
+      "por_que_no_funciona": [
+        "Pueden señalar como «generado por IA» textos escritos por estudiantes con un estilo claro y bien estructurado.",
+        "Dejan pasar sin problema textos generados y levemente editados.",
+        "Su precisión varía según el idioma, la disciplina y la longitud del texto.",
+        "No distinguen entre uso fraudulento y uso legítimo con declaración explícita."
+      ],
+      "uso_legitimo": "Pueden usarse como señal de alerta que motiva una conversación con el estudiante, nunca como evidencia concluyente.",
+      "conclusion": "La mejor defensa frente al fraude con IA no es la vigilancia tecnológica: es el diseño de tareas que requieran pensamiento propio, y la evaluación de ese pensamiento en conversación directa con el estudiante."
+    }
   }
 }
