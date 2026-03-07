@@ -456,6 +456,7 @@
     .menu-item:nth-child(2) { animation-delay: 0.30s; }
     .menu-item:nth-child(3) { animation-delay: 0.38s; }
     .menu-item:nth-child(4) { animation-delay: 0.46s; }
+    .menu-item:nth-child(5) { animation-delay: 0.54s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 500px) {
@@ -705,6 +706,53 @@
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                   <span class="acc-link-type">Blog</span>
                   Vibe coding en educación · Bilateria
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Receta 5: Marco de fluidez de la IA -->
+      <li class="menu-item" style="display:flex;flex-direction:column;">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/AIfluency.pdf', 'AIfluency.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/AIfluency.pdf', 'AIfluency.pdf', this)"
+             aria-label="Descargar receta: Marco de fluidez de la IA">
+          <div class="item-thumb-wrap" aria-hidden="true">
+            <img class="item-icon"
+                 src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/claude.svg"
+                 alt="Marco de fluidez IA"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span style="display:none;width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--white);font-family:'Roboto Slab',serif;font-size:18px;font-weight:400;align-items:center;justify-content:center;flex-shrink:0;">F</span>
+          </div>
+          <div class="item-body">
+            <span class="item-course">Receta 05 · Marco</span>
+            <p class="item-title">Marco de fluidez de la IA (3A, 4D)</p>
+            <p class="item-desc">Propuesta de Anthropic para el uso de la IA en la academia: un marco de referencia para educadores y estudiantes.</p>
+          </div>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
+        </div>
+
+        <!-- Acordeón de enlaces Fluidez IA -->
+        <div class="item-accordion">
+          <button class="accordion-toggle" aria-expanded="false" onclick="toggleAcc(this)">
+            <span class="accordion-label">Cursos de Anthropic: fluidez en IA para educadores y estudiantes</span>
+            <span class="accordion-chevron">›</span>
+          </button>
+          <div class="accordion-body">
+            <div class="acc-group">
+              <p class="acc-group-title">Academia de Anthropic</p>
+              <div class="acc-links">
+                <a class="acc-link" href="https://anthropic.skilljar.com/ai-fluency-for-educators" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Curso</span>
+                  Fluidez en IA para educadores
+                </a>
+                <a class="acc-link" href="https://anthropic.skilljar.com/ai-fluency-for-students" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  <span class="acc-link-type">Curso</span>
+                  Fluidez en IA para estudiantes
                 </a>
               </div>
             </div>
