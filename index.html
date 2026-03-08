@@ -721,11 +721,29 @@ footer {
   background: #EEF3FA;
   border-top: 3px solid var(--blue);
   border-bottom: 1px solid #d0daea;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .iagen-section {
   background: #EEF3FA;
   border-top: 3px solid var(--blue);
   border-bottom: 1px solid #d0daea;
+}
+.intro-inner {
+  width: 100%;
+  max-width: 820px;
+  padding: 28px 24px;
+}
+.intro-section .item-course,
+.iagen-section .item-course {
+  color: var(--blue);
+  opacity: 0.6;
+}
+@media (max-width: 600px) {
+  .intro-inner {
+    padding: 20px 16px;
+  }
 }
 
   </style>
@@ -795,6 +813,7 @@ footer {
      ANTES DE EMPEZAR
 ════════════════════════ -->
 <section class="intro-section">
+  <div class="intro-inner">
   <div class="intro-header">
     <div class="rules-header-line"></div>
     <span class="rules-header-label">Filosofía · Fundamentos</span>
@@ -825,6 +844,7 @@ footer {
     </li>
 
   </ul>
+  </div>
 </section>
 
 <div class="section-divider"><hr /></div>
@@ -988,6 +1008,7 @@ footer {
      FUNDAMENTOS EN IAGEN
 ════════════════════════ -->
 <section class="intro-section iagen-section">
+  <div class="intro-inner">
   <div class="intro-header">
     <div class="rules-header-line"></div>
     <span class="rules-header-label">Fundamentos en IAgen</span>
@@ -1046,6 +1067,7 @@ footer {
     </li>
 
   </ul>
+  </div>
 </section>
 
 <div class="section-divider"><hr /></div>
