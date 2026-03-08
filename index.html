@@ -1342,8 +1342,8 @@ footer {
   });
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeTip();
-  }); — funciona en todos los navegadores
+    if (e.key === 'Escape') { /* sin modal activo */ }
+  });
   // ⚠️ Si el repo fuera privado, alojar los PDFs en GitHub Pages del mismo repo
   // y usar URLs https://tutorcyllo.github.io/smallteaiching/assests/pdfs/NOMBRE.pdf
   async function descargarPDF(url, nombre, btn) {
