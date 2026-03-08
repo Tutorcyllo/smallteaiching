@@ -1,0 +1,307 @@
+{
+  "secciones": [
+    {
+      "id": "tecnico",
+      "numero": "01",
+      "titulo": "Conceptos Técnicos de IA",
+      "terminos": [
+        {
+          "id": "inteligencia-artificial",
+          "nombre": "Inteligencia artificial",
+          "nombre_original": "Artificial Intelligence — AI",
+          "definicion": "Disciplina informática que desarrolla sistemas capaces de realizar tareas que normalmente requieren inteligencia humana: comprender lenguaje, reconocer imágenes, tomar decisiones o generar contenido. La IA no \"piensa\" como una persona, sino que identifica patrones estadísticos en grandes cantidades de datos y los aplica para producir resultados útiles.",
+          "lista": []
+        },
+        {
+          "id": "alucinacion",
+          "nombre": "Alucinación",
+          "nombre_original": "Hallucination",
+          "definicion": "Error característico de los modelos de IA que consiste en generar información falsa presentada con total confianza: referencias bibliográficas que no existen, datos inventados, leyes derogadas o hechos incorrectos. Ocurre porque la IA no \"busca\" información, sino que predice el texto más probable. Por eso conviene verificar siempre los datos concretos que produzca, especialmente en contextos clínicos o científicos.",
+          "lista": []
+        },
+        {
+          "id": "ajuste-fino",
+          "nombre": "Ajuste fino",
+          "nombre_original": "Fine-tuning",
+          "definicion": "Entrenamiento adicional realizado después del preentrenamiento, en el que los modelos aprenden a seguir instrucciones, proporcionar respuestas útiles y evitar generar contenido dañino.",
+          "lista": []
+        },
+        {
+          "id": "agente-ia",
+          "nombre": "Agente de IA",
+          "nombre_original": "AI Agent",
+          "definicion": "Sistema de IA configurado para actuar de forma autónoma: planificar pasos, tomar decisiones intermedias y ejecutar tareas complejas con poca supervisión directa. A diferencia de un chatbot que responde preguntas, un agente puede, por ejemplo, buscar información, redactar un documento y enviarlo por correo, todo en secuencia.",
+          "lista": []
+        },
+        {
+          "id": "transformer",
+          "nombre": "Arquitectura Transformer",
+          "nombre_original": "",
+          "definicion": "El diseño de IA revolucionario de 2017 que permite a los LLMs procesar secuencias de texto en paralelo mientras prestan atención a las relaciones entre palabras a lo largo de pasajes extensos.",
+          "lista": []
+        },
+        {
+          "id": "fecha-corte",
+          "nombre": "Fecha de corte del conocimiento",
+          "nombre_original": "Knowledge cutoff date",
+          "definicion": "El momento a partir del cual un modelo de IA no tiene conocimiento integrado del mundo, basado en cuándo fue entrenado.",
+          "lista": []
+        },
+        {
+          "id": "ia-generativa",
+          "nombre": "IA Generativa",
+          "nombre_original": "Generative AI",
+          "definicion": "Tipo de IA capaz de crear contenido nuevo: textos, imágenes, presentaciones, código informático, audio o vídeo. A diferencia de buscadores que recuperan información existente, la IA generativa produce material original combinando patrones aprendidos durante su entrenamiento. Es la tecnología que hay detrás de herramientas como ChatGPT, Claude, Gemini o Copilot.",
+          "lista": []
+        },
+        {
+          "id": "leyes-escala",
+          "nombre": "Leyes de escala",
+          "nombre_original": "Scaling laws",
+          "definicion": "A medida que los modelos de IA han crecido y se han entrenado con más datos y mayor potencia computacional, su rendimiento ha mejorado siguiendo patrones consistentes. Es una observación empírica. Quizás lo más interesante es que pueden surgir capacidades completamente nuevas en ciertos umbrales de escala que no fueron programadas explícitamente.",
+          "lista": []
+        },
+        {
+          "id": "llm",
+          "nombre": "Modelos de lenguaje grandes",
+          "nombre_original": "Large Language Models — LLMs",
+          "definicion": "Sistemas de IA generativa entrenados con grandes cantidades de datos de texto para comprender y generar lenguaje humano.",
+          "lista": []
+        },
+        {
+          "id": "modelo",
+          "nombre": "Modelo de IA",
+          "nombre_original": "Model",
+          "definicion": "El programa de IA resultante del proceso de entrenamiento. Cuando usas ChatGPT, Copilot o Claude, estás interactuando con un modelo concreto. Cada modelo tiene capacidades, limitaciones y una fecha de corte de conocimiento propias. Elegir un modelo u otro puede afectar significativamente a la calidad y el tipo de respuesta que obtienes.",
+          "lista": []
+        },
+        {
+          "id": "modelos-razonamiento",
+          "nombre": "Modelos de razonamiento",
+          "nombre_original": "Reasoning / Thinking models",
+          "definicion": "Tipos de modelos de IA diseñados específicamente para pensar paso a paso en problemas complejos, mostrando capacidades mejoradas para tareas que requieren razonamiento lógico.",
+          "lista": []
+        },
+        {
+          "id": "multimodalidad",
+          "nombre": "Multimodalidad",
+          "nombre_original": "Multimodality",
+          "definicion": "Capacidad de un sistema de IA para procesar y generar diferentes tipos de información al mismo tiempo: texto, imágenes, audio, vídeo o documentos. Un modelo multimodal puede, por ejemplo, analizar una radiografía y explicarla en texto, o escuchar una pregunta oral y responder por escrito.",
+          "lista": []
+        },
+        {
+          "id": "parametros",
+          "nombre": "Parámetros",
+          "nombre_original": "Parameters",
+          "definicion": "Los valores matemáticos dentro de un modelo de IA que determinan cómo procesa la información y relaciona diferentes fragmentos del lenguaje entre sí. Los LLMs modernos contienen miles de millones de parámetros.",
+          "lista": []
+        },
+        {
+          "id": "preentrenamiento",
+          "nombre": "Preentrenamiento",
+          "nombre_original": "Pre-training",
+          "definicion": "La fase de entrenamiento inicial en la que los modelos de IA aprenden patrones a partir de grandes cantidades de datos de texto, desarrollando una comprensión fundamental del lenguaje y el conocimiento.",
+          "lista": []
+        },
+        {
+          "id": "rag",
+          "nombre": "RAG — Generación aumentada por recuperación",
+          "nombre_original": "Retrieval Augmented Generation",
+          "definicion": "Técnica que permite conectar un modelo de IA con documentos o bases de datos externas para que sus respuestas se basen en esa información específica, y no solo en lo que aprendió durante el entrenamiento. Es lo que ocurre cuando subes tus apuntes o un PDF y la IA los utiliza para responder: el modelo \"recupera\" fragmentos relevantes antes de generar la respuesta, lo que reduce errores y alucinaciones.",
+          "lista": []
+        },
+        {
+          "id": "redes-neuronales",
+          "nombre": "Redes neuronales",
+          "nombre_original": "Neural networks",
+          "definicion": "Sistemas informáticos similares, aunque distintos, a los cerebros biológicos. Están compuestos por nodos interconectados organizados en capas que aprenden patrones a partir de datos mediante el entrenamiento.",
+          "lista": []
+        },
+        {
+          "id": "sesgo",
+          "nombre": "Sesgo",
+          "nombre_original": "Bias",
+          "definicion": "Patrones sistemáticos en las respuestas de la IA que favorecen o perjudican a ciertos grupos o perspectivas, habitualmente porque reflejan desequilibrios presentes en los datos de entrenamiento. En medicina, esto puede manifestarse como recomendaciones diagnósticas ajustadas a poblaciones mayoritarias en la literatura científica, o como estereotipos de género en la descripción de síntomas. Es importante reconocerlo y compensarlo con instrucciones explícitas en el prompt.",
+          "lista": []
+        },
+        {
+          "id": "temperatura",
+          "nombre": "Temperatura",
+          "nombre_original": "Temperature",
+          "definicion": "Un ajuste que controla cuán aleatorias son las respuestas de una IA. Una temperatura \"alta\" produce resultados más variados y creativos (como el agua hirviendo que burbujea), mientras que una temperatura \"baja\" produce respuestas más predecibles y enfocadas (como los cristales de hielo).",
+          "lista": []
+        },
+        {
+          "id": "ventana-contexto",
+          "nombre": "Ventana de contexto",
+          "nombre_original": "Context window",
+          "definicion": "La cantidad de información que la IA puede \"leer\" y tener en cuenta en un mismo momento: el historial de la conversación, los documentos que has pegado y tus instrucciones. Funciona como la memoria de trabajo de la IA: todo lo que esté dentro de esa ventana lo puede usar; lo que quede fuera, no. Cada modelo tiene un límite distinto, y cuando se supera, la IA puede \"olvidar\" partes anteriores de la conversación.",
+          "lista": []
+        }
+      ]
+    },
+    {
+      "id": "prompts",
+      "numero": "02",
+      "titulo": "Conceptos de Prompts e Ingeniería de Prompts",
+      "terminos": [
+        {
+          "id": "aprendizaje-ejemplos",
+          "nombre": "Aprendizaje con ejemplos",
+          "nombre_original": "Few-shot learning / n-shot prompting",
+          "definicion": "Técnica que consiste en incluir en el prompt uno o varios ejemplos del resultado que esperas, para que la IA entienda el patrón sin necesidad de explicaciones largas. En lugar de describir qué quieres, se lo muestras. Por ejemplo: si quieres que la IA genere preguntas tipo examen en un estilo concreto, incluye dos o tres preguntas de muestra en tu prompt y pídele que genere más siguiendo ese mismo formato. Cuantos más ejemplos incluyas, más preciso será el resultado.",
+          "lista": []
+        },
+        {
+          "id": "contexto",
+          "nombre": "Contexto",
+          "nombre_original": "Context",
+          "definicion": "La información de fondo que incluyes en tu prompt para que la IA entienda quién eres, a quién va dirigida la respuesta, cuál es la situación y qué sabes ya sobre el tema. Cuanto más contexto relevante proporciones, más útil y ajustada será la respuesta. Ejemplo: no es lo mismo pedir \"explica el infarto de miocardio\" que \"explica el infarto de miocardio para estudiantes de segundo año de Medicina que ya conocen la anatomía cardíaca pero aún no han estudiado farmacología\".",
+          "lista": []
+        },
+        {
+          "id": "pensar-primero",
+          "nombre": "Enfoque pensar-primero",
+          "nombre_original": "Think-first approach",
+          "definicion": "Pedir explícitamente a la IA que trabaje su proceso de razonamiento antes de proporcionar una respuesta final, lo que puede llevar a respuestas más completas y mejor reflexionadas.",
+          "lista": []
+        },
+        {
+          "id": "ingenieria-prompts",
+          "nombre": "Ingeniería de prompts",
+          "nombre_original": "Prompt engineering",
+          "definicion": "El arte de escribir instrucciones eficaces para obtener buenos resultados de un sistema de IA. A pesar del nombre, no requiere conocimientos técnicos: se basa en comunicar con claridad, dar contexto, especificar el formato deseado y ajustar progresivamente. Es más parecido a saber redactar un buen encargo a un colaborador que a programar un ordenador.",
+          "lista": []
+        },
+        {
+          "id": "iteracion",
+          "nombre": "Iteración",
+          "nombre_original": "Iteration",
+          "definicion": "El proceso de ir refinando y mejorando las respuestas de la IA a través de varias rondas de instrucciones, en lugar de esperar el resultado perfecto en el primer intento. La IA recuerda el contexto de la conversación, así que puedes indicarle \"hazlo más breve\", \"añade un ejemplo clínico\" o \"cambia el tono\" sin necesidad de repetir todo el prompt desde cero. La iteración es la habilidad central del trabajo con IA: muy pocas respuestas útiles se obtienen a la primera.",
+          "lista": []
+        },
+        {
+          "id": "prompt",
+          "nombre": "Prompt",
+          "nombre_original": "",
+          "definicion": "La instrucción o mensaje que escribes para comunicarte con un sistema de IA. Puede ser una pregunta, una orden, un texto para transformar o una combinación de todo ello. La calidad del prompt determina en gran medida la calidad de la respuesta: una instrucción vaga produce resultados genéricos, mientras que una instrucción clara, contextualizada y específica produce resultados mucho más útiles. Aprender a escribir buenos prompts es la habilidad práctica más importante para trabajar con IA.",
+          "lista": []
+        },
+        {
+          "id": "prompt-sistema",
+          "nombre": "Prompt de sistema",
+          "nombre_original": "System prompt",
+          "definicion": "Conjunto de instrucciones que se configuran antes del inicio de una conversación para definir el comportamiento general de la IA: su rol, su tono, sus limitaciones o el contexto en el que opera. A diferencia del prompt del usuario (lo que escribes en el chat), el prompt de sistema no es visible en la conversación pero condiciona todas las respuestas. Es la herramienta que usan los docentes cuando crean un asistente o tutor virtual personalizado para sus estudiantes.",
+          "lista": []
+        },
+        {
+          "id": "razonamiento-cadena",
+          "nombre": "Razonamiento en cadena",
+          "nombre_original": "Chain-of-thought prompting",
+          "definicion": "Animar a una IA a resolver un problema paso a paso, descomponiendo las tareas complejas en pasos más pequeños que ayudan a la IA a seguir tu razonamiento y obtener mejores resultados.",
+          "lista": []
+        },
+        {
+          "id": "restricciones-salida",
+          "nombre": "Restricciones de salida",
+          "nombre_original": "Output constraints / output formatting",
+          "definicion": "Especificar claramente en tu prompt el formato, la longitud, la estructura u otras características de la respuesta de la IA para asegurarte de obtener exactamente lo que necesitas.",
+          "lista": []
+        },
+        {
+          "id": "rol-persona",
+          "nombre": "Rol o definición de persona",
+          "nombre_original": "Role / persona definition",
+          "definicion": "Especificar un personaje particular, nivel de experiencia o estilo de comunicación que la IA debe adoptar al responder. Puede ir desde roles generales (\"habla como un experto en diseño UX\") hasta personas específicas (\"explica esto como lo haría Richard Feynman\").",
+          "lista": []
+        }
+      ]
+    },
+    {
+      "id": "marco",
+      "numero": "03",
+      "titulo": "Marco IA Fluency (Fluencia en IA)",
+      "terminos": [
+        {
+          "id": "agencia",
+          "nombre": "Agencia",
+          "nombre_original": "",
+          "definicion": "Cuando los humanos configuran la IA para que trabaje de forma independiente en su nombre, incluyendo la interacción con otros humanos o sistemas de IA. El humano establece los patrones de conocimiento y comportamiento de la IA en lugar de especificar acciones exactas.",
+          "lista": []
+        },
+        {
+          "id": "aumentacion",
+          "nombre": "Aumentación",
+          "nombre_original": "",
+          "definicion": "Cuando humanos e IA colaboran como compañeros de reflexión para completar tareas juntos. Implica un intercambio iterativo en el que ambos contribuyen al resultado.",
+          "lista": []
+        },
+        {
+          "id": "automatizacion",
+          "nombre": "Automatización",
+          "nombre_original": "",
+          "definicion": "Cuando la IA realiza tareas específicas basándose en instrucciones humanas concretas. El humano define qué hay que hacer, y la IA lo ejecuta.",
+          "lista": []
+        },
+        {
+          "id": "delegacion",
+          "nombre": "Delegación",
+          "nombre_original": "",
+          "definicion": "Decidir qué trabajo deben hacer los humanos, qué trabajo debe hacer la IA, y cómo distribuir las tareas entre ambos. Incluye comprender tus objetivos, las capacidades de la IA y tomar decisiones estratégicas sobre la colaboración.",
+          "lista": [
+            { "titulo": "Conciencia del problema", "texto": "Comprender claramente tus objetivos y la naturaleza del trabajo antes de involucrar a la IA." },
+            { "titulo": "Conciencia de la plataforma", "texto": "Entender las capacidades y limitaciones de los diferentes sistemas de IA." },
+            { "titulo": "Delegación de tareas", "texto": "Distribuir el trabajo entre humanos e IA para aprovechar los puntos fuertes de cada uno." }
+          ]
+        },
+        {
+          "id": "descripcion",
+          "nombre": "Descripción",
+          "nombre_original": "",
+          "definicion": "Comunicarse eficazmente con los sistemas de IA. Incluye definir claramente los resultados esperados, guiar los procesos de IA y especificar los comportamientos e interacciones deseadas.",
+          "lista": [
+            { "titulo": "Descripción del producto", "texto": "Definir qué quieres en términos de resultados, formato, audiencia y estilo." },
+            { "titulo": "Descripción del proceso", "texto": "Definir cómo aborda la IA tu solicitud, por ejemplo, proporcionando instrucciones paso a paso." },
+            { "titulo": "Descripción del rendimiento", "texto": "Definir el comportamiento de la IA durante la colaboración, como si debe ser concisa o detallada." }
+          ]
+        },
+        {
+          "id": "diligencia",
+          "nombre": "Diligencia",
+          "nombre_original": "",
+          "definicion": "Usar la IA de forma responsable y ética. Incluye tomar decisiones reflexivas sobre los sistemas e interacciones de IA, mantener la transparencia y asumir la responsabilidad del trabajo asistido por IA.",
+          "lista": [
+            { "titulo": "Diligencia en la creación", "texto": "Ser reflexivo sobre qué sistemas de IA usas y cómo interactúas con ellos." },
+            { "titulo": "Diligencia en la transparencia", "texto": "Ser honesto sobre el papel de la IA en tu trabajo con todos los que necesiten saberlo." },
+            { "titulo": "Diligencia en el despliegue", "texto": "Asumir la responsabilidad de verificar y avalar los resultados que usas o compartes." }
+          ]
+        },
+        {
+          "id": "discernimiento",
+          "nombre": "Discernimiento",
+          "nombre_original": "",
+          "definicion": "Evaluar de forma reflexiva y crítica los resultados, procesos, comportamientos e interacciones de la IA. Incluye valorar la calidad, precisión, adecuación e identificar áreas de mejora.",
+          "lista": [
+            { "titulo": "Discernimiento del producto", "texto": "Evaluar la calidad de lo que produce la IA (precisión, adecuación, coherencia, relevancia)." },
+            { "titulo": "Discernimiento del proceso", "texto": "Evaluar cómo llegó la IA a su resultado, buscando errores lógicos o razonamientos inadecuados." },
+            { "titulo": "Discernimiento del rendimiento", "texto": "Evaluar cómo se comporta la IA durante la interacción, considerando si su estilo de comunicación es efectivo." }
+          ]
+        },
+        {
+          "id": "fluencia",
+          "nombre": "Fluencia en IA",
+          "nombre_original": "AI Fluency",
+          "definicion": "La capacidad de trabajar con sistemas de IA de manera efectiva, eficiente, ética y segura. Incluye habilidades prácticas, conocimiento, comprensión y valores que te ayudan a adaptarte a las tecnologías de IA en evolución.",
+          "lista": []
+        },
+        {
+          "id": "4ds",
+          "nombre": "Las 4D",
+          "nombre_original": "",
+          "definicion": "Las cuatro competencias centrales de la Fluencia en IA: Delegación, Descripción, Discernimiento y Diligencia.",
+          "lista": []
+        }
+      ]
+    }
+  ]
+}
