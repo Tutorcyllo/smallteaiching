@@ -457,6 +457,7 @@
     .menu-item:nth-child(3) { animation-delay: 0.38s; }
     .menu-item:nth-child(4) { animation-delay: 0.46s; }
     .menu-item:nth-child(5) { animation-delay: 0.54s; }
+    .menu-item:nth-child(6) { animation-delay: 0.62s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 500px) {
@@ -757,6 +758,28 @@
               </div>
             </div>
           </div>
+        </div>
+      </li>
+
+      <!-- Receta 6: Taller sobre small teaching -->
+      <li class="menu-item">
+        <div class="menu-link" role="button" tabindex="0"
+             onclick="descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/librillo.pdf', 'librillo.pdf', this)"
+             onkeydown="if(event.key==='Enter'||event.key===' ')descargarPDF('https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/assests/pdfs/librillo.pdf', 'librillo.pdf', this)"
+             aria-label="Descargar receta: Taller sobre small teaching">
+          <div class="item-thumb-wrap" aria-hidden="true">
+            <img class="item-icon"
+                 src="https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/images/librillo.svg"
+                 alt="Taller Small Teaching"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span style="display:none;width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--white);font-family:'Roboto Slab',serif;font-size:18px;font-weight:400;align-items:center;justify-content:center;flex-shrink:0;">T</span>
+          </div>
+          <div class="item-body">
+            <span class="item-course">Receta 06 · Taller</span>
+            <p class="item-title">Taller sobre Small Te<em>AI</em>ching</p>
+            <p class="item-desc">Cuaderno PDF del taller con la propuesta de varios ejercicios para trabajar estrategias de Small Teaching en el aula.</p>
+          </div>
+          <span class="item-arrow" aria-hidden="true">⬇</span>
         </div>
       </li>
 
