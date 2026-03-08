@@ -1,1 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diccionario de IA — small teAIching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:    #FFFFFF;
+      --gray-lt:  #CCCCCC;
+      --gray-mid: #777777;
+      --gray-bg:  #F5F5F5;
+      --red:      #c60046;
+      --blue:     #003973;
+      --divider:  #CCCCCC;
+      --hover-bg: #EEF3FA;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Franklin', sans-serif; background: var(--white); color: var(--blue); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    .top-bar { width: 100%; height: 4px; background: var(--red); }
 
+    /* NAVBAR */
+    .navbar { width: 100%; background: var(--blue); display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; animation: fadeUp 0.5s ease both; }
+    .navbar-inner { width: 100%; max-width: 820px; padding: 14px 24px 12px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+    .nav-faculty { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    .nav-title { font-family: 'Roboto Slab', serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.75); }
+    .nav-title em { font-style: italic; color: var(--white); font-weight: 500; }
+    a.nav-title { text-decoration: none; transition: opacity 0.18s; }
+    a.nav-title:hover { opacity: 0.8; }
+    .uva-pill { background: var(--red); color: var(--white); font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 700; width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* HERO */
+    .hero-wrap { width: 100%; background: var(--blue); display: flex; justify-content: center; padding-bottom: 48px; animation: fadeUp 0.6s 0.07s ease both; }
+    .hero-inner { width: 100%; max-width: 820px; padding: 44px 24px 0; display: flex; flex-direction: column; gap: 16px; }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    h1 { font-family: 'Roboto Slab', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 300; line-height: 1.1; color: var(--white); }
+    h1 em { font-style: italic; font-weight: 500; }
+    .hero-tagline { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 560px; }
+
+    /* FILTER BAR */
+    .filter-wrap { width: 100%; background: var(--gray-bg); border-bottom: 1px solid var(--divider); display: flex; justify-content: center; position: sticky; top: 64px; z-index: 90; }
+    .filter-inner { width: 100%; max-width: 820px; padding: 10px 24px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gray-mid); white-space: nowrap; margin-right: 4px; }
+    .filter-btn { padding: 5px 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-mid); background: transparent; border: 1px solid var(--divider); border-radius: 2px; cursor: pointer; transition: all 0.18s; }
+    .filter-btn:hover { color: var(--white); background: var(--blue); border-color: var(--blue); }
+    .filter-btn.active { color: var(--white); background: var(--red); border-color: var(--red); }
+
+    /* CONTENT */
+    .content-wrap { width: 100%; max-width: 820px; padding: 40px 24px 0; animation: fadeUp 0.6s 0.18s ease both; }
+
+    /* LOADING */
+    .loading { text-align: center; padding: 60px 24px; font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 300; font-style: italic; color: var(--gray-mid); }
+
+    /* SECTION HEADINGS */
+    .section-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; margin-top: 40px; }
+    .section-heading:first-child { margin-top: 0; }
+    .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red); }
+    .section-line { flex: 1; height: 1px; background: var(--divider); }
+    .section-heading h2 { font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 400; color: var(--blue); }
+
+    /* TERM GRID */
+    .term-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 16px; }
+
+    /* TERM BUTTON */
+    .term-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 18px; background: var(--white); border: 1px solid var(--divider); border-radius: 3px; cursor: pointer; text-align: left; transition: all 0.18s; position: relative; }
+    .term-btn:hover { border-color: var(--blue); background: var(--hover-bg); }
+    .term-btn.open { border-color: var(--blue); background: var(--blue); }
+    .term-btn .term-name { font-family: 'Roboto Slab', serif; font-size: 14px; font-weight: 400; color: var(--blue); line-height: 1.25; transition: color 0.18s; }
+    .term-btn .term-name em { font-style: italic; font-size: 12px; font-family: 'Libre Franklin', sans-serif; font-weight: 300; }
+    .term-btn.open .term-name { color: var(--white); }
+    .term-btn .term-arrow { position: absolute; top: 14px; right: 14px; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; transition: transform 0.22s, color 0.18s; color: var(--gray-mid); }
+    .term-btn.open .term-arrow { transform: rotate(180deg); color: rgba(255,255,255,0.6); }
+    .term-btn .term-arrow svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* TERM DEFINITION */
+    .term-def { display: none; grid-column: 1 / -1; background: var(--hover-bg); border: 1px solid var(--blue); border-radius: 3px; padding: 20px 24px; animation: defFadeIn 0.22s ease both; }
+    .term-def.visible { display: block; }
+    .term-def-title { font-family: 'Roboto Slab', serif; font-size: 17px; font-weight: 400; color: var(--blue); margin-bottom: 10px; line-height: 1.2; }
+    .term-def-title em { font-style: italic; font-size: 14px; font-family: 'Libre Franklin', sans-serif; font-weight: 300; color: var(--gray-mid); }
+    .term-def-body { font-size: 14px; font-weight: 300; line-height: 1.85; color: var(--blue); }
+    .term-def-body p { margin-bottom: 0.8em; }
+    .term-def-body p:last-child { margin-bottom: 0; }
+    .term-def-body ul { margin: 0.5em 0 0.8em 1.2em; }
+    .term-def-body li { margin-bottom: 0.4em; font-size: 13px; }
+    .term-def-close { margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-mid); cursor: pointer; border: none; background: none; padding: 0; transition: color 0.18s; }
+    .term-def-close:hover { color: var(--red); }
+
+    /* MORALEJA */
+    .moraleja-wrap { width: 100%; max-width: 820px; padding: 48px 24px 56px; }
+    .moraleja { background: var(--blue); border-radius: 4px; padding: 36px 40px; position: relative; overflow: hidden; }
+    .moraleja::before { content: '❝'; position: absolute; top: -8px; right: 28px; font-size: 96px; color: rgba(255,255,255,0.05); font-family: 'Roboto Slab', serif; line-height: 1; pointer-events: none; }
+    .moraleja-label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #FCA5A5; margin-bottom: 14px; }
+    .moraleja-text { font-family: 'Roboto Slab', serif; font-size: clamp(15px, 2.2vw, 19px); font-weight: 300; font-style: italic; line-height: 1.65; color: var(--white); max-width: 640px; margin-bottom: 14px; position: relative; z-index: 1; }
+    .moraleja-sub { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.62); line-height: 1.75; max-width: 580px; position: relative; z-index: 1; }
+
+    /* FOOTER */
+    .section-divider { width: 100%; max-width: 820px; padding: 0 24px; }
+    .section-divider hr { border: none; border-top: 1px solid var(--divider); }
+    footer { width:100%; max-width:820px; padding:22px 24px 36px; text-align:center; border-top:1px solid #ccc; }
+    .footer-logos { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+    .footer-uva-pill { background:#c60046; color:#fff; font-family:'Libre Franklin',sans-serif; font-size:13px; font-weight:700; width:36px; height:36px; border-radius:3px; display:flex; align-items:center; justify-content:center; }
+    .footer-vline { width:1px; height:22px; background:#ccc; }
+    .footer-inst { display:flex; flex-direction:column; align-items:flex-start; gap:1px; }
+    .footer-inst span { font-size:11px; color:#777; line-height:1.45; }
+    .footer-inst strong { font-weight:600; color:#003973; }
+    .footer-project { font-family:'Roboto Slab',serif; font-size:14px; font-weight:300; color:#003973; margin-bottom:6px; }
+    .footer-project em { font-style:italic; color:#c60046; }
+    .footer-credit { font-size:11px; color:#777; font-weight:300; line-height:1.6; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes defFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) { .term-grid { grid-template-columns: 1fr 1fr; } .filter-inner { gap: 6px; } }
+    @media (max-width: 500px) { .term-grid { grid-template-columns: 1fr; } .navbar-inner, .hero-inner { padding-left: 16px; padding-right: 16px; } .content-wrap, .moraleja-wrap { padding-left: 16px; padding-right: 16px; } }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"></div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="uva-pill">UVa</div>
+      <div class="nav-right">
+        <span class="nav-faculty">Facultad de Medicina</span>
+        <a href="#" class="nav-title">small <em>teAI</em>ching</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-wrap">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Recursos docentes · IA en educación médica</span>
+      <h1>Diccionario de <em>Inteligencia Artificial</em></h1>
+      <p class="hero-tagline">Términos esenciales para docentes que se inician en el uso de la IA. Pulsa cualquier término para ver su definición.</p>
+    </div>
+  </div>
+
+  <div class="filter-wrap">
+    <div class="filter-inner" id="filter-inner">
+      <span class="filter-label">Filtrar:</span>
+      <!-- Botones generados dinámicamente -->
+    </div>
+  </div>
+
+  <main class="content-wrap" id="main-content">
+    <div class="loading">Cargando diccionario…</div>
+  </main>
+
+  <div class="moraleja-wrap">
+    <div class="moraleja">
+      <div class="moraleja-label">Para recordar</div>
+      <p class="moraleja-text">Conocer el vocabulario de la IA no es un fin en sí mismo, sino una herramienta para comunicarte mejor con tus alumnos y colegas, y para tomar decisiones más informadas sobre cuándo y cómo usar estas tecnologías.</p>
+
+    </div>
+  </div>
+
+  <div class="section-divider"><hr /></div>
+  <footer>
+    <div class="footer-logos">
+      <div class="footer-uva-pill">UVa</div>
+      <div class="footer-vline"></div>
+      <div class="footer-inst">
+        <span><strong>EduMed</strong> · Facultad de Medicina</span>
+        <span>Universidad de Valladolid</span>
+      </div>
+    </div>
+    <p class="footer-project">Small <em>TeAI</em>ching &nbsp;·&nbsp; Slow AI</p>
+    <p class="footer-credit">Webapp desarrollada por <strong>TutorCyLlo</strong> con el soporte de Claude Sonnet 4.6 &nbsp;·&nbsp; Marzo 2026</p>
+    <p style="margin-top:14px;">
+      <a href="https://tutorcyllo.github.io/smallteaiching/" style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); text-decoration:none; border-bottom:1px solid var(--gray-lt); padding-bottom:1px; transition:color 0.18s, border-color 0.18s;"
+         onmouseover="this.style.color='#c60046';this.style.borderColor='#c60046'"
+         onmouseout="this.style.color='#003973';this.style.borderColor='#ccc'">
+        ← Volver a small teAIching
+      </a>
+    </p>
+  </footer>
+
+  <script>
+    // ── CONFIG: URL del JSON ──
+    const JSON_URL = 'https://raw.githubusercontent.com/Tutorcyllo/smallteaiching/main/data/diccionario.json';
+
+    // ── STATE ──
+    let openTerm = null;
+    let activeSection = null;
+
+    // ── HELPERS ──
+    const svgArrow = `<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>`;
+    const svgClose = `<svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+    function buildNombre(t) {
+      if (t.nombre_original) {
+        return `${t.nombre} <em>(${t.nombre_original})</em>`;
+      }
+      return t.nombre;
+    }
+
+    function buildDefinicion(t) {
+      let html = `<p>${t.definicion}</p>`;
+      if (t.lista && t.lista.length > 0) {
+        html += '<ul>';
+        t.lista.forEach(item => {
+          html += `<li><strong>${item.titulo}:</strong> ${item.texto}</li>`;
+        });
+        html += '</ul>';
+      }
+      return html;
+    }
+
+    // ── OPEN / CLOSE ──
+    function openDef(termId) {
+      if (openTerm && openTerm !== termId) closeDef(openTerm, false);
+      openTerm = termId;
+      document.getElementById('def-' + termId).classList.add('visible');
+      const btn = document.querySelector('[data-term="' + termId + '"]');
+      if (btn) btn.classList.add('open');
+      setTimeout(() => {
+        document.getElementById('def-' + termId).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+
+    function closeDef(termId, clearState = true) {
+      const panel = document.getElementById('def-' + termId);
+      if (panel) panel.classList.remove('visible');
+      const btn = document.querySelector('[data-term="' + termId + '"]');
+      if (btn) btn.classList.remove('open');
+      if (clearState) openTerm = null;
+    }
+
+    // ── SHOW SECTION ──
+    function showSection(sectionId) {
+      activeSection = sectionId;
+      document.querySelectorAll('.term-section').forEach(s => {
+        s.style.display = s.dataset.section === sectionId ? '' : 'none';
+      });
+      if (openTerm) closeDef(openTerm);
+    }
+
+    // ── RENDER ──
+    function render(data) {
+      const filterInner = document.getElementById('filter-inner');
+      const main = document.getElementById('main-content');
+
+      // Limpiar contenedor de filtros (mantener el label)
+      filterInner.innerHTML = '<span class="filter-label">Filtrar:</span>';
+
+      // Limpiar main
+      main.innerHTML = '';
+
+      data.secciones.forEach((seccion, idx) => {
+        // Botón filtro
+        const fb = document.createElement('button');
+        fb.className = 'filter-btn' + (idx === 0 ? ' active' : '');
+        fb.dataset.filter = seccion.id;
+        fb.textContent = seccion.titulo.replace(/ \(.*\)/, ''); // quita paréntesis del título para el botón
+        fb.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          fb.classList.add('active');
+          showSection(seccion.id);
+        });
+        filterInner.appendChild(fb);
+
+        // Sección
+        const sec = document.createElement('div');
+        sec.className = 'term-section';
+        sec.dataset.section = seccion.id;
+        sec.style.display = idx === 0 ? '' : 'none';
+
+        // Cabecera de sección
+        sec.innerHTML = `
+          <div class="section-heading">
+            <span class="section-label">${seccion.numero}</span>
+            <h2>${seccion.titulo}</h2>
+            <div class="section-line"></div>
+          </div>`;
+
+        // Grid
+        const grid = document.createElement('div');
+        grid.className = 'term-grid';
+
+        // Botones de términos
+        seccion.terminos.forEach(t => {
+          const btn = document.createElement('button');
+          btn.className = 'term-btn';
+          btn.dataset.term = t.id;
+          btn.innerHTML = `
+            <span class="term-name">${buildNombre(t)}</span>
+            <span class="term-arrow">${svgArrow}</span>`;
+          btn.addEventListener('click', () => {
+            if (openTerm === t.id) { closeDef(t.id); } else { openDef(t.id); }
+          });
+          grid.appendChild(btn);
+        });
+
+        // Paneles de definición (después de los botones, dentro del mismo grid)
+        seccion.terminos.forEach(t => {
+          const panel = document.createElement('div');
+          panel.className = 'term-def';
+          panel.id = 'def-' + t.id;
+          panel.innerHTML = `
+            <div class="term-def-title">${buildNombre(t)}</div>
+            <div class="term-def-body">${buildDefinicion(t)}</div>
+            <button class="term-def-close" onclick="closeDef('${t.id}')">${svgClose} Cerrar</button>`;
+          grid.appendChild(panel);
+        });
+
+        sec.appendChild(grid);
+        main.appendChild(sec);
+      });
+
+      activeSection = data.secciones[0].id;
+    }
+
+    // ── LOAD JSON ──
+    async function loadDiccionario() {
+      try {
+        // Intentar cargar desde GitHub (raw)
+        const rawUrl = JSON_URL.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+        const res = await fetch(rawUrl);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        render(data);
+      } catch (err) {
+        // Fallback: mostrar mensaje de error útil
+        document.getElementById('main-content').innerHTML = `
+          <div class="loading">
+            No se ha podido cargar el diccionario desde GitHub.<br>
+            <small style="color:#c60046; margin-top:8px; display:block;">
+              Asegúrate de que el archivo está en:<br>
+              <code>https://github.com/Tutorcyllo/smallteaiching/blob/main/data/diccionario.json</code><br>
+              y de que el repositorio es público.
+            </small>
+          </div>`;
+        console.error('Error cargando diccionario.json:', err);
+      }
+    }
+
+    loadDiccionario();
+  </script>
+
+</body>
+</html>
