@@ -241,16 +241,63 @@ footer { width:100%; max-width:820px; padding:22px 24px 36px; text-align:center;
         <p>Pero si antes de preguntar le dices que hoy es una ingeniera de estructuras con veinte años de experiencia, algo cambia. No se convierte en ingeniera de verdad, pero su mente se ilumina en las secciones técnicas. Ajusta el vocabulario, cambia el orden de los argumentos, pesa de otra manera la evidencia. Si le pides que sea una escritora de novela negra, irá a otros estantes, otros ritmos, otra lógica. Si le dices que tiene delante a un niño de diez años, dejará los tecnicismos y buscará la metáfora más cercana y cotidiana.</p>
         <p>El contexto no es un adorno. Es el mapa que le dice qué parte de la biblioteca pesa más en la respuesta, qué páginas son relevantes y cuáles puede ignorar. Y esa diferencia, entre un contexto pobre y un contexto bien construido, suele ser exactamente la diferencia entre una respuesta mediocre y una respuesta extraordinaria.</p>
         <p>Por eso, aprender a hablar con un LLM no es solo aprender a hacer buenas preguntas. Es aprender a construir el escenario antes de preguntar. A eso se le llama:</p>
-        <ul style="margin: 14px 0 18px; list-style:none; display:flex; flex-direction:column; gap:10px;">
-          <li style="display:flex; gap:12px; align-items:flex-start;">
-            <span class="pill" style="flex-shrink:0; margin-top:2px;">Ingeniería de prompt</span>
-            <span style="font-size:13px; font-weight:300; line-height:1.7; color:var(--blue);">El arte de redactar la instrucción con precisión: qué papel le asignas, con qué tono, qué límites le pones y qué formato de respuesta esperas.</span>
-          </li>
-          <li style="display:flex; gap:12px; align-items:flex-start;">
-            <span class="pill" style="flex-shrink:0; margin-top:2px;">Ingeniería de contexto</span>
-            <span style="font-size:13px; font-weight:300; line-height:1.7; color:var(--blue);">La información que le das antes de preguntar: quién eres, para quién es la respuesta, qué ya sabe o no sabe, qué materiales previos le proporcionas.</span>
-          </li>
-        </ul>
+
+        <!-- Ingeniería de prompt -->
+        <div style="margin: 18px 0 14px; border-left: 3px solid var(--blue); padding-left: 16px;">
+          <p style="margin-bottom:8px;"><span class="pill">Ingeniería de prompt</span></p>
+          <p style="font-size:13px; font-weight:300; line-height:1.75; color:var(--blue); margin-bottom:10px;">Se enfoca en <strong>cómo formulas la instrucción específica</strong> que le das al modelo en un momento dado. Es el arte de redactar bien la pregunta o tarea:</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Qué palabras usar y cómo estructurar la instrucción</li>
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Usar técnicas como <em>chain-of-thought</em>, <em>few-shot examples</em> o pedir un formato específico</li>
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Es puntual: aplica a un prompt concreto</li>
+          </ul>
+          <p style="font-size:12px; font-weight:300; font-style:italic; color:var(--gray-mid); line-height:1.65; background:var(--hover-bg); padding:10px 14px; border-radius:3px;"><strong style="font-style:normal; color:var(--blue);">Ejemplo:</strong> "Actúa como una experta en medicina interna. Razona paso a paso y responde en formato de lista."</p>
+        </div>
+
+        <!-- Ingeniería de contexto -->
+        <div style="margin: 14px 0 18px; border-left: 3px solid var(--red); padding-left: 16px;">
+          <p style="margin-bottom:8px;"><span class="pill">Ingeniería de contexto</span></p>
+          <p style="font-size:13px; font-weight:300; line-height:1.75; color:var(--blue); margin-bottom:10px;">Es más amplia: gestiona <strong>todo lo que entra en la ventana de contexto</strong> del modelo, no solo el prompt. Incluye:</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Qué documentos o datos adjuntar</li>
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Qué partes del historial de conversación mantener o descartar</li>
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Qué información del sistema incluir (<em>system prompt</em>)</li>
+            <li style="font-size:13px; font-weight:300; line-height:1.65; color:var(--blue); display:flex; gap:8px;"><span style="color:var(--red); flex-shrink:0;">·</span>Cómo ordenar y priorizar la información para que el modelo la procese mejor</li>
+          </ul>
+          <p style="font-size:12px; font-weight:300; font-style:italic; color:var(--gray-mid); line-height:1.65; background:var(--hover-bg); padding:10px 14px; border-radius:3px;"><strong style="font-style:normal; color:var(--blue);">Ejemplo:</strong> Decidir qué fragmentos de un artículo de 20 páginas incluir, en qué orden y junto a qué historial previo, para que el modelo responda bien una pregunta concreta sobre un caso clínico.</p>
+        </div>
+
+        <!-- Tabla comparativa -->
+        <div style="margin: 18px 0; overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:12px; font-weight:300;">
+            <thead>
+              <tr style="background:var(--blue);">
+                <th style="padding:10px 14px; text-align:left; color:rgba(255,255,255,0.6); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; font-size:10px;"> </th>
+                <th style="padding:10px 14px; text-align:left; color:var(--white); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; font-size:10px;">Ingeniería de prompt</th>
+                <th style="padding:10px 14px; text-align:left; color:var(--white); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; font-size:10px;">Ingeniería de contexto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--divider);">
+                <td style="padding:10px 14px; color:var(--gray-mid); font-weight:500;">Qué gestiona</td>
+                <td style="padding:10px 14px; color:var(--blue);">La instrucción</td>
+                <td style="padding:10px 14px; color:var(--blue);">Todo el input</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--divider); background:var(--gray-bg);">
+                <td style="padding:10px 14px; color:var(--gray-mid); font-weight:500;">Alcance</td>
+                <td style="padding:10px 14px; color:var(--blue);">Estrecho</td>
+                <td style="padding:10px 14px; color:var(--blue);">Amplio</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px; color:var(--gray-mid); font-weight:500;">Pregunta clave</td>
+                <td style="padding:10px 14px; color:var(--blue);">¿Cómo lo pido?</td>
+                <td style="padding:10px 14px; color:var(--blue);">¿Qué información incluyo y cómo la organizo?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="idea-tip" style="margin-bottom:1em;">La ingeniería de prompts es un subconjunto de la ingeniería de contexto. A medida que los modelos mejoran, la segunda se vuelve más importante que la primera.</div>
         <p>En el fondo, es el arte de sacarle el máximo partido a una bibliotecarIA que sabe todo lo que se ha escrito pero necesita que le digas quién quieres que sea hoy.</p>
       </div>
     </div>
@@ -355,6 +402,28 @@ footer { width:100%; max-width:820px; padding:22px 24px 36px; text-align:center;
 
   <!-- NEXT PAGE CTA -->
 
+
+  <!-- VIDEO NOTEBOOKLM -->
+  <div style="width:100%; max-width:820px; padding:0 24px 48px;">
+    <p class="section-label" style="margin-bottom:20px;">La historia en vídeo</p>
+    <div style="background:var(--gray-bg); border:1px solid var(--divider); border-radius:4px; padding:24px 28px; display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); margin-bottom:8px;">📹 Generado con NotebookLM</p>
+        <p style="font-family:'Roboto Slab',serif; font-size:18px; font-weight:400; color:var(--blue); line-height:1.25; margin-bottom:10px;">La historia de la <em>BibliotecarIA</em> de la biblioteca casi infinita</p>
+        <p style="font-size:13px; font-weight:300; color:var(--gray-mid); line-height:1.75;">Si la fábula te ha gustado, aquí la tienes narrada en vídeo. Una forma diferente de quedarse con las ideas.</p>
+      </div>
+      <div style="position:relative; width:100%; padding-bottom:56.25%; border-radius:3px; overflow:hidden; background:#000;">
+        <iframe
+          src="https://www.youtube.com/embed/TE3srpK404g"
+          title="La historia de la BibliotecarIA de la biblioteca casi infinita"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+  </div>
 
   <div class="section-divider"><hr /></div>
   <footer>
